@@ -19,6 +19,6 @@ public class GoldMultiplierUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((1+Player.instance.GetComponent<PlayerStats>().level*2), (30+Player.instance.GetComponent<PlayerStats>().level*5));
+        return Random.Range((1+Player.instance.level*2), (30+Player.instance.level*5));
     }
 }

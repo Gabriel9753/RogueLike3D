@@ -10,7 +10,7 @@ public class FireballAbility : Ability{
 
     public override void Activate(){
         if (Input.GetKeyDown(key) && camera && !Player.instance.isHit()){
-            playerAgent.ResetPath();
+            Player.instance._agent.ResetPath();
             Player.instance.PlayerToMouseRotation();
             
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);

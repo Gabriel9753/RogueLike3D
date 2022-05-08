@@ -15,11 +15,11 @@ MonoBehaviour:
   name: 
   symbol: {fileID: 0}
   activeTime: 0
-  cooldownTime: -0.291154
+  cooldownTime: -0.021137265
   key: 32
-  isReady: 0
+  isReady: 1
   isActive: 0
   isOnCooldown: 0
   moveMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512

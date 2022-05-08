@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.UI;
 using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 using TMPro;
 
 public class Skills_menu_in_game : MonoBehaviour{
@@ -42,6 +41,21 @@ public class Skills_menu_in_game : MonoBehaviour{
     public Image skillImage_skill_4;
     public TextMeshProUGUI key_text_skill_4;
     
+    //
+    //Stuff for skill dash
+    //
+    public String key_skill_dash;
+    public float cooldown_skill_dash;
+    public Image skillImage_skill_dash;
+    public TextMeshProUGUI key_text_skill_dash;
+    
+    //
+    //Stuff for skill heal
+    //
+    public String key_skill_heal;
+    public float cooldown_skill_heal;
+    public Image skillImage_skill_heal;
+    public TextMeshProUGUI key_text_skill_heal;
     #region Singleton
     public static Skills_menu_in_game Instance;
     //==============================================================
@@ -56,16 +70,6 @@ public class Skills_menu_in_game : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        key_text_skill_1 = GameObject.Find("SkillsInGame/Skill_1/Key_frame/Key_text").GetComponent<TextMeshProUGUI>();
-        key_text_skill_2 = GameObject.Find("SkillsInGame/Skill_2/Key_frame/Key_text").GetComponent<TextMeshProUGUI>();
-        key_text_skill_3 = GameObject.Find("SkillsInGame/Skill_3/Key_frame/Key_text").GetComponent<TextMeshProUGUI>();
-        key_text_skill_4 = GameObject.Find("SkillsInGame/Skill_4/Key_frame/Key_text").GetComponent<TextMeshProUGUI>();
-        skillImage_skill_1 = GameObject.Find("SkillsInGame/Skill_1/Skill_frame/Skill_image").GetComponent<Image>();
-        skillImage_skill_2 = GameObject.Find("SkillsInGame/Skill_2/Skill_frame/Skill_image").GetComponent<Image>();
-        skillImage_skill_3 = GameObject.Find("SkillsInGame/Skill_3/Skill_frame/Skill_image").GetComponent<Image>();
-        skillImage_skill_4 = GameObject.Find("SkillsInGame/Skill_4/Skill_frame/Skill_image").GetComponent<Image>();
-        */
     }
 
     // Update is called once per frame
@@ -91,6 +95,14 @@ public class Skills_menu_in_game : MonoBehaviour{
             case 4:
                 key_skill_4 = key;
                 key_text_skill_4.text = key;
+                break;
+            case 5:
+                key_skill_dash = key;
+                key_text_skill_dash.text = key;
+                break;
+            case 6:
+                key_skill_heal = key;
+                key_text_skill_heal.text = key;
                 break;
         }
     }

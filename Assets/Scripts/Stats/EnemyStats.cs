@@ -24,7 +24,7 @@ public class EnemyStats : MonoBehaviour{
     public void Start(){
         _animator = transform.GetComponent<Animator>();
         _agent = transform.GetComponent<NavMeshAgent>();
-        level = Player.instance.GetComponent<PlayerStats>().level;
+        level = Player.instance.level;
         calculateAndSetStats();
     }
 
@@ -60,6 +60,9 @@ public class EnemyStats : MonoBehaviour{
     public void Die(){
         //Give exp to player
         XP_UI.Instance.addXP(exp);
+        
+        Player.instance.GetComponent<PlayerStats>().IncreaseGold(gold);
+        
         GetComponent<CapsuleCollider>().enabled = false;
         _agent.speed = 0;
         GetComponent<EnemyMovement>().enabled = false;

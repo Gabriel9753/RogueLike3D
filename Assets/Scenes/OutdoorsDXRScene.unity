@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< Updated upstream
-  m_IndirectSpecularColor: {r: 0.1324811, g: 0.12384224, b: 0.15319729, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.13254654, g: 0.123960495, b: 0.15345907, a: 1}
->>>>>>> Stashed changes
+  m_IndirectSpecularColor: {r: 0.13270694, g: 0.12400985, b: 0.15326428, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,7 +171,7 @@ PrefabInstance:
     - target: {fileID: 6581915323335770106, guid: e0ef054f549e7c24eb59e81f6deca0fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6581915323335770106, guid: e0ef054f549e7c24eb59e81f6deca0fd,
         type: 3}
@@ -448,7 +444,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034147824
 GameObject:
@@ -517,11 +513,6 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1381036647}
-    - target: {fileID: 8811168023934207724, guid: 7e897f7ed47c65e48987f18f06b52813,
-        type: 3}
-      propertyPath: enemies.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8811168023934207725, guid: 7e897f7ed47c65e48987f18f06b52813,
         type: 3}
       propertyPath: m_Name
@@ -530,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 8811168023934207727, guid: 7e897f7ed47c65e48987f18f06b52813,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8811168023934207727, guid: 7e897f7ed47c65e48987f18f06b52813,
         type: 3}
@@ -594,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 602780512456405500, guid: c39647fb8d8d15a44b33b5cb624110be,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 602780512456405500, guid: c39647fb8d8d15a44b33b5cb624110be,
         type: 3}
@@ -678,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 2776142161205620151, guid: c3983b6d9acb8234ca33fcfa0631e5f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2776142161205620151, guid: c3983b6d9acb8234ca33fcfa0631e5f3,
         type: 3}
@@ -742,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 4382989551854819250, guid: c0396387462166f4da02a3b6814d8341,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4382989551854819250, guid: c0396387462166f4da02a3b6814d8341,
         type: 3}
@@ -813,14 +804,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8219281136730472561, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}
       propertyPath: m_Name
@@ -839,7 +822,7 @@ PrefabInstance:
     - target: {fileID: 8219281136730472573, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8219281136730472573, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}

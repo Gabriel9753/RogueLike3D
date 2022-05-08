@@ -13,13 +13,13 @@ public class PlayerMovement:MonoBehaviour{
     public static Animator animator;
     public int maxDistance = 70;
     public LayerMask moveMask;
-
+    public float baseSpeed;
     public float cooldownDash = 1f;
     public bool isDashReady = true;
     
     
 
-    public float walkSpeed = 8.0f;
+    
 
     private Vector3 startScale;
     public Vector3 dashScale;
@@ -30,25 +30,19 @@ public class PlayerMovement:MonoBehaviour{
     void Start(){
         animator = Player.instance.getAnimator();
         agent = GetComponent<NavMeshAgent>();
-        Player.instance.agentSpeed = walkSpeed;
         startScale = transform.localScale;
+        baseSpeed = Player.instance.movementSpeed;
     }
 
     // Called once every frame
     void Update(){
-<<<<<<< Updated upstream
-        agent.speed = Player.instance.agentSpeed;
-        Debug.Log(agent.speed);
-=======
         agent.speed = Player.instance.movementSpeed;
->>>>>>> Stashed changes
         if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit()){
             if (Input.GetMouseButton(0)){
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, maxDistance, moveMask)){
                     if (Vector3.Distance(hit.point, transform.position) < 0.3f){
                         animator.SetBool("isRunning", false);Player.instance.destination = transform.position;agent.ResetPath();return;}
-                    Player.instance.agentSpeed = walkSpeed;
                     animator.SetBool("isRunning", true);
                     agent.SetDestination(hit.point);
                     Player.instance.destination = agent.destination;
@@ -61,7 +55,6 @@ public class PlayerMovement:MonoBehaviour{
         }
         if (Vector3.Distance(Player.instance.destination, transform.position) == 0){
             agent.ResetPath();
-            Player.instance.agentSpeed = walkSpeed;
             animator.SetBool("isRunning", false);
         }
         if (Player.instance.standAttack() || Player.instance.isHit()){
@@ -69,19 +62,19 @@ public class PlayerMovement:MonoBehaviour{
         }
 
         if (Player.instance.moveAttack()){
-            Player.instance.agentSpeed = 8;
+            Player.instance.movementSpeed = baseSpeed;
         }
         
         //Dash direct after attacking for fast moving
         if (Player.instance.isAttacking() && isDashReady && !Player.instance.isHit()){
-            if (Input.GetKeyDown("space")){
-                InterruptAttackToDash();
+            if (Input.GetKeyDown(DashAbility.instance.key)){
+                DashAbility.InterruptAttackToDash();
             }
         }
 
         if (Player.instance.moveAttack() && isDashReady && !Player.instance.isHit()){
-            if (Input.GetKeyDown("space")){
-                InterruptAttackToDash();
+            if (Input.GetKeyDown(DashAbility.instance.key)){
+                DashAbility.InterruptAttackToDash();
             }
         }
 
@@ -100,50 +93,21 @@ public class PlayerMovement:MonoBehaviour{
     }
 
     public void setSpeed(float speed){
-        Player.instance.agentSpeed = speed;
+        Player.instance.movementSpeed = speed;
     }
 
     public void startDash(){
         dashVFX.SetActive(true);
-        StartCoroutine(ScaleToTargetCoroutine(dashScale, shrinkDuration));
     }
 
     public void endDash(){
-        StartCoroutine(ScaleToTargetCoroutine(startScale, shrinkDuration));
+        DashAbility.SetMovementSpeedToBaseSpeed();
         dashVFX.SetActive(false);
     }
 
-    private IEnumerator ScaleToTargetCoroutine(Vector3 targetScale, float duration){
-        Vector3 startScale = transform.localScale;
-        float timer = 0.0f;
-        while(timer < duration){
-            timer += Time.deltaTime;
-            float t = timer / duration;
-            //smoother step algorithm
-            t = t * t * t * (t * (6f * t - 15f) + 10f);
-            transform.localScale = Vector3.Lerp(startScale, targetScale, t);
-            yield return null;
-        }
-        yield return null;
-    }
 
-    public void InterruptAttackToDash(){
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f){
-            animator.SetBool("attackToDash", true);
-            animator.Play("Dash");
-            animator.SetBool("isRunning", false);
-            animator.SetBool("isRunToNormal", false);
-            animator.SetBool("isNormalAttack", false);
-            Player.instance.GetComponent<PlayerCombo>().ResetCombo();
-            Player.instance.PlayerToMouseRotation();
-            float alpha = (float)((transform.rotation.eulerAngles.y % 360) * Math.PI)/180;
-            Vector3 forward = new Vector3((float)Math.Sin(alpha), 0, (float)Math.Cos(alpha));
-            Vector3 newDestination = transform.position + forward * (DashAbility.dashDistance);
-            agent.SetDestination(newDestination);
-            Player.instance.destination = agent.destination;
-            Player.instance.agentSpeed = DashAbility.dashSpeed;
-        }
-    }
+
+
     
 
 }

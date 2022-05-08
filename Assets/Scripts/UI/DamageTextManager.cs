@@ -24,14 +24,13 @@ public class DamageTextManager : MonoBehaviour{
         textMesh.text = num.ToString();
         dmgTextToSpawn = Instantiate(dmgTextToSpawn, position, Quaternion.Euler(30, 45, 0));
         StartCoroutine(PositionChange(dmgTextToSpawn, dmgTextToSpawn.transform.localPosition, 1f));
-        
     }
     
     private IEnumerator PositionChange(GameObject text, Vector3 targetPosition, float duration){
         float rndX = UnityEngine.Random.Range(-1f,1f);
         float rndY = UnityEngine.Random.Range(0f,1f);
         float rndZ = UnityEngine.Random.Range(0f,1f);
-        Vector3 startPosition = text.transform.localPosition;
+        Vector3 startPosition = text.transform.localPosition + (Player.instance.camera.transform.position - text.transform.localPosition).normalized;
         float startSize = text.GetComponent<TextMeshPro>().fontSize;
         targetPosition = targetPosition + new Vector3(rndX, rndY/200, rndZ/10);
         float timer = 0.0f;
