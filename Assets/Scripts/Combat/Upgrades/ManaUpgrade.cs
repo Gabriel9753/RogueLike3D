@@ -6,7 +6,7 @@ public class ManaUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Mana {var1} ";
+        text = $"Mana expansion\n \n Increase your maximum mana by {var1}.";
     }
 
     public override string GetText(){

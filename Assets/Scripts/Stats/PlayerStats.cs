@@ -282,7 +282,6 @@ public class PlayerStats : MonoBehaviour{
         damage -= resistance;
         health -= damage;
         HealthSystemGUI.instance.TakeDamage(damage);
-        Debug.Log(transform.name + " takes " + damage + " damage.");
 
         // If we hit 0. Die.
         if (health <= 0){

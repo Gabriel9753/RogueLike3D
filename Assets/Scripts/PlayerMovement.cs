@@ -19,7 +19,7 @@ public class PlayerMovement:MonoBehaviour{
     
     
 
-    
+    public float walkSpeed = 8.0f;
 
     private Vector3 startScale;
     public Vector3 dashScale;
@@ -30,19 +30,25 @@ public class PlayerMovement:MonoBehaviour{
     void Start(){
         animator = Player.instance.getAnimator();
         agent = GetComponent<NavMeshAgent>();
+        Player.instance.agentSpeed = walkSpeed;
         startScale = transform.localScale;
     }
 
     // Called once every frame
     void Update(){
-        agent.speed = Player.instance.movementSpeed;
+<<<<<<< Updated upstream
+        agent.speed = Player.instance.agentSpeed;
         Debug.Log(agent.speed);
+=======
+        agent.speed = Player.instance.movementSpeed;
+>>>>>>> Stashed changes
         if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit()){
             if (Input.GetMouseButton(0)){
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, maxDistance, moveMask)){
                     if (Vector3.Distance(hit.point, transform.position) < 0.3f){
                         animator.SetBool("isRunning", false);Player.instance.destination = transform.position;agent.ResetPath();return;}
+                    Player.instance.agentSpeed = walkSpeed;
                     animator.SetBool("isRunning", true);
                     agent.SetDestination(hit.point);
                     Player.instance.destination = agent.destination;
@@ -55,6 +61,7 @@ public class PlayerMovement:MonoBehaviour{
         }
         if (Vector3.Distance(Player.instance.destination, transform.position) == 0){
             agent.ResetPath();
+            Player.instance.agentSpeed = walkSpeed;
             animator.SetBool("isRunning", false);
         }
         if (Player.instance.standAttack() || Player.instance.isHit()){
@@ -62,7 +69,7 @@ public class PlayerMovement:MonoBehaviour{
         }
 
         if (Player.instance.moveAttack()){
-            //Player.instance.movementSpeed = 8;
+            Player.instance.agentSpeed = 8;
         }
         
         //Dash direct after attacking for fast moving
@@ -93,7 +100,7 @@ public class PlayerMovement:MonoBehaviour{
     }
 
     public void setSpeed(float speed){
-        Player.instance.movementSpeed = speed;
+        Player.instance.agentSpeed = speed;
     }
 
     public void startDash(){
@@ -134,7 +141,7 @@ public class PlayerMovement:MonoBehaviour{
             Vector3 newDestination = transform.position + forward * (DashAbility.dashDistance);
             agent.SetDestination(newDestination);
             Player.instance.destination = agent.destination;
-            Player.instance.movementSpeed = DashAbility.dashSpeed;
+            Player.instance.agentSpeed = DashAbility.dashSpeed;
         }
     }
     

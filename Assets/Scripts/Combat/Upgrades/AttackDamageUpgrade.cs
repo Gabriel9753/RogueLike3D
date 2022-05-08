@@ -6,7 +6,7 @@ public class AttackDamageUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Base Damage {var1} ";
+        text = $"Strength like hulk\n \nIncrease your DMG by: {var1} and become stronger!";
     }
 
     public override string GetText(){

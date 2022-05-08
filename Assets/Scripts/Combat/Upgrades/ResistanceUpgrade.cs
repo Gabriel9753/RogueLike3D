@@ -6,7 +6,7 @@ public class ResistanceUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Resistance {var1} ";
+        text = $"Tanki thingn\n \nDefense +{var1}.";
     }
 
     public override string GetText(){

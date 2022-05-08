@@ -6,7 +6,7 @@ public class EXPMultiplierUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"EXP-Multiplier {var1} ";
+        text = $"Gimme more!\n \nGet +{var1}% experience points!";
     }
 
     public override string GetText(){

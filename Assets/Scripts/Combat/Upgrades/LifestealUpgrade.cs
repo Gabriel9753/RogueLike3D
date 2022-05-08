@@ -6,7 +6,7 @@ public class LifestealUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Lifesteal {var1} ";
+        text = $"Vampire\n Steel {var1}% more health from your enemies!";
     }
 
     public override string GetText(){

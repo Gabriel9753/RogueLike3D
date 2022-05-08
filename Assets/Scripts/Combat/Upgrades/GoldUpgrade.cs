@@ -10,7 +10,7 @@ public class GoldUpgrade : Upgrade{
     
     public override void SetText(float var1){
         value = var1;
-        text = $"you get {var1} gold";
+        text = $"Cash payment\n \nGet {var1}g directly!";
     }
 
     public override string GetText(){
