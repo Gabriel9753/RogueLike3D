@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
+    [SerializeField] private List<Ability> all_abilities;
     // Start is called before the first frame update
     void Start()
     {

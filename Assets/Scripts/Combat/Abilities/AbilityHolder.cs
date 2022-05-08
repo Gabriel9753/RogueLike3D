@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour{
-    [SerializeField] private List<Ability> abilities;
+    [SerializeField] private List<Ability> held_abilities;
     private float cooldownTime;
     private float activeTime;
 
     // Update is called once per frame
     void Update(){
-        foreach (var ability in abilities){
+        foreach (var ability in held_abilities){
             if (ability.isReady){
                 //Ready state
                 if (Input.GetKeyDown(ability.key)){
-                    StartCoroutine(ability.Ready());
+                        StartCoroutine(ability.Ready());
                 }
             }
             else if (ability.isActive){

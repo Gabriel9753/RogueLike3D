@@ -33,7 +33,6 @@ public class PlayerStats : MonoBehaviour{
 
     public void Start(){
         XP_UI.Instance.updateUI();
-        print(Player.instance.expMultiplier);
         level = Player.instance.level;
         maxHealth = Player.instance.maxHealth; // Maximum amount of health
         maxMana = Player.instance.maxMana;
