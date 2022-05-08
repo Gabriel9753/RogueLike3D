@@ -1,0 +1,909 @@
+fileFormatVersion: 2
+guid: 02d99fb67a7aafd4a84b970f95ea3f36
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -8057406858167188082
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Dash
+  - first:
+      74: -484720790975678480
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Locator_sword
+  - first:
+      74: 2429065348154777485
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Normal1
+  - first:
+      74: 2343242870593761639
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r
+  - first:
+      74: -364190251337576699
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r.001
+  - first:
+      74: -2160025885028896880
+    second: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_riggi
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Dash
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Dash
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Locator_sword
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Locator_sword
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Normal1
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|Normal1
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 251
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r.001
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_r.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_riggi
+      takeName: warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_rigging_SHJntGrp|warrior_riggi
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 253
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: warrior_rigging_ROOTSHJnt
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Leg_HipSHJnt
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Leg_HipSHJnt
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Leg_KneeSHJnt
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Leg_KneeSHJnt
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Leg_AnkleSHJnt
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Leg_AnkleSHJnt
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Spine_01SHJnt
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Spine_02SHJnt
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Neck_01SHJnt
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Neck_TopSHJnt
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Arm_ClavicleSHJnt
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Arm_ClavicleSHJnt
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Arm_ShoulderSHJnt
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Arm_ShoulderSHJnt
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Arm_ElbowSHJnt
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Arm_ElbowSHJnt
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Arm_WristSHJnt
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Arm_WristSHJnt
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Leg_BallSHJnt
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Leg_BallSHJnt
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Eye_01SHJnt
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Eye_01SHJnt
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Head_JawSHJnt
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Thumb_01_01SHJnt
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Thumb_01_02SHJnt
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_01_01SHJnt
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_01_02SHJnt
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_02_01SHJnt
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_02_02SHJnt
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_03_01SHJnt
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_03_02SHJnt
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_04_01SHJnt
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_l_Finger_04_02SHJnt
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Thumb_01_01SHJnt
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Thumb_01_02SHJnt
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_01_01SHJnt
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_01_02SHJnt
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_02_01SHJnt
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_02_02SHJnt
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_03_01SHJnt
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_03_02SHJnt
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_04_01SHJnt
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_r_Finger_04_02SHJnt
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: warrior_rigging_Spine_TopSHJnt
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: newDash(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -0.00000013315805, z: 9.735886e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: warrior_rigging_ROOTSHJnt
+      parentName: newDash(Clone)
+      position: {x: 0, y: 0.8963285, z: 0.07521194}
+      rotation: {x: 1.7865896e-16, y: -0.7071067, z: 1.7865893e-16, w: 0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+    - name: warrior_rigging_Spine_01SHJnt
+      parentName: warrior_rigging_ROOTSHJnt
+      position: {x: -0.01113048, y: 0.16709556, z: 0.0000000023841848}
+      rotation: {x: -0.0033211056, y: -0.0077507515, z: 0.023433078, w: 0.9996899}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.99999976}
+    - name: warrior_rigging_Spine_02SHJnt
+      parentName: warrior_rigging_Spine_01SHJnt
+      position: {x: -0.011130409, y: 0.13641465, z: -0.000000009313226}
+      rotation: {x: 0.007512459, y: 0.017532475, z: -0.053006478, w: 0.998412}
+      scale: {x: 0.99999964, y: 0.99999994, z: 0.9999999}
+    - name: warrior_rigging_Spine_TopSHJnt
+      parentName: warrior_rigging_Spine_02SHJnt
+      position: {x: -0.011130466, y: 0.0844933, z: 0.000000014044344}
+      rotation: {x: -5.820766e-11, y: 4.802132e-10, z: -8.9858077e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: warrior_rigging_l_Arm_ClavicleSHJnt
+      parentName: warrior_rigging_Spine_TopSHJnt
+      position: {x: -0.03865356, y: 0.020602958, z: 0.090965316}
+      rotation: {x: 0.44014147, y: -0.57776177, z: -0.41365367, w: 0.5489603}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: warrior_rigging_l_Arm_ShoulderSHJnt
+      parentName: warrior_rigging_l_Arm_ClavicleSHJnt
+      position: {x: 0.053226225, y: 0.081176504, z: -0.010094342}
+      rotation: {x: -0.02862209, y: -0.059754968, z: -0.14832434, w: 0.98671687}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.99999976}
+    - name: warrior_rigging_l_Arm_ElbowSHJnt
+      parentName: warrior_rigging_l_Arm_ShoulderSHJnt
+      position: {x: -0.00000000834465, y: 0.16591845, z: 0.000000011920928}
+      rotation: {x: -0.029200794, y: 0.002970888, z: 0.013626036, w: 0.9994763}
+      scale: {x: 0.99999976, y: 0.9999999, z: 0.99999994}
+    - name: warrior_rigging_l_Arm_WristSHJnt
+      parentName: warrior_rigging_l_Arm_ElbowSHJnt
+      position: {x: -0.0000000035762786, y: 0.22002837, z: 0}
+      rotation: {x: 0.19645597, y: 0.024153529, z: -0.12247982, w: 0.972533}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: warrior_rigging_l_Finger_01_01SHJnt
+      parentName: warrior_rigging_l_Arm_WristSHJnt
+      position: {x: -0.0095196925, y: 0.07988811, z: -0.048170734}
+      rotation: {x: -0.11925642, y: -0.17392851, z: -0.020216774, w: 0.9773015}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000002}
+    - name: warrior_rigging_l_Finger_01_02SHJnt
+      parentName: warrior_rigging_l_Finger_01_01SHJnt
+      position: {x: -0.00079034327, y: 0.043095358, z: 0.0034985638}
+      rotation: {x: 0.00000022957808, y: 0.0000025225588, z: -0.06413495, w: 0.99794126}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.9999997}
+    - name: warrior_rigging_l_Finger_02_01SHJnt
+      parentName: warrior_rigging_l_Arm_WristSHJnt
+      position: {x: -0.011372908, y: 0.09416472, z: -0.019639436}
+      rotation: {x: -0.0761178, y: -0.03701427, z: -0.008929178, w: 0.99637157}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: warrior_rigging_l_Finger_02_02SHJnt
+      parentName: warrior_rigging_l_Finger_02_01SHJnt
+      position: {x: 0.0000000047683715, y: 0.034376364, z: -0.000000007152557}
+      rotation: {x: -0.007295897, y: 0.00003958903, z: 0.0000039834326, w: 0.9999734}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999994}
+    - name: warrior_rigging_l_Finger_03_01SHJnt
+      parentName: warrior_rigging_l_Arm_WristSHJnt
+      position: {x: -0.014521055, y: 0.09500958, z: 0.0073616337}
+      rotation: {x: -0.06556961, y: 0.067959554, z: -0.0077180155, w: 0.9955011}
+      scale: {x: 1.0000004, y: 0.99999994, z: 1.0000001}
+    - name: warrior_rigging_l_Finger_03_02SHJnt
+      parentName: warrior_rigging_l_Finger_03_01SHJnt
+      position: {x: -0.000000059232114, y: 0.02906035, z: 0.00020541548}
+      rotation: {x: -0.023718534, y: -0.0000067933497, z: 0.00000031537053, w: 0.9997187}
+      scale: {x: 1, y: 0.9999999, z: 0.99999976}
+    - name: warrior_rigging_l_Finger_04_01SHJnt
+      parentName: warrior_rigging_l_Arm_WristSHJnt
+      position: {x: -0.003136455, y: 0.09286053, z: 0.030724034}
+      rotation: {x: -0.043653622, y: 0.008427043, z: 0.011738833, w: 0.99894226}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: warrior_rigging_l_Finger_04_02SHJnt
+      parentName: warrior_rigging_l_Finger_04_01SHJnt
+      position: {x: 0.0000000077486035, y: 0.022613144, z: 0.000000019073486}
+      rotation: {x: -0.00000036787245, y: -0.000007746743, z: 0.0000016409904, w: 1}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999997}
+    - name: warrior_rigging_l_Thumb_01_01SHJnt
+      parentName: warrior_rigging_l_Arm_WristSHJnt
+      position: {x: 0.04804765, y: 0.050143175, z: -0.063315764}
+      rotation: {x: -0.2877406, y: -0.54970294, z: 0.33128425, w: 0.7108324}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000001}
+    - name: warrior_rigging_l_Thumb_01_02SHJnt
+      parentName: warrior_rigging_l_Thumb_01_01SHJnt
+      position: {x: 0.0000000035762786, y: 0.018710889, z: -0.0016341376}
+      rotation: {x: -0.0000011129307, y: -0.000007385389, z: -0.00000017602001, w: 1}
+      scale: {x: 0.99999994, y: 0.9999997, z: 0.9999999}
+    - name: warrior_rigging_r_Arm_ClavicleSHJnt
+      parentName: warrior_rigging_Spine_TopSHJnt
+      position: {x: -0.038653545, y: 0.020602962, z: -0.09096537}
+      rotation: {x: -0.42076176, y: -0.54857516, z: 0.44421405, w: 0.5698234}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: warrior_rigging_r_Arm_ShoulderSHJnt
+      parentName: warrior_rigging_r_Arm_ClavicleSHJnt
+      position: {x: -0.05322622, y: 0.08117656, z: -0.010094378}
+      rotation: {x: -0.029240102, y: 0.029919326, z: 0.14865746, w: 0.98800355}
+      scale: {x: 1, y: 0.99999976, z: 0.9999997}
+    - name: warrior_rigging_r_Arm_ElbowSHJnt
+      parentName: warrior_rigging_r_Arm_ShoulderSHJnt
+      position: {x: -0.00000005863607, y: 0.16591862, z: -0.00000006943941}
+      rotation: {x: -0.026952308, y: -0.0070751663, z: -0.009179712, w: 0.9995696}
+      scale: {x: 0.9999997, y: 0.99999994, z: 0.9999999}
+    - name: warrior_rigging_r_Arm_WristSHJnt
+      parentName: warrior_rigging_r_Arm_ElbowSHJnt
+      position: {x: 0.000000034570693, y: 0.22002828, z: -0.000000030994414}
+      rotation: {x: 0.17169903, y: 0.007872926, z: 0.14467537, w: 0.9744366}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: warrior_rigging_r_Finger_01_01SHJnt
+      parentName: warrior_rigging_r_Arm_WristSHJnt
+      position: {x: 0.009519596, y: 0.07988796, z: -0.04817074}
+      rotation: {x: -0.1192571, y: 0.17393078, z: 0.020216478, w: 0.977301}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: warrior_rigging_r_Finger_01_02SHJnt
+      parentName: warrior_rigging_r_Finger_01_01SHJnt
+      position: {x: 0.0007903188, y: 0.043095406, z: 0.0034986876}
+      rotation: {x: -0.0000005114176, y: 0.0000032588873, z: 0.064135455, w: 0.9979412}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: warrior_rigging_r_Finger_02_01SHJnt
+      parentName: warrior_rigging_r_Arm_WristSHJnt
+      position: {x: 0.011372849, y: 0.09416481, z: -0.019639453}
+      rotation: {x: -0.07611781, y: 0.037016485, z: 0.008931153, w: 0.9963715}
+      scale: {x: 1, y: 1, z: 1}
+    - name: warrior_rigging_r_Finger_02_02SHJnt
+      parentName: warrior_rigging_r_Finger_02_01SHJnt
+      position: {x: 0.0000000023841857, y: 0.034376085, z: 0.000000009536743}
+      rotation: {x: -0.0072964416, y: -0.000014841952, z: -0.0000015707172, w: 0.9999734}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: warrior_rigging_r_Finger_03_01SHJnt
+      parentName: warrior_rigging_r_Arm_WristSHJnt
+      position: {x: 0.014521005, y: 0.09500958, z: 0.0073616263}
+      rotation: {x: -0.06556862, y: -0.06795906, z: 0.007717576, w: 0.9955013}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000001}
+    - name: warrior_rigging_r_Finger_03_02SHJnt
+      parentName: warrior_rigging_r_Finger_03_01SHJnt
+      position: {x: 0.000000012516975, y: 0.029060204, z: 0.00020544945}
+      rotation: {x: -0.023718566, y: 0.0000063523016, z: -0.00000031609835, w: 0.9997187}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.9999999}
+    - name: warrior_rigging_r_Finger_04_01SHJnt
+      parentName: warrior_rigging_r_Arm_WristSHJnt
+      position: {x: 0.0031364702, y: 0.09286049, z: 0.030724049}
+      rotation: {x: -0.04365132, y: -0.008428327, z: -0.011736273, w: 0.9989423}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000001}
+    - name: warrior_rigging_r_Finger_04_02SHJnt
+      parentName: warrior_rigging_r_Finger_04_01SHJnt
+      position: {x: -0.000000038146972, y: 0.0226131, z: 0.0000000023841857}
+      rotation: {x: -0.00000034738332, y: 0.000010189135, z: -0.0000024558976, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+    - name: warrior_rigging_r_Thumb_01_01SHJnt
+      parentName: warrior_rigging_r_Arm_WristSHJnt
+      position: {x: -0.048047848, y: 0.050143346, z: -0.06331567}
+      rotation: {x: -0.29059282, y: 0.550719, z: -0.32763496, w: 0.7105771}
+      scale: {x: 1.0000004, y: 1, z: 0.9999998}
+    - name: warrior_rigging_r_Thumb_01_02SHJnt
+      parentName: warrior_rigging_r_Thumb_01_01SHJnt
+      position: {x: 0.00000004172325, y: 0.01871088, z: -0.0016340971}
+      rotation: {x: -0.0000000149011585, y: 0.0000007245689, z: 0.0000007413327, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: warrior_rigging_Neck_01SHJnt
+      parentName: warrior_rigging_Spine_TopSHJnt
+      position: {x: -0.010100552, y: 0.09403658, z: 0.0000000035762786}
+      rotation: {x: -0.000000002361297, y: 5.6846045e-10, z: -0.0573474, w: 0.9983543}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.9999999}
+    - name: warrior_rigging_Neck_TopSHJnt
+      parentName: warrior_rigging_Neck_01SHJnt
+      position: {x: 0.000000031042145, y: 0.043979548, z: 0.000000004917383}
+      rotation: {x: -0.000000029011968, y: -6.239099e-10, z: -0.6655472, w: 0.74635583}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: warrior_rigging_Head_JawSHJnt
+      parentName: warrior_rigging_Neck_TopSHJnt
+      position: {x: 0.0031504233, y: 0.07020903, z: 4.4703483e-10}
+      rotation: {x: -0.000000030560575, y: 0.0000000026753337, z: -0.7071066, w: 0.70710695}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: warrior_rigging_Head_TopSHJnt
+      parentName: warrior_rigging_Neck_TopSHJnt
+      position: {x: -0.2508741, y: -0.00000006384216, z: 0.000000019446015}
+      rotation: {x: 0.7071065, y: 0.70710707, z: 0.000000075182626, w: -0.000000113131286}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: warrior_rigging_l_Eye_01SHJnt
+      parentName: warrior_rigging_Head_TopSHJnt
+      position: {x: 0.052125867, y: 0.18969707, z: -0.036355473}
+      rotation: {x: -0.00000004737405, y: -0.000000018830264, z: 0.70710695, w: 0.7071066}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: warrior_rigging_r_Eye_01SHJnt
+      parentName: warrior_rigging_Head_TopSHJnt
+      position: {x: 0.0521257, y: 0.18969703, z: 0.036355413}
+      rotation: {x: -0.00000004737405, y: -0.000000018830264, z: 0.70710695, w: 0.7071066}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: warrior_rigging_l_Leg_HipSHJnt
+      parentName: warrior_rigging_ROOTSHJnt
+      position: {x: -0.0000000024682771, y: -0.0033698273, z: 0.09585224}
+      rotation: {x: -0.6968903, y: 0.04071486, z: 0.71265954, w: -0.06930075}
+      scale: {x: 1.0000029, y: 1.000001, z: 1.0000073}
+    - name: warrior_rigging_l_Leg_KneeSHJnt
+      parentName: warrior_rigging_l_Leg_HipSHJnt
+      position: {x: 0.00000000923872, y: 0.3533862, z: -0.00000000834465}
+      rotation: {x: 0.06093097, y: 0.007906324, z: 0.0054157265, w: 0.998096}
+      scale: {x: 1.0000001, y: 0.99999964, z: 1}
+    - name: warrior_rigging_l_Leg_AnkleSHJnt
+      parentName: warrior_rigging_l_Leg_KneeSHJnt
+      position: {x: -0.000000006854534, y: 0.4573463, z: -0.000000006109476}
+      rotation: {x: -0.5533753, y: 0.61102176, z: -0.46065134, w: 0.32898122}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999997}
+    - name: warrior_rigging_l_Leg_BallSHJnt
+      parentName: warrior_rigging_l_Leg_AnkleSHJnt
+      position: {x: -0.071889065, y: 0.1311248, z: -0.00000027790549}
+      rotation: {x: 0.000000029402965, y: -0.7071065, z: 0.000000029402939, w: 0.7071071}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999994}
+    - name: warrior_rigging_r_Leg_HipSHJnt
+      parentName: warrior_rigging_ROOTSHJnt
+      position: {x: -0.000000026141965, y: -0.0033698273, z: -0.09585223}
+      rotation: {x: 0.7160435, y: 0.094686486, z: -0.691601, w: -0.00207737}
+      scale: {x: 1, y: 1.0000008, z: 0.99999994}
+    - name: warrior_rigging_r_Leg_KneeSHJnt
+      parentName: warrior_rigging_r_Leg_HipSHJnt
+      position: {x: -0.00000002026558, y: 0.35338604, z: -0.000000023841856}
+      rotation: {x: 0.1186731, y: -0.012556046, z: -0.014475358, w: 0.9927485}
+      scale: {x: 0.9999998, y: 1.0000007, z: 1.0000004}
+    - name: warrior_rigging_r_Leg_AnkleSHJnt
+      parentName: warrior_rigging_r_Leg_KneeSHJnt
+      position: {x: 0.000000025575282, y: 0.45734665, z: -5.9604643e-10}
+      rotation: {x: 0.55649143, y: 0.61498123, z: -0.45506984, w: -0.32407844}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: warrior_rigging_r_Leg_BallSHJnt
+      parentName: warrior_rigging_r_Leg_AnkleSHJnt
+      position: {x: 0.07188924, y: 0.13112551, z: -0.0000000075064595}
+      rotation: {x: -0.000000038200753, y: 0.7071066, z: 0.00000003820073, w: 0.70710695}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.9999998}
+    - name: warrior_rigging_Cloth_01_01SHJnt
+      parentName: warrior_rigging_ROOTSHJnt
+      position: {x: 0.11843941, y: 0.09400017, z: 0.023476433}
+      rotation: {x: 0.9974119, y: -0.00067515916, z: 0.07141263, w: -0.00832604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: warrior_rigging_Cloth_01_02SHJnt
+      parentName: warrior_rigging_Cloth_01_01SHJnt
+      position: {x: 0.018967018, y: 0.079889394, z: -0.000000005960464}
+      rotation: {x: -0.0000000013910721, y: 0.000000022356287, z: -3.237801e-10, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: warrior_rigging_Cloth_01_03SHJnt
+      parentName: warrior_rigging_Cloth_01_02SHJnt
+      position: {x: -0.000000039488075, y: 0.09446646, z: 0.0000000047683715}
+      rotation: {x: -1.5006663e-11, y: 4.5473625e-12, z: 2.6921043e-10, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: warrior_rigging_Sword_cover_01_01SHJnt
+      parentName: warrior_rigging_ROOTSHJnt
+      position: {x: -0.10275316, y: -0.00793785, z: -0.081766486}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 0.000000067238965, w: -0.00000012107496}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

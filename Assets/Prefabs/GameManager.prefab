@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8811168023934207725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8811168023934207727}
+  - component: {fileID: 8811168023934207724}
+  - component: {fileID: 8811168023934207726}
+  - component: {fileID: 1729004381}
+  - component: {fileID: 1729004384}
+  - component: {fileID: 1729004388}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8811168023934207727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.5901265, y: 6.5543118, z: 9.509918}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8811168023934207724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7c4aaa6d41ef142ad9374eeb1ba2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8469582750686853826, guid: f01e5ff940a6def4a953be67b8f07cf2, type: 3}
+  player: {fileID: 273799333581028461, guid: 255fd1bca2c67f04a8150fe1d2f89651, type: 3}
+  camera: {fileID: 0}
+--- !u!114 &8811168023934207726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b611de6e0b201346b8ba81ff1f739ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newRoom: {fileID: 0}
+  surfaces:
+  - {fileID: 3917916698164857308, guid: c3f7c9bf78a908b448552700c219d45f, type: 3}
+  - {fileID: 549000558889669765, guid: a6b1f609468b45444b5eec32fc640361, type: 3}
+  rooms:
+  - {fileID: 4095449074726806785, guid: 5aca905594107ca4e9f4e70110d58ec8, type: 3}
+  - {fileID: 327050644153811736, guid: 78f63573d7cde6f4b97d4530a025c7f5, type: 3}
+  entrance: {fileID: 0}
+  entryRoom: {fileID: 327050644153811736, guid: 78f63573d7cde6f4b97d4530a025c7f5,
+    type: 3}
+--- !u!114 &1729004381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458f62d6fb4a91044a37e4606eb778ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 0
+  moveMask:
+    serializedVersion: 2
+    m_Bits: 0
+  invisMaterial: {fileID: 0}
+  player: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  obstructions: []
+--- !u!114 &1729004384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75791b68eefb8b74ebec39a8191a1d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 2224551154096945881, guid: e34d2b8454ba07546a5cc3c2ce25d3df,
+    type: 3}
+  subFontSize: 0.002
+--- !u!114 &1729004388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d821aeec2dbc1284bb828aeaed8a0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all_upgrades:
+  - {fileID: 11400000, guid: 2fde110d8e2ea2a4ab7b8828bacd4cf6, type: 2}
+  - {fileID: 11400000, guid: 0a69337a6d81101469065cbd074a7155, type: 2}
+  - {fileID: 11400000, guid: 9202dfb2a728f1342b49c806f3abc955, type: 2}
+  - {fileID: 11400000, guid: 4f1512ee7fc101f4f913863f82e2f7a6, type: 2}
+  - {fileID: 11400000, guid: d4d8df560791cce4098efa1ed636be62, type: 2}
+  - {fileID: 11400000, guid: c471807c4f91b67419016cef6df31507, type: 2}
+  - {fileID: 11400000, guid: fc3f3b3e2fee54f4baa2103ecd9339ae, type: 2}
