@@ -90,7 +90,7 @@ public class XP_UI : MonoBehaviour
     }
     
     
-    public void SelectedUpgradeAfterLevelUp(int button){
+        public void SelectedUpgradeAfterLevelUp(int button){
         Upgrade upgrade = UpManager.selected_upgrades[button];
         
         string uptype = upgrade.GetType().Name;
@@ -114,8 +114,32 @@ public class XP_UI : MonoBehaviour
             case "ManaRegenUpgrade":
                 Player.instance.GetComponent<PlayerStats>().IncreaseManaRegen(upgrade.value);
                 break;
+            case "AttackDamageUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseAttackDamage(upgrade.value);
+                break;
+            case "CriticalChanceUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseCriticalChance(upgrade.value);
+                break;
+            case "CriticalDamageUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseCriticalDamage(upgrade.value);
+                break;
+            case "AttackSpeedUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseAttackSpeed(upgrade.value);
+                break;
+            case "MovementSpeedUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseMovementSpeed(upgrade.value);
+                break;
+            case "LifestealUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseLifesteal(upgrade.value);
+                break;
+            case "AwarenessRangeUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseAwarenessRange(upgrade.value);
+                break;
+            case "ResistanceUpgrade":
+                Player.instance.GetComponent<PlayerStats>().IncreaseResistance(upgrade.value);
+                break;
             case "EXPMultiplierUpgrade":
-                Player.instance.GetComponent<PlayerStats>().IncreaseEXP_Multiplier(upgrade.value);
+                Player.instance.GetComponent<PlayerStats>().IncreaseEXPMultiplier(upgrade.value);
                 break;
             
             

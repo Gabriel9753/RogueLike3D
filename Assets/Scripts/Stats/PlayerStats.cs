@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour{
-    public int level = 1;
-    public float maxHealth = 100; // Maximum amount of health
-    public float maxMana = 100;
-    public float health = 100; // Current amount of health
-    public float mana = 100;
-    public float healthRegen = 0.1f;
-    public float manaRegen = 0.1f;
-    public byte gold = 0;
+    public int level;
+    public float maxHealth; // Maximum amount of health
+    public float maxMana;
+    public float health; // Current amount of health
+    public float mana;
+    public float healthRegen;
+    public float manaRegen;
+    public float gold;
     public float goldMultiplier;
     public float exp;
     public float expMultiplier;
@@ -20,27 +20,50 @@ public class PlayerStats : MonoBehaviour{
     public float attackSpeed;
     public float resistance;
     public float lifesteal;
-    public float baseDamage = 1;
+    public float attackDamage;
+    public float criticalChance;
+    public float criticalDamage;
+    public float awarenessRange;
+
     public float sumDamage = 1;
-    public float baseCriticalChance = 1;
-    public float sumCriticalChance = 1;
-    public float baseCriticalDamage = 1;
     public float sumCriticalDamage = 1;
+    public float sumCriticalChance = 1;
 
 
     public void Start(){
         XP_UI.Instance.updateUI();
         XP_UI.Instance.level = level;
+        print(Player.instance.expMultiplier);
+        level = Player.instance.level;
+        maxHealth = Player.instance.maxHealth; // Maximum amount of health
+        maxMana = Player.instance.maxMana;
+        health = Player.instance.health; // Current amount of health
+        mana = Player.instance.mana;
+        healthRegen = Player.instance.healthRegen;
+        manaRegen = Player.instance.manaRegen;
+        gold = Player.instance.gold;
+        goldMultiplier = Player.instance.goldMultiplier;
+        exp =Player.instance.exp;
+        expMultiplier = Player.instance.expMultiplier;
+        movementSpeed = Player.instance.movementSpeed;
+        attackSpeed = Player.instance.attackSpeed;
+        resistance = Player.instance.resistance;
+        lifesteal =Player.instance.lifesteal;
+        attackDamage = Player.instance.attackDamage;
+        criticalChance = Player.instance.criticalChance;
+        criticalDamage = Player.instance.criticalDamage;
+        awarenessRange = Player.instance.awarenessRange;
     }
 
+    #region Upgrade Increasing / Decreasing Methods
     /** 
     *  GOLD
     */
-    public void IncreaseGold(byte goldAmount){
+    public void IncreaseGold(float goldAmount){
         gold += goldAmount;
     }
 
-    public void DecreaseGold(byte goldAmount){
+    public void DecreaseGold(float goldAmount){
         gold -= goldAmount;
     }
     /** 
@@ -56,7 +79,7 @@ public class PlayerStats : MonoBehaviour{
     /** 
     *  EXP Multiplier
     */
-    public void IncreaseEXP_Multiplier(float amount){
+    public void IncreaseEXPMultiplier(float amount){
         expMultiplier += amount;
     }
 
@@ -106,13 +129,104 @@ public class PlayerStats : MonoBehaviour{
     public void DecreaseMaxHealth(float amount){
         maxHealth -= amount;
     }
+    /** 
+    *  AttackSpeed
+    */
+    public void IncreaseAttackSpeed(float amount){
+        attackSpeed += amount;
+        //HealthSystemGUI.instance.SetAttackSpeed(attackSpeed);
+    }
+
+    public void AttackSpeed(float amount){
+        attackSpeed-= amount;
+    }
+    /** 
+    *  
+    */
+    public void IncreaseAwarenessRange(float amount){
+        awarenessRange+= amount;
+        
+        //HealthSystemGUI.instance.SetAwarenessRange();
+    }
+
+    public void DecreaseAwarenessRange(float amount){
+        awarenessRange -= amount;
+    }
+    /** 
+    *  ATTACK DAMAGE
+    */
+    public void IncreaseAttackDamage(float amount){
+        attackDamage+= amount;
+        //HealthSystemGUI.instance.SetAttackDamage();
+    }
+
+    public void DecreaseBaseAttack(float amount){
+        attackDamage-= amount;
+    }
+    /** 
+    *  CRIT CHANCE
+    */
+    public void IncreaseCriticalChance(float amount){
+        criticalChance+= amount;
+        //HealthSystemGUI.instance.SetCriticalChance(criticalChance);
+    }
+
+    public void DecreaseCriticalChance(float amount){
+        criticalChance-= amount;
+    }
+    /** 
+    *  CRIT DAMAGE
+    */
+    public void IncreaseCriticalDamage(float amount){
+        criticalDamage+= amount;
+        //HealthSystemGUI.instance.SetCriticalDamage(criticalDamage);
+    }
+
+    public void DecreaseCriticalDamage(float amount){
+        criticalDamage-= amount;
+    }
+    /** 
+    *  LIFESTEAL
+    */
+    public void IncreaseLifesteal(float amount){
+        lifesteal+= amount;
+        //HealthSystemGUI.instance.SetLifesteal(lifesteal);
+    }
+
+    public void DecreaseLifesteal(float amount){
+        lifesteal-= amount;
+    }
+    /** 
+    *  MOVEMENT SPEED
+    */
+    public void IncreaseMovementSpeed(float amount){
+        movementSpeed+= amount;
+        //HealthSystemGUI.instance.SetMovementSpeed(movementSpeed);
+    }
+
+    public void DecreaseMovementSpeed(float amount){
+        movementSpeed-= amount;
+    }
+    /** 
+    *  RESISTANCE
+    */
+    public void IncreaseResistance(float amount){
+        resistance+= amount;
+        //HealthSystemGUI.instance.SetResistance(resistance);
+    }
+
+    public void DecreaseResistance(float amount){
+        resistance-= amount;
+    }
     
+    #endregion
     
 
     public void TakeDamage(float damage){
         // Make sure damage doesn't go below 0.
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
-        // Subtract damage from health
+        // damage calculation with respect of resistance
+        damage -= resistance;
         health -= damage;
         HealthSystemGUI.instance.TakeDamage(damage);
         Debug.Log(transform.name + " takes " + damage + " damage.");
@@ -122,6 +236,21 @@ public class PlayerStats : MonoBehaviour{
             //Die();
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //------------------------------ Not considered yet -----------------------------------------
 
     public void Heal(int amount){
         amount = Mathf.Clamp(amount, 0, int.MaxValue);
@@ -133,14 +262,14 @@ public class PlayerStats : MonoBehaviour{
     }
 
     public void addPlayerDamage(float dmg){
-        sumDamage = baseDamage + dmg;
+        sumDamage = attackDamage + dmg;
     }
 
     public void addPlayerCriticalChance(float critChance){
-        sumCriticalChance = baseCriticalChance + critChance;
+        sumCriticalChance = criticalChance + critChance;
     }
 
     public void addPlayerCriticalDamage(float critDmg){
-        sumCriticalDamage = baseCriticalDamage + critDmg;
+        sumCriticalDamage = criticalDamage + critDmg;
     }
 }

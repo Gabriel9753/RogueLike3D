@@ -14,6 +14,29 @@ public class Player : MonoBehaviour{
     
     public float agentSpeed;
     
+    #region Player stats
+
+    public int level = 1;
+    public float maxHealth = 100; // Maximum amount of health
+    public float maxMana = 100;
+    public float health = 100; // Current amount of health
+    public float mana = 100;
+    public float healthRegen = 0.1f;
+    public float manaRegen = 0.1f;
+    public float gold = 0;
+    public float goldMultiplier = 1;
+    public float exp = 0;
+    public float expMultiplier = 1;
+    public float movementSpeed = 8;
+    public float attackSpeed = 1;
+    public float resistance = 0;
+    public float lifesteal = 0;
+    public float attackDamage = 1;
+    public float criticalChance = 1;
+    public float criticalDamage = 1;
+    public float awarenessRange = 1;
+
+    #endregion
     #region Singleton
 
     public static Player instance;

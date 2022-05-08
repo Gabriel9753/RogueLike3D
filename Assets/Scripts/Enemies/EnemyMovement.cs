@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public float lookRadius = 8f;
-    public float speed = 8f;
+    public float movementSpeed = 8f;
 
     Transform target;
     NavMeshAgent agent;
@@ -21,13 +21,13 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Update (){
-        agent.speed = speed; 
+        agent.speed = movementSpeed; 
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
         
         // If inside the radius
         if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("die") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
-            if (distance <= lookRadius){
+            if (distance <= lookRadius*Player.instance.awarenessRange){
                 // Move towards the player
                 _animator.SetBool("isRunning", true);
                 agent.SetDestination(target.position);
@@ -39,12 +39,13 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
             else{
-                agent.ResetPath();
+                //agent.ResetPath();
                 _animator.SetBool("isRunning", false);
             }
         }
 
     }
+
 
     // Point towards the player
     void FaceTarget (){
