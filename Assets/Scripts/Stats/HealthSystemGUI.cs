@@ -48,14 +48,12 @@ public class HealthSystemGUI : MonoBehaviour
 	//==============================================================
   	void Start(){
 	    regenerate = true;
-	    SetMaxHealth(Player.instance.GetComponent<PlayerStats>().maxHealth);
-		SetHealth(Player.instance.GetComponent<PlayerStats>().health);
-		SetMana(Player.instance.GetComponent<PlayerStats>().mana);
-		SetMaxMana(Player.instance.GetComponent<PlayerStats>().maxMana);
-		SetHealthRegen(Player.instance.GetComponent<PlayerStats>().healthRegen);
-		SetManaRegen(Player.instance.GetComponent<PlayerStats>().manaRegen);
-		
-		UpdateGraphics();
+	    maxHealth = Player.instance.maxHealth;
+	    health = Player.instance.health;
+	    maxMana = Player.instance.maxMana;
+	    mana = Player.instance.mana;
+
+	    UpdateGraphics();
 		timeleft = regenUpdateInterval; 
 	}
 
@@ -64,6 +62,10 @@ public class HealthSystemGUI : MonoBehaviour
 	//==============================================================
 	void Update ()
 	{
+		Player.instance.maxHealth = maxHealth;
+		Player.instance.health = health;
+		Player.instance.maxMana = maxMana;
+		Player.instance.mana = mana;	
 		if (regenerate)
 			Regen();
 	}
@@ -119,7 +121,7 @@ public class HealthSystemGUI : MonoBehaviour
 		if (health < 1)
 			health = 0;
 		UpdateGraphics();
-		StartCoroutine(PlayerHurts());
+		//StartCoroutine(PlayerHurts());
 	}
 
 	public void HealDamage(float Heal)
@@ -222,7 +224,7 @@ public class HealthSystemGUI : MonoBehaviour
 	{
 		// Player gets hurt. Do stuff.. play anim, sound..
 
-		PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
+//		PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
 
 		if (health < 1) // Health is Zero!!
 		{

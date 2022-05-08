@@ -16,7 +16,7 @@ public class DashAbility : Ability{
             Vector3 newDestination = Player.instance.transform.position + forward * (dashDistance);
             playerAgent.SetDestination(newDestination);
             Player.instance.destination = playerAgent.destination;
-            Player.instance.agentSpeed = dashSpeed;
+            Player.instance.movementSpeed = dashSpeed;
             Player.instance.animator.Play("Dash");
             Player.instance.animator.SetBool("isRunning", false);
         }

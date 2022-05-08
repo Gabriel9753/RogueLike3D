@@ -11,9 +11,6 @@ public class Player : MonoBehaviour{
     private new Camera camera;
     public GameObject weapon;
     public Vector3 destination;
-    
-    public float agentSpeed;
-    
     #region Player stats
 
     public int level = 1;
@@ -31,10 +28,10 @@ public class Player : MonoBehaviour{
     public float attackSpeed = 1;
     public float resistance = 0;
     public float lifesteal = 0;
-    public float attackDamage = 1;
-    public float criticalChance = 1;
-    public float criticalDamage = 1;
-    public float awarenessRange = 1;
+    public float attackDamage = 10;
+    public float criticalChance = 50;//%
+    public float criticalDamage = 50;//%
+    public float awarenessRange = 1; //Multiplier
 
     #endregion
     #region Singleton
