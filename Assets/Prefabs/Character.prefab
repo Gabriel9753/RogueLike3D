@@ -116,7 +116,25 @@ MonoBehaviour:
   _agent: {fileID: 0}
   weapon: {fileID: 8469535615664233301}
   destination: {x: 0, y: 0, z: 0}
-  agentSpeed: 0
+  level: 1
+  maxHealth: 100
+  maxMana: 100
+  health: 100
+  mana: 100
+  healthRegen: 0.1
+  manaRegen: 0.1
+  gold: 0
+  goldMultiplier: 1
+  exp: 0
+  expMultiplier: 1
+  movementSpeed: 8
+  attackSpeed: 1
+  resistance: 0
+  lifesteal: 0
+  attackDamage: 10
+  criticalChance: 50
+  criticalDamage: 50
+  awarenessRange: 1
 --- !u!114 &5069255263633227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +187,9 @@ MonoBehaviour:
   moveMask:
     serializedVersion: 2
     m_Bits: 512
+  baseSpeed: 0
   cooldownDash: 1.5
   isDashReady: 1
-  walkSpeed: 10
   dashScale: {x: 0.01, y: 0.01, z: 0.01}
   shrinkDuration: 0.1
   dashVFX: {fileID: 330701575871626247}
@@ -187,27 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d74c24cbe95234789321009526d0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  maxHealth: 100
-  maxMana: 100
-  health: 100
-  mana: 100
-  healthRegen: 0.1
-  manaRegen: 0.1
-  gold: 0
-  goldMultiplier: 0
-  exp: 0
-  expMultiplier: 0
-  movementSpeed: 0
-  attackSpeed: 0
-  resistance: 0
-  lifesteal: 0
-  baseDamage: 10
   sumDamage: 1
-  baseCriticalChance: 10
-  sumCriticalChance: 1
-  baseCriticalDamage: 20
   sumCriticalDamage: 1
+  sumCriticalChance: 1
 --- !u!195 &8073898999792615349
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -286,9 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64d033419ed5a54cbf4bc4d87707ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
-  - {fileID: 11400000, guid: 607ec3d266d5549479cb9faf0d575958, type: 2}
+  held_abilities:
   - {fileID: 11400000, guid: d371cb6d8042a8743ba320ee5cb1283f, type: 2}
+  - {fileID: 11400000, guid: 607ec3d266d5549479cb9faf0d575958, type: 2}
+  - {fileID: 11400000, guid: 80c91d7e460135b4bb0431ba1417608d, type: 2}
 --- !u!1 &330701575871626247
 GameObject:
   m_ObjectHideFlags: 0

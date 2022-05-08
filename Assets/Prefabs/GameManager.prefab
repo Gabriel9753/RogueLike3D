@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1729004381}
   - component: {fileID: 1729004384}
   - component: {fileID: 1729004388}
+  - component: {fileID: 3869808099558645856}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,8 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4aaa6d41ef142ad9374eeb1ba2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 8469582750686853826, guid: f01e5ff940a6def4a953be67b8f07cf2, type: 3}
+  enemies: []
   player: {fileID: 273799333581028461, guid: 255fd1bca2c67f04a8150fe1d2f89651, type: 3}
   camera: {fileID: 0}
 --- !u!114 &8811168023934207726
@@ -137,3 +137,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89bbda74e3aceac46becdd9caeb9658e, type: 2}
   - {fileID: 11400000, guid: 90fa9ce2bdeda61488a686ec4e2e0fac, type: 2}
   - {fileID: 11400000, guid: fc3f3b3e2fee54f4baa2103ecd9339ae, type: 2}
+--- !u!114 &3869808099558645856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811168023934207725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3a7c986f964da468398c62fc9c9c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all_abilities:
+  - {fileID: 11400000, guid: 607ec3d266d5549479cb9faf0d575958, type: 2}
+  - {fileID: 11400000, guid: d371cb6d8042a8743ba320ee5cb1283f, type: 2}
