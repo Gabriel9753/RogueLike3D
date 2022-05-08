@@ -6,7 +6,7 @@ public class CriticalDamageUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Critical Damage {var1} ";
+        text = $"Hard hits\n \nCritical damage +{var1}%";
     }
 
     public override string GetText(){

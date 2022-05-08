@@ -6,7 +6,7 @@ public class CriticalChanceUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Critical Chance {var1} ";
+        text = $"Lucky sword\n \nCritical chance +{var1}% ";
     }
 
     public override string GetText(){

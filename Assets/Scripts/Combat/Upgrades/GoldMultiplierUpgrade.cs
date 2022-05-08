@@ -6,7 +6,7 @@ public class GoldMultiplierUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Gold-Multiplier {var1} ";
+        text = $"Gold digger\n \nIncreasing your income by {var1}% ";
     }
 
     public override string GetText(){

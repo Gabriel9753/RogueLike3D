@@ -6,7 +6,7 @@ public class AwarenessRangeUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Awareness Range {var1} ";
+        text = $"Magnet\n \nIncrease the awareness range of your enemies by {var1}% so you can better lure!";
     }
 
     public override string GetText(){

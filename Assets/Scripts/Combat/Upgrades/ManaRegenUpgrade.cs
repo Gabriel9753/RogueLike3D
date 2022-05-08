@@ -5,7 +5,7 @@ using UnityEngine;
 public class ManaRegenUpgrade : Upgrade{
     public override void SetText(float var1){
         value = var1;
-        text = $"ManaRegen {var1} ";
+        text = $"Passive mana\n \nIncrease your regeneration of mana by {var1}%";
     }
 
     public override string GetText(){

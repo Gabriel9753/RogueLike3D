@@ -6,7 +6,7 @@ public class HealthUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Health {var1} ";
+        text = $"Life expansion\n \nIncrease your maximum health by {var1}.";
     }
 
     public override string GetText(){

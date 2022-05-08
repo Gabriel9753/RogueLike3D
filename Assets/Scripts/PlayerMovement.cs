@@ -36,8 +36,12 @@ public class PlayerMovement:MonoBehaviour{
 
     // Called once every frame
     void Update(){
+<<<<<<< Updated upstream
         agent.speed = Player.instance.agentSpeed;
         Debug.Log(agent.speed);
+=======
+        agent.speed = Player.instance.movementSpeed;
+>>>>>>> Stashed changes
         if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit()){
             if (Input.GetMouseButton(0)){
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);

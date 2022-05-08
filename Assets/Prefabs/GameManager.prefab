@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4aaa6d41ef142ad9374eeb1ba2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 8469582750686853826, guid: f01e5ff940a6def4a953be67b8f07cf2, type: 3}
+  enemies: []
   player: {fileID: 273799333581028461, guid: 255fd1bca2c67f04a8150fe1d2f89651, type: 3}
   camera: {fileID: 0}
 --- !u!114 &8811168023934207726

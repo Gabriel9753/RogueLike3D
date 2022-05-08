@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class EnemyStats : MonoBehaviour{
 
@@ -17,6 +18,7 @@ public class EnemyStats : MonoBehaviour{
     private Animator _animator;
     private NavMeshAgent _agent;
     
+    public float possibilityForKnockback = 85;
     public bool hittibaleWhileAttack = true;
 
     public void Start(){
@@ -43,10 +45,14 @@ public class EnemyStats : MonoBehaviour{
         }
         else{
             if (hittibaleWhileAttack){
-                _animator.Play("hit");
-                _animator.SetBool("isRunning", false);
-                _animator.SetBool("isAttacking", false);
-                _agent.ResetPath();
+                if (Random.Range(0, 100) < possibilityForKnockback){
+                    _animator.Play("hit");
+                    GetComponent<EnemyMovement>().endAttack();
+                    _animator.SetBool("isRunning", false);
+                    _animator.SetBool("isAttacking", false);
+                    _agent.ResetPath();
+                    GetComponent<EnemyMovement>().attackReady = true;
+                }
             }
         }
     }
@@ -55,6 +61,8 @@ public class EnemyStats : MonoBehaviour{
         //Give exp to player
         XP_UI.Instance.addXP(exp);
         GetComponent<CapsuleCollider>().enabled = false;
+        _agent.speed = 0;
+        GetComponent<EnemyMovement>().enabled = false;
         _animator.Play("die");
         
         //Tell spawnmanager that this enemy died
@@ -66,8 +74,8 @@ public class EnemyStats : MonoBehaviour{
         health = level * 7 + 50;
         maxHealth = health;
 
-        damage = (float)Math.Pow(level, 1.15) * 3 + 15;
-        gold = (float)Math.Pow(level, 1.15) * 2 + 3;
+        damage = (float)Math.Pow(level, 1.1) * 3 + 15;
+        gold = (float)Math.Pow(level, 1.1) * 2 + 3;
     }
 
     public float calculateDamage(){

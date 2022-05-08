@@ -6,7 +6,7 @@ public class MovementSpeedUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Movement Speed {var1} ";
+        text = $"Hermes\n \nIncrease your players movement speed by {var1}%";
     }
 
     public override string GetText(){

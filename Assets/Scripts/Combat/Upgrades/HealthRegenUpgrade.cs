@@ -6,7 +6,7 @@ public class HealthRegenUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"HealthRegen {var1} ";
+        text = $"Passive healer\n \nIncrease your regeneration of health by {var1}%";
     }
 
     public override string GetText(){
