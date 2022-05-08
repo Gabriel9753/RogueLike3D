@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 4153760085142191717}
   - component: {fileID: 7446002026807429254}
   - component: {fileID: 9087513087547249788}
+  - component: {fileID: 2390954636318747275}
   m_Layer: 0
   m_Name: Prisoner Variant
   m_TagString: Enemy
@@ -1071,7 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 19
-  speed: 10
+  movementSpeed: 8
   weapon: {fileID: 1507378365746992971}
 --- !u!195 &7446002026807429254
 NavMeshAgent:
@@ -1114,6 +1115,19 @@ MonoBehaviour:
   health: 50
   damage: 0
   hittibaleWhileAttack: 1
+--- !u!114 &2390954636318747275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861508881403759906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03172b5786823a4b8f3a4a4a3399963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: 0
 --- !u!1 &5982412818813123792
 GameObject:
   m_ObjectHideFlags: 0

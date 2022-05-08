@@ -18,7 +18,6 @@ public class EnemyStats : MonoBehaviour{
     private NavMeshAgent _agent;
     
     public bool hittibaleWhileAttack = true;
-    
 
     public void Start(){
         _animator = transform.GetComponent<Animator>();
@@ -57,7 +56,9 @@ public class EnemyStats : MonoBehaviour{
         XP_UI.Instance.addXP(exp);
         GetComponent<CapsuleCollider>().enabled = false;
         _animator.Play("die");
-        SpawnManager.instance.removeEnemyFromList(gameObject);
+        
+        //Tell spawnmanager that this enemy died
+        SpawnManager.instance.removeEnemyFromList(gameObject.GetComponent<Enemy>().enemyID);
     }
     
     private void calculateAndSetStats(){

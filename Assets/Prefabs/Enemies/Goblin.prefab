@@ -1819,6 +1819,7 @@ GameObject:
   - component: {fileID: 7300446256605130017}
   - component: {fileID: 7300446256605130018}
   - component: {fileID: 8758745603896043261}
+  - component: {fileID: 8459394160424876804}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -1834,7 +1835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7606875407666948386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.114164, y: 9.275328, z: -34.77671}
+  m_LocalPosition: {x: -14.89, y: 9.368, z: -25.2}
   m_LocalScale: {x: 1.32, y: 1.32, z: 1.32}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1913,7 +1914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 15
-  speed: 8
+  movementSpeed: 8
   weapon: {fileID: 1081802284217643266}
 --- !u!114 &8758745603896043261
 MonoBehaviour:
@@ -1934,6 +1935,19 @@ MonoBehaviour:
   health: 100
   damage: 0
   hittibaleWhileAttack: 1
+--- !u!114 &8459394160424876804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606875407666948386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f03172b5786823a4b8f3a4a4a3399963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: 0
 --- !u!1 &7631805960273746732
 GameObject:
   m_ObjectHideFlags: 0

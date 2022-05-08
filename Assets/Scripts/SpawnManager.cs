@@ -26,15 +26,11 @@ public class SpawnManager : MonoBehaviour
     }
     #endregion
     
-    
-    // Start is called before the first frame update
-    void Start(){
-        
-    }
 
     // Update is called once per frame
-    void Update(){
+    void LateUpdate(){
         if (spawn_ready){
+            spawn_ready = false;
             spawnEnemy();   
         }
     }
@@ -44,30 +40,28 @@ public class SpawnManager : MonoBehaviour
         int randomEnemyNumber = Random.Range(0, enemies.Count);
         Vector3 spawnerPosition = spawner[randomSpawnNumber].transform.position;
         GameObject enemyToSpawn = enemies[randomEnemyNumber];
-        //enemyToSpawn.name += "_" + spawnedEnemies;
         spawnedEnemies++;
-        enemiesOnField++;
         StartCoroutine(spawnCooldown(spawnRate));
         Instantiate(enemyToSpawn, spawnerPosition, Quaternion.Euler(0, 0, 0));
         enemyToSpawn.GetComponent<NavMeshAgent>().enabled = true;
+        print(enemyToSpawn.transform.position);
         listEnemiesOnField.Add(enemyToSpawn);
     }
     
     IEnumerator spawnCooldown(float cooldown){
-        spawn_ready = false;
         yield return new WaitForSecondsRealtime(cooldown);
         spawn_ready = true;
     }
 
-    public void removeEnemyFromList(GameObject enemy){
-        print(enemy.name);
+    public void removeEnemyFromList(int enemyID){
+        print(enemyID);
         int index = 0;
         foreach (var e in listEnemiesOnField){
-            if (e.name.Equals(enemy.name)){
+            if (e.GetComponent<Enemy>().enemyID == enemyID){
                 index = listEnemiesOnField.IndexOf(e);
             }
         }
         print(index);
-        //listEnemiesOnField.RemoveAt(index);
+        listEnemiesOnField.RemoveAt(index);
     }
 }

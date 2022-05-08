@@ -39,7 +39,6 @@ public class ObjectInWay : MonoBehaviour{
         float alphaValue = mat.color.a;
         
         while (mat.color.a > 0f){
-            print(mat.color.a);
             alphaValue -= Time.deltaTime / fadeSpeed;
             if (alphaValue >= 0f && alphaValue <= 1f){mat.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);}
             else{
@@ -58,7 +57,6 @@ public class ObjectInWay : MonoBehaviour{
         float alphaValue = mat.color.a;
 
         while (mat.color.a <= 1f && mat.color.a >= 0f){
-            print(mat.color.a);
             alphaValue += Time.deltaTime / fadeSpeed;
             if (alphaValue < 1f && alphaValue > 0f){
                 mat.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);
