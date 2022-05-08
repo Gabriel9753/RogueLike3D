@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour{
     public Animator animator;
     public NavMeshAgent _agent;
-    private new Camera camera;
+    public new Camera camera;
     public GameObject weapon;
     public Vector3 destination;
     #region Player stats

@@ -14,7 +14,6 @@ public class Ability : ScriptableObject{
     public bool isOnCooldown;
     
     public static Camera camera;
-    public static NavMeshAgent playerAgent;
     protected RaycastHit hit;
     protected Vector3 destination;
     public LayerMask moveMask;
