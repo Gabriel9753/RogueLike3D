@@ -80,10 +80,8 @@ public class XP_UI : MonoBehaviour
         while(timer < duration){
             timer += Time.deltaTime;
             float t = timer / duration;
-            //print(timer);
             yield return null;
         }
-
         xpText.enabled = false;
         yield return null;
     }

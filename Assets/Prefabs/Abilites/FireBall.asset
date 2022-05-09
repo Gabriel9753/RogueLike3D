@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68bad942441b7c44388a967381b413ed, type: 3}
-  m_Name: FireBall
+  m_Name: Fireball
   m_EditorClassIdentifier: 
   name: Fireball
   symbol: {fileID: 0}
-  activeTime: 3.882658
-  cooldownTime: -0.014841514
+  activeTime: 0
+  cooldownTime: 0
   key: 113
-  isReady: 0
-  isActive: 1
+  isReady: 1
+  isActive: 0
   isOnCooldown: 0
   moveMask:
     serializedVersion: 2
     m_Bits: 512
+  hit_enemies: []
   projectile: {fileID: 2149979528676205797, guid: ee1f5497fcf985141a8ccd5ba7574afd,
     type: 3}

@@ -42,10 +42,9 @@ public class SpawnManager : MonoBehaviour
         GameObject enemyToSpawn = enemies[randomEnemyNumber];
         spawnedEnemies++;
         StartCoroutine(spawnCooldown(spawnRate));
-        Instantiate(enemyToSpawn, spawnerPosition, Quaternion.Euler(0, 0, 0));
-        enemyToSpawn.GetComponent<NavMeshAgent>().enabled = true;
-        print(enemyToSpawn.transform.position);
-        listEnemiesOnField.Add(enemyToSpawn);
+        GameObject enemy = Instantiate(enemyToSpawn, spawnerPosition, Quaternion.Euler(0, 0, 0));
+        enemy.GetComponent<NavMeshAgent>().enabled = true;
+        listEnemiesOnField.Add(enemy);
     }
     
     IEnumerator spawnCooldown(float cooldown){
@@ -54,14 +53,12 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void removeEnemyFromList(int enemyID){
-        print(enemyID);
         int index = 0;
         foreach (var e in listEnemiesOnField){
             if (e.GetComponent<Enemy>().enemyID == enemyID){
                 index = listEnemiesOnField.IndexOf(e);
             }
         }
-        print(index);
         listEnemiesOnField.RemoveAt(index);
     }
 }

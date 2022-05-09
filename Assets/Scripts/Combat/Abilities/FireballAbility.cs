@@ -9,6 +9,7 @@ public class FireballAbility : Ability{
     private float projectileSpeed = 15;
 
     public override void Activate(){
+        Camera camera = Player.instance.camera;
         if (Input.GetKeyDown(key) && camera && !Player.instance.isHit()){
             Player.instance._agent.ResetPath();
             Player.instance.PlayerToMouseRotation();
@@ -21,6 +22,7 @@ public class FireballAbility : Ability{
         }
     }
     void InstantiateProjectile(Transform origin){
+        Camera camera = Player.instance.camera;
         Vector2 positionOnScreen = camera.WorldToViewportPoint (Player.instance.transform.position);
         Vector2 mouseOnScreen = camera.ScreenToViewportPoint(Input.mousePosition);
         float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
@@ -38,7 +40,7 @@ public class FireballAbility : Ability{
         isReady = false;
         Activate();
         isActive = true;
-        activeTime = StatDictionary.dict["fireball"][0];
+        activeTime = StatDictionary.dict[name][0];
         yield break;
     }
 
@@ -49,7 +51,8 @@ public class FireballAbility : Ability{
         else{
             isActive = false;
             isOnCooldown = true;
-            cooldownTime = StatDictionary.dict["fireball"][1];
+            cooldownTime = StatDictionary.dict[name][1];
+            Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
         }
         yield break;
     }

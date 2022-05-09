@@ -13,12 +13,12 @@ public class Ability : ScriptableObject{
     public bool isActive;
     public bool isOnCooldown;
     
-    public static Camera camera;
+    //public static Camera camera;
     protected RaycastHit hit;
     protected Vector3 destination;
     public LayerMask moveMask;
     public static Animator playerAnimator;
-    
+    public List<GameObject> hit_enemies; 
     
     public virtual void Activate(){ }
 

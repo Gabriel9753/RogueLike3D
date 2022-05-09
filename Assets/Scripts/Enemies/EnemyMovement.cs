@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     public bool isStuck = false;
     public bool isChecked = false;
 
+    public bool slowed;
+
     private Vector3 position1;
     private Vector3 position2;
     
@@ -34,14 +36,17 @@ public class EnemyMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = Player.instance.transform;
         _animator = GetComponent<Animator>();
+        slowed = false;
     }
 
     void Update (){
-        
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
             agent.speed = 0;
+        }
+        else if (slowed){
+            agent.speed = movementSpeed - (movementSpeed) * 0.15f;
         }
         else{
             agent.speed = movementSpeed - (movementSpeed) * 0.15f;
@@ -68,7 +73,12 @@ public class EnemyMovement : MonoBehaviour
                     // Move towards the player
                     _animator.SetBool("isRunning", true);
                     agent.SetDestination(target.position);
-                    agent.speed = movementSpeed;
+                    if (slowed){
+                        agent.speed = movementSpeed - (movementSpeed) * 0.15f;
+                    }
+                    else{
+                        agent.speed = movementSpeed;
+                    }
                 }
             }
             else{
@@ -137,5 +147,10 @@ public class EnemyMovement : MonoBehaviour
     public void endAttack()
     {
         _boxCollider.enabled = false;
+    }
+
+    public void setSlow(bool slow){
+        print(slow + "!!!");
+        slowed = slow;
     }
 }

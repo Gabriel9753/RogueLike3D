@@ -36,7 +36,11 @@ public class PlayerMovement:MonoBehaviour{
 
     // Called once every frame
     void Update(){
-        agent.speed = Player.instance.movementSpeed;
+        if (!Player.instance.isDashing()){
+            Player.instance.GetComponent<CapsuleCollider>().enabled = true;
+            Player.instance._agent.speed = Player.instance.movementSpeed;
+        }
+        //agent.speed = Player.instance.movementSpeed;
         if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit()){
             if (Input.GetMouseButton(0)){
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
@@ -66,6 +70,7 @@ public class PlayerMovement:MonoBehaviour{
         }
         
         //Dash direct after attacking for fast moving
+        /*
         if (Player.instance.isAttacking() && isDashReady && !Player.instance.isHit()){
             if (Input.GetKeyDown(DashAbility.instance.key)){
                 DashAbility.InterruptAttackToDash();
@@ -76,7 +81,7 @@ public class PlayerMovement:MonoBehaviour{
             if (Input.GetKeyDown(DashAbility.instance.key)){
                 DashAbility.InterruptAttackToDash();
             }
-        }
+        }*/
 
         if (Player.instance.isDashing()){
             animator.SetBool("attackToDash", false);
@@ -98,11 +103,13 @@ public class PlayerMovement:MonoBehaviour{
 
     public void startDash(){
         dashVFX.SetActive(true);
+        Player.instance.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public void endDash(){
         DashAbility.SetMovementSpeedToBaseSpeed();
         dashVFX.SetActive(false);
+        Player.instance.GetComponent<CapsuleCollider>().enabled = true;
     }
 
 

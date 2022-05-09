@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   _agent: {fileID: 0}
+  camera: {fileID: 0}
   weapon: {fileID: 8469535615664233301}
   destination: {x: 0, y: 0, z: 0}
   level: 1
@@ -151,6 +152,7 @@ MonoBehaviour:
   moveMask:
     serializedVersion: 2
     m_Bits: 512
+  cooldownRunAttack: 10
 --- !u!114 &-2508405552961796203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +189,7 @@ MonoBehaviour:
   moveMask:
     serializedVersion: 2
     m_Bits: 512
+  baseSpeed: 0
   cooldownDash: 1.5
   isDashReady: 1
   dashScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -237,7 +240,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273799333581028461}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2.01
@@ -285,8 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64d033419ed5a54cbf4bc4d87707ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities:
+  held_abilities:
   - {fileID: 11400000, guid: 607ec3d266d5549479cb9faf0d575958, type: 2}
+  - {fileID: 11400000, guid: 5b9192fb1ee05ac45bdce787848e0f41, type: 2}
+  - {fileID: 11400000, guid: 267f0ae712bc551448d2c039ed3cfbcd, type: 2}
   - {fileID: 11400000, guid: d371cb6d8042a8743ba320ee5cb1283f, type: 2}
 --- !u!1 &330701575871626247
 GameObject:
@@ -1722,7 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDamage: 10
-  holder: {fileID: 0}
+  holder: {fileID: 273799333581028461}
 --- !u!1 &8601348273116228627
 GameObject:
   m_ObjectHideFlags: 0

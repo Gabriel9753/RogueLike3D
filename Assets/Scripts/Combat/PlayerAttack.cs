@@ -18,6 +18,9 @@ public class PlayerAttack : MonoBehaviour{
     private Vector3 destination;
     
     private bool checkRunAttack;
+
+    public float cooldownRunAttack = 2f;
+    private bool runAttackReady;
     
     
     
@@ -30,6 +33,7 @@ public class PlayerAttack : MonoBehaviour{
         _agent = GetComponent<NavMeshAgent>();
         camera = Player.instance.getCamera();
         checkRunAttack = false;
+        runAttackReady = true;
     }
     
     // Called once every frame
@@ -42,7 +46,7 @@ public class PlayerAttack : MonoBehaviour{
         }
 
             //Right click for attack animation and not running
-        if (Input.GetMouseButtonDown(1) && !Player.instance.isRunning() && !Player.instance.isDashing() && !Player.instance.isHit()){
+        if (Input.GetMouseButtonDown(1) && !Player.instance.isRunning() && !Player.instance.isDashing() && !Player.instance.isHit() && !Player.instance.isCasting()){
             if (!Player.instance.moveAttack()){
                 _agent.ResetPath();
                 Player.instance.GetComponent<PlayerCombo>().NormalAttack();
@@ -51,7 +55,7 @@ public class PlayerAttack : MonoBehaviour{
 
         
         //When running -> other attack animation
-        if (Input.GetMouseButtonDown(1) && Player.instance.isRunning() && !Player.instance.isHit()){
+        if (Input.GetMouseButtonDown(1) && Player.instance.isRunning() && !Player.instance.isHit() && !Player.instance.isCasting() /*&& runAttackReady*/){
             //Dash Attack
             if (_agent && _animator){
                 Player.instance.PlayerToMouseRotation();
@@ -62,8 +66,15 @@ public class PlayerAttack : MonoBehaviour{
                 Vector3 newDestination = transform.position + forward * (3f);
                 _agent.SetDestination(newDestination);
                 checkRunAttack = true;
+                StartCoroutine(moveAttackCooldown());
             }
         }
+    }
+    
+    IEnumerator moveAttackCooldown(){
+        runAttackReady = false;
+        yield return new WaitForSecondsRealtime(cooldownRunAttack);
+        runAttackReady = true; 
     }
 
 

@@ -44,7 +44,6 @@ public class LevelUpUpgradesUI : MonoBehaviour{
     private void Start(){
 
         //upgrade_text_1 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_1_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();
-        print(upgrade_text_1.text);
         /*
         upgrade_text_2 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_2_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();
         upgrade_text_3 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_3_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();

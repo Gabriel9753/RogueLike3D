@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.3330000042915344,"y":-0.3330000042915344,"z":-0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":-11.229999542236329,"y":-1.0800000429153443,"z":-7.039999961853027}}'
     m_Space: 0
   m_Property:
     name: A
@@ -759,7 +759,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.3330000042915344,"y":0.3330000042915344,"z":0.3330000042915344}}'
+      m_SerializableObject: '{"vector":{"x":6.139999866485596,"y":-0.8999999761581421,"z":10.75}}'
     m_Space: 0
   m_Property:
     name: B
@@ -956,7 +956,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 10
+      m_SerializableObject: 7
     m_Space: 2147483647
   m_Property:
     name: A
@@ -990,7 +990,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 15
+      m_SerializableObject: 13
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1245,7 +1245,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.08
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Size
