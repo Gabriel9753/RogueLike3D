@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0829810da5dab2642ad9da373e6ec0ba, type: 3}
+  m_Name: Magic Orb
+  m_EditorClassIdentifier: 
+  name: MagicOrb
+  symbol: {fileID: 0}
+  activeTime: -0.02048928
+  cooldownTime: 14.030184
+  key: 101
+  isReady: 0
+  isActive: 0
+  isOnCooldown: 1
+  moveMask:
+    serializedVersion: 2
+    m_Bits: 512
+  hit_enemies: []
+  projectile: {fileID: 237441565465452380, guid: a6ab99673d19d174192b240f699c60c2,
+    type: 3}

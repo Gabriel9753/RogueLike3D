@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13270694, g: 0.12400985, b: 0.15326428, a: 1}
+  m_IndirectSpecularColor: {r: 0.13266873, g: 0.123889446, b: 0.15292597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -804,6 +804,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465130334205331094, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651563672697972768, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013559834692051388, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053887187094562335, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174911183488146354, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781921330247057219, guid: 66080450d17b4c941a0e3eb4b9802126,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8219281136730472561, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}
       propertyPath: m_Name

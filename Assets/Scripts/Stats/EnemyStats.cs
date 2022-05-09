@@ -11,7 +11,7 @@ public class EnemyStats : MonoBehaviour{
     public int level = 0;
     public float exp = 0;
     public float gold;
-    
+
     public float maxHealth = 200;
     public float health = 50;
     public float damage;
@@ -20,20 +20,45 @@ public class EnemyStats : MonoBehaviour{
     
     public float possibilityForKnockback = 85;
     public bool hittibaleWhileAttack = true;
+    public bool isDead;
+    private bool hittableAgainOverTime = true;
 
     public void Start(){
         _animator = transform.GetComponent<Animator>();
         _agent = transform.GetComponent<NavMeshAgent>();
         level = Player.instance.level;
         calculateAndSetStats();
+        isDead = false;
     }
 
     public void Update(){
         //TODO: DIE in an "enemy" class
-        if(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8f && _animator.GetCurrentAnimatorStateInfo(0).IsName("die")) Destroy(gameObject);
+        if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f &&
+            _animator.GetCurrentAnimatorStateInfo(0).IsName("die")){
+            Destroy(gameObject);
+        }
     }
 
+    public void damageOverTime(float damage){
+        if (hittableAgainOverTime){
+            bool tempHittable = hittibaleWhileAttack;
+            hittibaleWhileAttack = false;
+            TakeDamage(damage);
+            hittibaleWhileAttack = tempHittable;
+            StartCoroutine(damageOverTimeTimer());
+        }
+    }
+    
+    IEnumerator damageOverTimeTimer(){
+        hittableAgainOverTime = false;
+        yield return new WaitForSecondsRealtime(1);
+        hittableAgainOverTime = true;
+    }
+    
     public void TakeDamage(float damage){
+        if (isDead){
+            return;
+        }
         // Make sure damage doesn't go below 0.
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         // Subtract damage from health
@@ -58,6 +83,7 @@ public class EnemyStats : MonoBehaviour{
     }
 
     public void Die(){
+        isDead = true;
         //Give exp to player
         XP_UI.Instance.addXP(exp);
         

@@ -68,6 +68,19 @@ public class Player : MonoBehaviour{
             return true;
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RunAttack"))
             return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicOrb"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
+            return true;
+
+        return false;
+    }
+
+    public bool isCasting(){
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicOrb"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
+            return true;
         return false;
     }
 
@@ -77,6 +90,10 @@ public class Player : MonoBehaviour{
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_2"))
             return true;
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_3"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicOrb"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
             return true;
         return false;
     }

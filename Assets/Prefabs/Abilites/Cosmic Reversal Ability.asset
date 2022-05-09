@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0245170370f5a394e97b2e8634d8c5ee, type: 3}
   m_Name: Cosmic Reversal Ability
   m_EditorClassIdentifier: 
-  name: 
+  name: Cosmic
   symbol: {fileID: 0}
-  activeTime: 0
-  cooldownTime: 2.7161605
+  activeTime: -0.012915079
+  cooldownTime: -0.013631452
   key: 119
-  isReady: 0
+  isReady: 1
   isActive: 0
-  isOnCooldown: 1
+  isOnCooldown: 0
   moveMask:
     serializedVersion: 2
-    m_Bits: 512
-  projectile: {fileID: 5090892611267587285, guid: 735409fc24204d541b14bc495d40e1c2,
+    m_Bits: 2147483647
+  hit_enemies: []
+  projectile: {fileID: 5090892611267587285, guid: 97cdf42d893603448879cfd55d6352a8,
     type: 3}
