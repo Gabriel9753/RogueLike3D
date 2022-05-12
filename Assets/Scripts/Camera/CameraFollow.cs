@@ -20,7 +20,16 @@ public class CameraFollow : MonoBehaviour
 
     float zoomSmoothV;
     float targetZoom;
+    #region Singleton
 
+    public static CameraFollow instance;
+
+    void Awake ()
+    {
+        instance = this;
+    }
+
+    #endregion
 
     private void Start(){
         targetZoom = currentZoom;

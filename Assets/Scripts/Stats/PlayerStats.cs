@@ -29,6 +29,9 @@ public class PlayerStats : MonoBehaviour{
     public float sumDamage = 1;
     public float sumCriticalDamage = 1;
     public float sumCriticalChance = 1;
+    
+    private float timeleft = 0.0f;	// Left time for current interval
+    public float regenUpdateInterval = 2f;
 
 
     public void Start(){
@@ -74,6 +77,34 @@ public class PlayerStats : MonoBehaviour{
         criticalChance = Player.instance.criticalChance;
         criticalDamage = Player.instance.criticalDamage;
         awarenessRange = Player.instance.awarenessRange;
+        Regen();
+    }
+    
+    private void Regen()
+    {
+        timeleft -= Time.deltaTime;
+
+        if (timeleft <= 0.0) // Interval ended - update health & mana and start new interval
+        {
+            Heal(healthRegen);
+            restoreMana(manaRegen);	
+
+            timeleft = regenUpdateInterval;
+        }
+        HealthSystemGUI.instance.UpdateGraphics();
+    }
+    
+    public void restoreMana(float Mana)
+    {
+        mana += Mana;
+        Player.instance.mana += Mana;
+        
+        if (mana > maxMana){
+            mana = maxMana;
+            Player.instance.mana = maxMana;
+        }
+
+        HealthSystemGUI.instance.UpdateGraphics();
     }
 
     #region Upgrade Increasing / Decreasing Methods
@@ -119,7 +150,7 @@ public class PlayerStats : MonoBehaviour{
     */
     public void IncreaseManaRegen(float amount){
         manaRegen += amount;
-        Player.instance.manaRegen+= amount;
+        Player.instance.manaRegen += amount;
         HealthSystemGUI.instance.SetManaRegen(manaRegen);
     }
 
@@ -127,6 +158,16 @@ public class PlayerStats : MonoBehaviour{
         manaRegen -= amount;
         Player.instance.manaRegen-= amount;
     }
+
+    /**
+     * Mana add and consume
+     */
+    public void consumeMana(float amount){
+        mana -= amount;
+        Player.instance.mana -= amount;
+        HealthSystemGUI.instance.SetMana(mana);
+    }
+    
     /** 
     *  MaxMana
     */
@@ -280,11 +321,12 @@ public class PlayerStats : MonoBehaviour{
         // damage calculation with respect of resistance
         damage -= resistance;
         health -= damage;
-        HealthSystemGUI.instance.TakeDamage(damage);
+        Player.instance.health -= damage;
+        //HealthSystemGUI.instance.TakeDamage(damage);
 
         // If we hit 0. Die.
         if (health <= 0){
-            //Die();
+            Player.instance.Die();
         }
     }
     
@@ -308,8 +350,10 @@ public class PlayerStats : MonoBehaviour{
     public void Heal(float amount){
         amount = Mathf.Clamp(amount, 0, float.MaxValue);
         health += amount;
+        Player.instance.health += amount;
         if (health > maxHealth){
             health = maxHealth;
+            Player.instance.health = Player.instance.maxHealth;
         }
         HealthSystemGUI.instance.HealDamage(amount);
     }

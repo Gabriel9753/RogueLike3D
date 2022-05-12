@@ -22,12 +22,14 @@ public class EnemyStats : MonoBehaviour{
     public bool hittibaleWhileAttack = true;
     public bool isDead;
     private bool hittableAgainOverTime = true;
+    private bool hittableAgainOverTimeLightningFrisbee = true;
+    private bool hittableAgainOverTimeFireHurricane = true;
+    
 
     public void Start(){
         _animator = transform.GetComponent<Animator>();
         _agent = transform.GetComponent<NavMeshAgent>();
         level = Player.instance.level;
-        calculateAndSetStats();
         isDead = false;
     }
 
@@ -35,6 +37,7 @@ public class EnemyStats : MonoBehaviour{
         //TODO: DIE in an "enemy" class
         if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f &&
             _animator.GetCurrentAnimatorStateInfo(0).IsName("die")){
+            Player.instance.killed_mobs++;
             Destroy(gameObject);
         }
     }
@@ -49,11 +52,43 @@ public class EnemyStats : MonoBehaviour{
         }
     }
     
+    public void damageFireHurricane(float damage){
+        if (hittableAgainOverTimeFireHurricane){
+            bool tempHittable = hittibaleWhileAttack;
+            hittibaleWhileAttack = false;
+            TakeDamage(damage);
+            hittibaleWhileAttack = tempHittable;
+            StartCoroutine(damageOverTimeTimerFireHurricane());
+        }
+    }
+
+    public bool damageOverTimeLightningFrisbee(float damage){
+        if (hittableAgainOverTimeLightningFrisbee){
+            bool tempHittable = hittibaleWhileAttack;
+            hittibaleWhileAttack = false;
+            TakeDamage(damage);
+            hittibaleWhileAttack = tempHittable;
+            StartCoroutine(damageOverTimeTimerLightningFrisbee());
+            return true;
+        }
+        return false;
+    }
+    
     IEnumerator damageOverTimeTimer(){
         hittableAgainOverTime = false;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(1f);
         hittableAgainOverTime = true;
+    }    
+    IEnumerator damageOverTimeTimerLightningFrisbee(){
+        hittableAgainOverTimeLightningFrisbee = false;
+        yield return new WaitForSecondsRealtime(0.5f);
+        hittableAgainOverTimeLightningFrisbee = true;
     }
+    IEnumerator damageOverTimeTimerFireHurricane(){
+        hittableAgainOverTimeFireHurricane = false;
+        yield return new WaitForSecondsRealtime(1);
+        hittableAgainOverTimeFireHurricane = true;
+    }   
     
     public void TakeDamage(float damage){
         if (isDead){
@@ -95,16 +130,16 @@ public class EnemyStats : MonoBehaviour{
         _animator.Play("die");
         
         //Tell spawnmanager that this enemy died
-        SpawnManager.instance.removeEnemyFromList(gameObject.GetComponent<Enemy>().enemyID);
+        SpawnManager.instance.removeEnemyFromList(GetComponent<Enemy>().enemyID);
     }
     
-    private void calculateAndSetStats(){
-        exp = level * 1.5f + 20;
-        health = level * 7 + 50;
+    public void setStats(float exp, float health, float damage, float gold){
+        this.exp = exp;
+        this.health = health;
         maxHealth = health;
 
-        damage = (float)Math.Pow(level, 1.1) * 3 + 15;
-        gold = (float)Math.Pow(level, 1.1) * 2 + 3;
+        this.damage = damage;
+        this.gold = gold;
     }
 
     public float calculateDamage(){

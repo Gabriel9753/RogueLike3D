@@ -14,9 +14,19 @@ public class AbilityHolder : MonoBehaviour{
     private float cooldownTime;
     private float activeTime;
 
+    public static bool fireballAnimationReady;
+    public static bool cosmicAnimationReady;
+    public static bool magicOrbAnimationReady;
+    public static bool LightningFrisbeeReady;
+    public static bool FireHurricaneReady;
+
     private void Start(){
+        fireballAnimationReady = false;
+        cosmicAnimationReady = false;
+        magicOrbAnimationReady = false;
         foreach (var ability in held_abilities){
             ability.isReady = true;
+            ability.isActive = false;
             ability.cooldownTime = 0;
             activeTime_abilities.Add(StatDictionary.dict[ability.name][0]);
             cooldownTime_abilities.Add(StatDictionary.dict[ability.name][1]);
@@ -57,5 +67,22 @@ public class AbilityHolder : MonoBehaviour{
                 StartCoroutine(ability.OnCooldown());
             }
         }
+    }
+
+    public void fireballBool(){
+        fireballAnimationReady = true;
+    }
+    public void cosmicBool(){
+        cosmicAnimationReady = true;
+    }
+    public void hurricaneBool(){
+        FireHurricaneReady = true;
+    }
+    public void magicOrbBool(){
+        magicOrbAnimationReady = true;
+    }
+
+    public void lightningFrisbeeBool(){
+        LightningFrisbeeReady = true;
     }
 }

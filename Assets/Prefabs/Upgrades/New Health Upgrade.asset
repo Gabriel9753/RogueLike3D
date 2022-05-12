@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e1d8de6130d54498750b936e4dab1b, type: 3}
   m_Name: New Health Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Life expansion\n \nIncrease your maximum health by 74."
+  symbol: {fileID: 21300000, guid: 707545fb132aed646bdaf12831b9aaf5, type: 3}
+  value: 74
+  type: hp_up

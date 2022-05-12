@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f283a2a2134c45c4783c2b80cc30f5d6, type: 3}
   m_Name: New Awareness Range Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Magnet\n \nIncrease the awareness range of your enemies by 61% so you can
+    better lure!"
+  symbol: {fileID: 21300000, guid: 540d5476d1345744baef1bf3741996a2, type: 3}
+  value: 61
+  type: awareness_up

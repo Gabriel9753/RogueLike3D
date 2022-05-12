@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c748e5f9739f7c24c9a12fc7c014a221, type: 3}
+  m_Name: Config
+  m_EditorClassIdentifier: 
+  level: 1
+  maxHealth: 40
+  maxMana: 50
+  health: 40
+  mana: 50
+  healthRegen: 1
+  manaRegen: 1
+  gold: 0
+  goldMultiplier: 1
+  exp: 0
+  expMultiplier: 1
+  movementSpeed: 10
+  resistance: 0
+  lifesteal: 0
+  attackDamage: 10
+  criticalChance: 10
+  criticalDamage: 10
+  awarenessRange: 1
+  sumExp: 0
+  needExp: 0
+  killed_mobs: 0
+  spell_dmg: 5
+  spell_1_up: 1
+  spell_2_up: 1
+  spell_3_up: 1
+  spell_4_up: 1
+  max_gold: 20
+  max_mana_up: 10
+  max_goldMul_up: 10
+  max_manaReg_up: 5
+  max_intmana_up: 22
+  max_hp_up: 10
+  max_hpReg_up: 5
+  max_lifesteal_up: 5
+  max_ad_up: 10
+  max_cc_up: 10
+  max_cd_up: 10
+  max_awareness_up: 10
+  max_expMul_up: 15
+  max_movement_up: 5
+  max_res_up: 10

@@ -78,19 +78,10 @@ public class Skills_menu_in_game : MonoBehaviour{
     void Awake()
     {
         Instance = this;
+        Skills_HUD_element.SetActive(false);
     }
     #endregion
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void changeKeySkill(int skill_number, KeyCode key){
         switch (skill_number){
@@ -123,9 +114,10 @@ public class Skills_menu_in_game : MonoBehaviour{
 
     public void setupUI(List<string> nameAbilites, List<KeyCode> keyFromAbilities, List<Sprite> spriteAbilities, List<float> cooldownTimeAbilities){
         for (int i = 0; i < nameAbilites.Count; i++){
+            print(i + " " + nameAbilites[i] + " " + keyFromAbilities[i]);
             if (nameAbilites[i] == "Dash"){
                 cooldown_skill_dash = cooldownTimeAbilities[i];
-                //skillImage_skill_dash.sprite = spriteAbilities[i];
+                skillImage_skill_dash.sprite = spriteAbilities[i];
                 key_skill_dash = keyFromAbilities[i];
                 key_text_skill_dash.text = ""+keyFromAbilities[i];
                 name_dash = nameAbilites[i];
@@ -134,7 +126,7 @@ public class Skills_menu_in_game : MonoBehaviour{
 
             if (nameAbilites[i] == "Heal"){
                 cooldown_skill_heal = cooldownTimeAbilities[i];
-                //skillImage_skill_dash.sprite = spriteAbilities[i];
+                skillImage_skill_heal.sprite = spriteAbilities[i];
                 key_skill_heal = keyFromAbilities[i];
                 key_text_skill_heal.text = ""+keyFromAbilities[i];
                 name_heal = nameAbilites[i];
@@ -147,31 +139,31 @@ public class Skills_menu_in_game : MonoBehaviour{
                     key_text_skill_1.text = ""+keyFromAbilities[i];
                     cooldown_skill_1 = cooldownTimeAbilities[i];
                     name_1 = nameAbilites[i];
-                    //skillImage_skill_1.sprite = spriteAbilities[i];
+                    skillImage_skill_1.sprite = spriteAbilities[i];
                     break;
                 case 1: 
                     key_skill_2 = keyFromAbilities[i];
                     key_text_skill_2.text = ""+keyFromAbilities[i];
                     cooldown_skill_2 = cooldownTimeAbilities[i];
                     name_2 = nameAbilites[i];
-                    //skillImage_skill_2.sprite = spriteAbilities[i];
+                    skillImage_skill_2.sprite = spriteAbilities[i];
                     break;
                 case 2: 
                     key_skill_3 = keyFromAbilities[i];
                     key_text_skill_3.text = ""+keyFromAbilities[i];
                     cooldown_skill_3 = cooldownTimeAbilities[i];
                     name_3 = nameAbilites[i];
-                    //skillImage_skill_3.sprite = spriteAbilities[i];
+                    skillImage_skill_3.sprite = spriteAbilities[i];
                     break;
                 case 3: 
                     key_skill_4 = keyFromAbilities[i];
                     key_text_skill_4.text = ""+keyFromAbilities[i];
                     cooldown_skill_4 = cooldownTimeAbilities[i];
                     name_4 = nameAbilites[i];
-                    //skillImage_skill_4.sprite = spriteAbilities[i];
+                    skillImage_skill_4.sprite = spriteAbilities[i];
                     break;
             }
-            print(i + " " + nameAbilites[i] + " " + keyFromAbilities[i]);
+            
         }
     }
 

@@ -116,26 +116,36 @@ MonoBehaviour:
   _agent: {fileID: 0}
   camera: {fileID: 0}
   weapon: {fileID: 8469535615664233301}
+  leftHand: {fileID: 3561384060848851184}
   destination: {x: 0, y: 0, z: 0}
+  isDead: 0
   level: 1
-  maxHealth: 100
-  maxMana: 100
-  health: 100
-  mana: 100
-  healthRegen: 0.1
-  manaRegen: 0.1
+  maxHealth: 1
+  maxMana: 1
+  health: 1
+  mana: 1
+  healthRegen: 1
+  manaRegen: 1
   gold: 0
   goldMultiplier: 1
-  exp: 0
+  exp: 1
   expMultiplier: 1
-  movementSpeed: 11
-  attackSpeed: 1
-  resistance: 0
-  lifesteal: 0
-  attackDamage: 10
-  criticalChance: 50
-  criticalDamage: 50
-  awarenessRange: 1
+  movementSpeed: 10
+  attackSpeed: 3
+  resistance: 3
+  lifesteal: 3
+  attackDamage: 3
+  criticalChance: 3
+  criticalDamage: 3
+  awarenessRange: 3
+  sumExp: 3
+  needExp: 0
+  killed_mobs: 0
+  spell_dmg: 0
+  spell_1_up: 0
+  spell_2_up: 0
+  spell_3_up: 0
+  spell_4_up: 0
 --- !u!114 &5069255263633227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +220,7 @@ MonoBehaviour:
   sumDamage: 1
   sumCriticalDamage: 1
   sumCriticalChance: 1
+  regenUpdateInterval: 2
 --- !u!195 &8073898999792615349
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -217,7 +228,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273799333581028461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 10
@@ -290,9 +301,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   held_abilities:
   - {fileID: 11400000, guid: 607ec3d266d5549479cb9faf0d575958, type: 2}
-  - {fileID: 11400000, guid: 5b9192fb1ee05ac45bdce787848e0f41, type: 2}
+  - {fileID: 11400000, guid: 21841b47c71ca3849b0c572059ce9e2f, type: 2}
   - {fileID: 11400000, guid: 267f0ae712bc551448d2c039ed3cfbcd, type: 2}
+  - {fileID: 11400000, guid: 65847b3992f9e474c8829bfe313fe718, type: 2}
   - {fileID: 11400000, guid: d371cb6d8042a8743ba320ee5cb1283f, type: 2}
+  - {fileID: 11400000, guid: 673ecefd1e9a76c46853dd720f4de94f, type: 2}
 --- !u!1 &330701575871626247
 GameObject:
   m_ObjectHideFlags: 0

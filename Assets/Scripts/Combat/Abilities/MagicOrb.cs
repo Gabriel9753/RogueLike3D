@@ -7,53 +7,37 @@ public class MagicOrb : Ability
 {
     public GameObject projectile;
     private GameObject projectileObj;
-    private float projectileSpeed = 1.1f;
+    public float projectileSpeed = 1.1f;
 
+    private Camera camera;
+    private Ray ray;
+    private Vector2 positionOnScreen;
+    private Vector2 mouseOnScreen;
+    private float angle;
+    private Quaternion rotation;
+
+    private bool startedSpell;
     public override void Activate(){
+        startedSpell = false;
         hit_enemies = new List<GameObject>();
-        Camera camera = Player.instance.camera;
-        if (!Player.instance.isHit()){
-            Player.instance._agent.ResetPath();
-            Player.instance.PlayerToMouseRotation();
-            //START CAST ANIMATION
-            
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 1000, moveMask)){
-                destination = hit.point;
-                InstantiateProjectile(destination);
-            }
-        }
-    }
-    void InstantiateProjectile(Vector3 origin){
-        Camera camera = Player.instance.camera;
-        Vector2 positionOnScreen = camera.WorldToViewportPoint (Player.instance.transform.position);
-        Vector2 mouseOnScreen = camera.ScreenToViewportPoint(Input.mousePosition);
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-        projectileObj = Instantiate(projectile, origin, Quaternion.Euler (new Vector3(0f,Player.instance.transform.rotation.y-angle+225,0f)));
-        //projectileObj.GetComponent<Rigidbody>().velocity = (new Vector3(destination.x,origin.position.y,destination.z) - origin.position).normalized * projectileSpeed;
+        Player.instance._agent.ResetPath();
+        Player.instance.PlayerToMouseRotation();
+        positionOnScreen = camera.WorldToViewportPoint(Player.instance.transform.position);
+        mouseOnScreen = camera.ScreenToViewportPoint(Input.mousePosition);
+        angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
+        rotation = Quaternion.Euler(new Vector3(0f, Player.instance.transform.rotation.y - angle + 225, 0f));
     }
     
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b) {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
-
-    void moveOverTime(){
-        
-
-        if (Vector3.Distance(projectileObj.transform.position, Player.instance.transform.position) > 9){
-            Vector3 playerPosition = Player.instance.transform.position + new Vector3(0, 0.5f, 0);
-            Vector3 direction = (playerPosition - projectileObj.transform.position).normalized * 3f;
-            projectileObj.transform.position += direction * Time.deltaTime; 
-        }
-        else if(Vector3.Distance(projectileObj.transform.position, Player.instance.transform.position) < 7){
-            projectileObj.transform.position += Vector3.forward * Time.deltaTime * 5f;
-        }
-    }
+    
 
     void enemySlow(){
-        foreach (var enemy in SpawnManager.instance.listEnemiesOnField){
-            if (Vector3.Distance(enemy.transform.position, projectileObj.transform.position) < 14f){
-                Vector3 direction = (projectileObj.transform.position - enemy.transform.position).normalized * 5f;
+        foreach (GameObject enemy in SpawnManager.instance.listEnemiesOnField){
+            if (Vector3.Distance(enemy.transform.position, projectileObj.transform.position) < 12f + 25 * (Player.instance.slowdown_up / 100)){
+                Vector3 direction = (projectileObj.transform.position - enemy.transform.position).normalized * 
+                                    (0.9f + 3 * (Player.instance.slowdown_up / 100)) ;
                 enemy.transform.position += direction * Time.deltaTime;
             }
         }
@@ -74,41 +58,58 @@ public class MagicOrb : Ability
                 hit_enemies.Remove(hit_enemy);
             }
             else{
-                hit_enemy.GetComponent<EnemyStats>().damageOverTime(StatDictionary.dict[name][2]);
+                hit_enemy.GetComponent<EnemyStats>().damageOverTime(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100);
             }
         }
     }
 
     public override IEnumerator Ready(){
-        isReady = false;
-        //Start Animation
-        Player.instance.animator.Play(name);
-        //When Animation finished
-        Activate();
-        isActive = true;
-        activeTime = StatDictionary.dict[name][0];
+        camera = Player.instance.camera;
+        ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Player.instance.mana >= StatDictionary.dict[name][3] && Physics.Raycast(ray, out hit, 1000, moveMask)){
+            destination = hit.point;
+            isReady = false;
+            Activate();
+            Player.instance.animator.Play(name);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            isActive = true;
+            activeTime = StatDictionary.dict[name][0];
+        }
         yield break;
     }
     
     
 
     public override IEnumerator Active(){
-        if (activeTime > 0){
-            //moveOverTime();
-            projectileObj.transform.Rotate(new Vector3(0, 25, 0) * Time.deltaTime);
-            enemySlow();
-            makeDamage();
-            activeTime -= Time.deltaTime;
+        if (AbilityHolder.magicOrbAnimationReady){
+            AbilityHolder.magicOrbAnimationReady = false;
+            projectileObj = Instantiate(projectile, destination, rotation);
+            Debug.Log(destination);
+            activeTime = StatDictionary.dict[name][0];
+            startedSpell = true;
         }
-        else{
-            Debug.Log("DESTROYING");
-            isActive = false;
-            isOnCooldown = true;
-            cooldownTime = StatDictionary.dict[name][1];
-            Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
-            hit_enemies.Clear();
-            Destroy(projectileObj);
+
+        if (startedSpell){
+            if (activeTime > 0){
+                //moveOverTime();
+                projectileObj.transform.Rotate(new Vector3(0, 25, 0) * Time.deltaTime);
+                enemySlow();
+                makeDamage();
+                activeTime -= Time.deltaTime;
+            }
+            else{
+                Debug.Log("DESTROYING");
+                isActive = false;
+                isOnCooldown = true;
+                cooldownTime = StatDictionary.dict[name][1];
+                cooldownTime -= StatDictionary.dict[name][1] * Player.instance.cooldown_up/100;
+                Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
+                hit_enemies.Clear();
+                Destroy(projectileObj);
+                startedSpell = false;
+            }
         }
+        
         yield break;
     }
 

@@ -87,7 +87,9 @@ public class PlayerAttack : MonoBehaviour{
     }
     
     public void GotHit(float damage){
-        _animator.Play("playerHit");
+        if (!Player.instance.isCasting()){
+            _animator.Play("playerHit");
+        }
         GetComponent<PlayerAttack>().endAttack();
         Player.instance.GetComponent<PlayerStats>().TakeDamage(damage);
         Player.instance.GetComponent<PlayerCombo>().ResetCombo();

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d6cd22fef783142ac714384ccbb558, type: 3}
   m_Name: New Gold Multiplier Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Gold digger\n \nIncreasing your income by 51% "
+  symbol: {fileID: 21300000, guid: 93078ff18a06bf747a7e22049b702fb3, type: 3}
+  value: 51
+  type: goldMul_up

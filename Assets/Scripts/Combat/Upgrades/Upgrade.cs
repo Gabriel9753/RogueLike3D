@@ -9,6 +9,21 @@ public class Upgrade : ScriptableObject
     public string text;
     public Sprite symbol;
     public float value;
+    
+    //gold_up
+    //goldMul_up
+    //manaReg_up
+    //mana_up
+    //hp_up
+    //hpReg_up
+    //lifesteal_up
+    //ad_up
+    //cc_up
+    //cd_up
+    //awareness_up
+    //expMul_up
+    //movement_up
+    //res_up
     public string type;
     
     public virtual string GetText(){

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b39976b6de97947adeeed7b03592d6, type: 3}
   m_Name: Mana Regen Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Passive mana\n \nIncrease your regeneration of mana by 80.98925%"
+  symbol: {fileID: 21300000, guid: 8d41c4d75ffb95449ad8cdbfefa74218, type: 3}
+  value: 80.98925
+  type: manaReg_up

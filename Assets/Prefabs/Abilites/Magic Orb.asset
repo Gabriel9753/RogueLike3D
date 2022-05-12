@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Magic Orb
   m_EditorClassIdentifier: 
   name: MagicOrb
-  symbol: {fileID: 0}
-  activeTime: -0.02048928
-  cooldownTime: 14.030184
+  symbol: {fileID: 21300000, guid: 5e93a13d0aab81048b25143ba568ef1b, type: 3}
+  activeTime: 1.1119761
+  cooldownTime: 0
   key: 101
   isReady: 0
-  isActive: 0
-  isOnCooldown: 1
+  isActive: 1
+  isOnCooldown: 0
   moveMask:
     serializedVersion: 2
     m_Bits: 512

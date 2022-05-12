@@ -9,29 +9,42 @@ public class Projectile : MonoBehaviour{
         if (other.CompareTag("Enemy")){
             if (name == "Fireball(Clone)"){
                 other.gameObject.GetComponent<EnemyStats>().TakeDamage(StatDictionary.dict["Fireball"][2]);
-                Destroy(gameObject);
+                if (!ability.fireballs_to_destroy.Contains(gameObject)){
+                    Debug.Log("Adding: " + name + " " + gameObject.name);
+                    ability.fireballs_to_destroy.Add(gameObject);
+                    //ability.collsionObjectPosition.Add(other.transform.position);
+                }
                 return;
             }
             bool inlist = false;
-            List<GameObject> itemsToAdd = new List<GameObject>();
+            List<GameObject> checkItems = new List<GameObject>();
             foreach (GameObject t in ability.hit_enemies) {
                 if (t != null) {
-                    itemsToAdd.Add(t);
+                    checkItems.Add(t);
                 }
             }
-            foreach (var enemy in itemsToAdd){
+            foreach (var enemy in checkItems){
                 if (other.gameObject.GetComponent<Enemy>().enemyID == enemy.GetComponent<Enemy>().enemyID){
                     inlist = true;
                     break;
                 }
             }
             if(!inlist){
-                itemsToAdd.Add(other.gameObject);
+                ability.hit_enemies.Add(other.gameObject);
             }
             if (name == "CosmicReversal(Clone)"){
-                foreach (var enemy in itemsToAdd){
-                    enemy.GetComponent<EnemyStats>().TakeDamage(StatDictionary.dict["Cosmic"][2]);
+                foreach (var enemy in checkItems){
+                    enemy.GetComponent<EnemyStats>().TakeDamage(StatDictionary.dict["Cosmic"][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100);
                     ability.hit_enemies.Remove(enemy);
+                }
+            }
+        }
+        
+        
+        if (other.CompareTag("Wall")){
+            if (name == "Fireball(Clone)"){
+                if (!ability.fireballs_to_destroy.Contains(gameObject)){
+                    ability.fireballs_to_destroy.Add(gameObject);
                 }
             }
         }
@@ -39,6 +52,5 @@ public class Projectile : MonoBehaviour{
 
     private void OnTriggerExit(Collider other){
         ability.hit_enemies.Remove(other.gameObject);
-        
     }
 }

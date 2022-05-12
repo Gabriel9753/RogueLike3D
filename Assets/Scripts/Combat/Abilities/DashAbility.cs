@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 
 [CreateAssetMenu]
 public class DashAbility : Ability{
-    public static float dashSpeed = 90.0f;
-    public static float dashDistance = 12.0f;
+    public static float dashSpeed = 18.0f;
+    public static float dashDistance = 14.0f;
     public static float baseSpeed;
 
  
@@ -27,7 +27,6 @@ public class DashAbility : Ability{
         if (!Player.instance.isAttacking() && !Player.instance.isHit() && !Player.instance.moveAttack() &&
             !Player.instance.standAttack() && !Player.instance.isCasting()){
             Player.instance._agent.ResetPath();
-            Debug.Log("called");
             isReady = false;
             Player.instance.PlayerToMouseRotation();
             float alpha = (float) ((Player.instance.transform.rotation.eulerAngles.y % 360) * Math.PI) / 180;
@@ -73,8 +72,11 @@ public class DashAbility : Ability{
         }
     }
     public override IEnumerator Ready(){
-        Activate();
-        //Player.instance.movementSpeed -= dashSpeed;
+        if (Player.instance.mana >= StatDictionary.dict[name][3]){
+            Activate();
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            //Player.instance.movementSpeed -= dashSpeed;
+        }
         yield break;
     }
 
@@ -86,6 +88,7 @@ public class DashAbility : Ability{
             isActive = false;
             isOnCooldown = true;
             cooldownTime = StatDictionary.dict[name][1];
+            cooldownTime -= StatDictionary.dict[name][1] * Player.instance.cooldown_up/100;
             Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
         }
 

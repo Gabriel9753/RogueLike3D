@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b54727dc250c2747a49b1cfb28990bc, type: 3}
   m_Name: New Attack Damage Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Strength like hulk\n \nIncrease your DMG by: 108 and become stronger!"
+  symbol: {fileID: 21300000, guid: c46be55a65cb30e44b7c89e3c0d531da, type: 3}
+  value: 108
+  type: ad_up

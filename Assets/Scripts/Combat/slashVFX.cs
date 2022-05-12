@@ -15,8 +15,8 @@ public class slashVFX : MonoBehaviour
     }
 
     private void Normal1VFX(){;
-        GameObject slashVFX = slashesVFX.Where(obj => obj.name == "Normal1VFX").SingleOrDefault();
-        StartCoroutine(activationVFX(slashVFX, 0.3f));
+        //GameObject slashVFX = slashesVFX.Where(obj => obj.name == "Normal1VFX").SingleOrDefault();
+        //StartCoroutine(activationVFX(slashVFX, 0.3f));
     }
     private void Normal2VFX(){
         

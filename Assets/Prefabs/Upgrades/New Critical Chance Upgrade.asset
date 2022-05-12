@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebbc54254425ad44a1ca8318ece4304, type: 3}
   m_Name: New Critical Chance Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Lucky sword\n \nCritical chance +120% "
+  symbol: {fileID: 21300000, guid: b5e080bf4d603fc4cabbb5a2501d529e, type: 3}
+  value: 120
+  type: cc_up

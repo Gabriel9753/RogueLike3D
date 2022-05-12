@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public bool attackReady = true;
     public bool attackReadyOnCooldown = true;
     public float fleeRate = 60;
-    private float cooldownAttack = 6;
+    //private float cooldownAttack = 6;
 
     public bool isFleeing = false;
     public bool isStuck = false;
@@ -22,8 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 position1;
     private Vector3 position2;
-    
-    
+
     private Vector3 evadeDestination;
     
     Transform target;
@@ -32,9 +31,15 @@ public class EnemyMovement : MonoBehaviour
     public GameObject weapon;
     private BoxCollider _boxCollider;
     void Start(){
+        print("Player ist dead: " + Player.instance.isDead);
         _boxCollider = weapon.GetComponent<BoxCollider>();
         agent = GetComponent<NavMeshAgent>();
-        target = Player.instance.transform;
+        if (!Player.instance.isDead){
+            target = Player.instance.transform;
+        }
+        else{
+            Destroy(gameObject);
+        }
         _animator = GetComponent<Animator>();
         slowed = false;
     }
@@ -42,11 +47,11 @@ public class EnemyMovement : MonoBehaviour
     void Update (){
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") || _animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
             agent.speed = 0;
         }
         else if (slowed){
-            agent.speed = movementSpeed - (movementSpeed) * 0.15f;
+            agent.speed = movementSpeed - movementSpeed * Player.instance.slowdown_up/100;
         }
         else{
             agent.speed = movementSpeed - (movementSpeed) * 0.15f;
@@ -82,7 +87,8 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
             else{
-                _animator.SetBool("isRunning", false);
+                //_animator.SetBool("isRunning", true);
+                
             }
         }
 

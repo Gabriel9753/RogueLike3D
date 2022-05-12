@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3832ff8377cd14bb2f28e303b3f4bc, type: 3}
   m_Name: New Critical Damage Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Hard hits\n \nCritical damage +122%"
+  symbol: {fileID: 21300000, guid: 4d7635c366a76274c85747592d98d2f5, type: 3}
+  value: 122
+  type: cd_up

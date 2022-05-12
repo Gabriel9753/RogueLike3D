@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 2.18, y: -0.023, z: -0.004}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1893509518657064818}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893509517361194905}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 30000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -992,8 +992,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.98272705
+          value: 0.080322266
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4838,8 +4838,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893509517978722455}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -9.7, y: -0.023, z: -0.004}
-  m_LocalScale: {x: 0.5, y: 0.1, z: 0.14}
+  m_LocalPosition: {x: 31.07, y: -0.023, z: -0.004}
+  m_LocalScale: {x: 1.22, y: 0.54, z: 0.75600004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1893509518657064818}
@@ -5097,7 +5097,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 2
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -5413,7 +5413,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -5804,8 +5804,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.9617083
+          value: 0.25703058
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -9656,8 +9656,8 @@ Transform:
   m_GameObject: {fileID: 1893509518657064817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.44999996, y: 0.44999996, z: 0.44999996}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1893509517361194904}
   - {fileID: 1893509517978722454}
@@ -14555,7 +14555,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 13.3
+  m_Radius: 24.88
   m_Center: {x: 27.4, y: 0.00012207031, z: 0.000015258789}
 --- !u!136 &580900409026203255
 CapsuleCollider:
@@ -14620,7 +14620,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &1842658345595054769
 SphereCollider:
