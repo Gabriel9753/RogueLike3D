@@ -193,7 +193,6 @@ public class StatsMenu : MonoBehaviour
         if (Input.GetKey(key) && !DieMenu.instance.DieMenuEnabled){
             if (!statsMenuEnabled){
                 foreach (GameObject element in UI_elements){
-                    print(element.activeSelf);
                     active_elements.Add(element.activeSelf);
                     element.SetActive(false);
                 }

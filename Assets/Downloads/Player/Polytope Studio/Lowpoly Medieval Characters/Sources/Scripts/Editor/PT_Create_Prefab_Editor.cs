@@ -38,12 +38,10 @@ namespace Polytope
             EditorApplication.update += Preview;
             time.floatValue = 0f;
             serializedObject.ApplyModifiedProperties();
-            //Debug.Log("Enable");
         }
 
         private void OnDisable()
         {
-            //Debug.Log("Disable");
             EditorApplication.update -= Preview;
         }
 

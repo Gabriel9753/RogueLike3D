@@ -53,13 +53,11 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("Spiel");
     }
     public void StartOptions(){
-        print("Options!");
         optionsUI.SetActive(true);
         startMenuUI.SetActive(false);
     }
 
     public void ExitGame(){
-        print("QUIT!");
         Application.Quit();
     }
     

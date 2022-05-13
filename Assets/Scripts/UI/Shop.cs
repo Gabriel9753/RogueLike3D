@@ -83,11 +83,9 @@ public class Shop : MonoBehaviour{
     void Update()
     {
         if (Player.nearUpStation && isEnabled == false){
-            print("Player near shop!");
             if (Input.GetKeyDown(KeyCode.E) && !PauseMenu.gameIsPause){
                 isEnabled = true;
                 updateUI();
-                print("Player wants to open shop!");
                 shopUI.SetActive(true);
             }
         }

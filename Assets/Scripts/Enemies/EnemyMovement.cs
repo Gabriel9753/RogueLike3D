@@ -31,7 +31,6 @@ public class EnemyMovement : MonoBehaviour
     public GameObject weapon;
     private BoxCollider _boxCollider;
     void Start(){
-        print("Player ist dead: " + Player.instance.isDead);
         _boxCollider = weapon.GetComponent<BoxCollider>();
         agent = GetComponent<NavMeshAgent>();
         if (!Player.instance.isDead){
@@ -109,9 +108,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 position1 = transform.position;
         yield return new WaitForSeconds(0.3f);
         Vector3 position2 = transform.position;
-        //print(Vector3.Distance(position1, position2));
         if (Vector3.Distance(position1, position2) < 0.1f){
-            print("YEP HELP ME IM STUCK");
             isStuck = true;
             isFleeing = false;
         }
@@ -156,7 +153,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void setSlow(bool slow){
-        print(slow + "!!!");
         slowed = slow;
     }
 }

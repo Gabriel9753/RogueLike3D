@@ -21,7 +21,13 @@ public class HurricaneAbility : Ability
         projectileObj.transform.position = Player.instance.transform.position + Vector3.up * 1.4f;
     }
     void makeDamage(){
-        foreach (GameObject enemy in SpawnManager.instance.listEnemiesOnField){
+        List<GameObject> itemsToAdd = new List<GameObject>();
+        foreach (GameObject t in SpawnManager.instance.listEnemiesOnField) {
+            if (t != null) {
+                itemsToAdd.Add(t);
+            }
+        }
+        foreach (GameObject enemy in itemsToAdd){
             if (Vector3.Distance(projectileObj.transform.position, enemy.transform.position) < radius){
                 enemy.GetComponent<EnemyStats>().damageFireHurricane(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100);
             }
@@ -60,7 +66,6 @@ public class HurricaneAbility : Ability
                 activeTime -= Time.deltaTime;
             }
             else{
-                Debug.Log("DESTROYING");
                 isActive = false;
                 isOnCooldown = true;
                 cooldownTime = StatDictionary.dict[name][1];

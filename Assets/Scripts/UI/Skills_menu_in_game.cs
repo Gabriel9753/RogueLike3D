@@ -113,7 +113,6 @@ public class Skills_menu_in_game : MonoBehaviour{
 
     public void setupUI(List<string> nameAbilites, List<KeyCode> keyFromAbilities, List<Sprite> spriteAbilities, List<float> cooldownTimeAbilities){
         for (int i = 0; i < nameAbilites.Count; i++){
-            print(i + " " + nameAbilites[i] + " " + keyFromAbilities[i]);
             if (nameAbilites[i] == "Dash"){
                 cooldown_skill_dash = cooldownTimeAbilities[i];
                 skillImage_skill_dash.sprite = spriteAbilities[i];

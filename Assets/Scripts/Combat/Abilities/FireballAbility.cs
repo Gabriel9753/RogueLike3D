@@ -51,7 +51,6 @@ public class FireballAbility : Ability{
             if (Vector3.Distance(enemy.transform.position, spawnPosition) < explosionRange){
                 if (Vector3.Distance(spawnPosition, enemy.transform.position) <
                     Vector3.Distance(spawnPosition, nearestEnemyDistance)){
-                    Debug.Log(enemy.name + " is near!");
                     nearestEnemyDistance = enemy.transform.position;
                 }
 
@@ -59,9 +58,7 @@ public class FireballAbility : Ability{
             }
         }
 
-        Debug.Log("Distance: " + Vector3.Distance(spawnPosition, nearestEnemyDistance));
         if (Vector3.Distance(spawnPosition, nearestEnemyDistance) < 9f){
-            Debug.Log("FIREBALL HIT ENEMY");
             fireExplosionCreated = Instantiate(fireExplosion, nearestEnemyDistance + Vector3.up * 2.5f,
                 Quaternion.Euler(new Vector3(0, 0, 0)));
         }

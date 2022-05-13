@@ -39,7 +39,6 @@ public class CosmicReversalAbility : Ability
 
     public override IEnumerator Active(){
         if (activeTime < 0.65f){
-            Debug.Log("COLLIDERCOLLIDER");
             destroyable_projectile.GetComponent<CapsuleCollider>().enabled = true;
         }
         if (activeTime > 0){

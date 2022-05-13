@@ -44,7 +44,6 @@ public class SetupWorld : MonoBehaviour{
         if (destroyPlayer){
             CameraFollow.instance.target = Player.instance.transform;
         }
-        print(baseRoomEntrance);
         Player.instance.transform.position = baseRoomEntrance.transform.position;
         WorldManager.instance.startedGame = false;
         foreach (GameObject ui in UIElementsActiveBegin){

@@ -10,7 +10,6 @@ public class Projectile : MonoBehaviour{
             if (name == "Fireball(Clone)"){
                 other.gameObject.GetComponent<EnemyStats>().TakeDamage(StatDictionary.dict["Fireball"][2]);
                 if (!ability.fireballs_to_destroy.Contains(gameObject)){
-                    Debug.Log("Adding: " + name + " " + gameObject.name);
                     ability.fireballs_to_destroy.Add(gameObject);
                     //ability.collsionObjectPosition.Add(other.transform.position);
                 }

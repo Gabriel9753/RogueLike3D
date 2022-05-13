@@ -84,7 +84,6 @@ public class MagicOrb : Ability
         if (AbilityHolder.magicOrbAnimationReady){
             AbilityHolder.magicOrbAnimationReady = false;
             projectileObj = Instantiate(projectile, destination, rotation);
-            Debug.Log(destination);
             activeTime = StatDictionary.dict[name][0];
             startedSpell = true;
         }
@@ -98,7 +97,6 @@ public class MagicOrb : Ability
                 activeTime -= Time.deltaTime;
             }
             else{
-                Debug.Log("DESTROYING");
                 isActive = false;
                 isOnCooldown = true;
                 cooldownTime = StatDictionary.dict[name][1];

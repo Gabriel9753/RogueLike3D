@@ -23,7 +23,6 @@ public class Teleporter : MonoBehaviour
             Player.instance._agent.ResetPath();
             Player.instance.GetComponent<NavMeshAgent>().enabled = false;
             Player.nearTeleporter = false;
-            print(Player.instance.transform.position + " " + SetupWorld.instance.mainRoomEntrance.transform.position);
             Player.instance.transform.position = SetupWorld.instance.mainRoomEntrance.transform.position;
             Player.instance.GetComponent<NavMeshAgent>().enabled = true;
         }

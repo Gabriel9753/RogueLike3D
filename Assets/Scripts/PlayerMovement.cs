@@ -47,7 +47,6 @@ public class PlayerMovement:MonoBehaviour{
                 
                 
                 if (Physics.Raycast(ray, out hit, maxDistance, moveMask)){
-                    print("DETECT");
                     if (Vector3.Distance(hit.point, transform.position) < 0.3f){
                         animator.SetBool("isRunning", false);Player.instance.destination = transform.position;agent.ResetPath();return;}
                     animator.SetBool("isRunning", true);

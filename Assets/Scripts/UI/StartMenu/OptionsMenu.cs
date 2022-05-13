@@ -23,4 +23,8 @@ public class OptionsMenu : MonoBehaviour{
         optionsUI.SetActive(false);
         startMenuUI.SetActive(true);
     }
+
+    public void SetResoltion(){
+        Screen.SetResolution(1920,1080,true, 60);
+    }
 }

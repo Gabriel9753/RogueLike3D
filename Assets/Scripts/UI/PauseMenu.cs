@@ -35,10 +35,8 @@ public class PauseMenu : MonoBehaviour{
     }
 
     public void Options(){
-        print("Option button pressed");
     }
     public void Exit(){
-        print("Exit button pressed");
         SceneManager.LoadScene("Spiel");
     }
 }

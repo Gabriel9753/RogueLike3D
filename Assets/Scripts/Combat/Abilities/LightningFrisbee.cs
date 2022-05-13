@@ -110,7 +110,6 @@ public class LightningFrisbee : Ability
         
         if (AbilityHolder.LightningFrisbeeReady){
             AbilityHolder.LightningFrisbeeReady = false;
-            Debug.Log(destination);
             projectileObj = Instantiate(projectile, destination, rotation);
             activeTime = StatDictionary.dict[name][0];
             startedSpell = true;
