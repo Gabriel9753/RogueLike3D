@@ -60,6 +60,7 @@ public class Spawner : MonoBehaviour{
         StartCoroutine(spawnCooldown(spawnRate));
         GameObject enemy = Instantiate(enemyToSpawn, randomPosition, Quaternion.Euler(0, 0, 0));
         calculateStatsAndSet(enemy);
+        enemy.GetComponent<EnemyMovement>().spawnPosition = randomPosition;
         enemy.GetComponent<NavMeshAgent>().enabled = true;
         spawnedEnemies.Add(enemy);
         SpawnManager.instance.listEnemiesOnField.Add(enemy);

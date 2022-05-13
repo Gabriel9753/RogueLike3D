@@ -11,7 +11,7 @@ public class EnemyStats : MonoBehaviour{
     public int level = 0;
     public float exp = 0;
     public float gold;
-
+    public string enemyType;
     public float maxHealth = 200;
     public float health = 50;
     public float damage;
@@ -103,6 +103,9 @@ public class EnemyStats : MonoBehaviour{
         if (health <= 0){
             Die();
         }
+        else if (enemyType == "mage"){
+            _animator.Play("hit");
+        }
         else{
             if (hittibaleWhileAttack){
                 if (Random.Range(0, 100) < possibilityForKnockback){
@@ -115,7 +118,9 @@ public class EnemyStats : MonoBehaviour{
                 }
             }
         }
+        
     }
+
 
     public void Die(){
         isDead = true;

@@ -169,7 +169,12 @@ public class StatsMenu : MonoBehaviour
         awarenessRange_value.text = ""+Player.instance.awarenessRange;
         //---------------
         time.text = "Time";
-        time_value.text = "2:32 min";
+        float tempTime = WorldManager.instance.timer;
+        float seconds = (tempTime / 60 - (int) tempTime);
+        if (seconds < 0){
+            seconds *= -1;
+        }
+        time_value.text = ""+(int)tempTime/60+":"+(int)seconds%60;
         //---------------
         killed_enemies.text = "Killed mobs";
         killed_enemies_value.text = ""+Player.instance.killed_mobs;

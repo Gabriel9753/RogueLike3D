@@ -25,7 +25,12 @@ public class StartMenu : MonoBehaviour
             level.text = "Level";
             level_v.text = ""+PlayerPrefs.GetInt("level");
             time.text = "Time";
-            time_v.text = ""+(int)PlayerPrefs.GetFloat("time");
+            float tempTime = (int)PlayerPrefs.GetFloat("time");
+            float seconds = (tempTime / 60 - (int) tempTime);
+            if (seconds < 0){
+                seconds *= -1;
+            }
+            time_v.text = ""+(int)tempTime/60+"min "+(int)seconds%60+"s";
             gold.text = "Gold";
             gold_v.text = ""+PlayerPrefs.GetInt("gold");
             killedEnemies.text = "Killed Enemies";

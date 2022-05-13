@@ -325,7 +325,7 @@ public class PlayerStats : MonoBehaviour{
         //HealthSystemGUI.instance.TakeDamage(damage);
 
         // If we hit 0. Die.
-        if (health <= 0){
+        if (health < 1){
             Player.instance.Die();
         }
     }

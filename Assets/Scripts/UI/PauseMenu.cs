@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour{
     public void Options(){
     }
     public void Exit(){
+        Resume();
         SceneManager.LoadScene("Spiel");
     }
 }

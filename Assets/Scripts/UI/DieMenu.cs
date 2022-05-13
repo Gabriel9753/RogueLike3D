@@ -55,7 +55,12 @@ public class DieMenu : MonoBehaviour{
         level.text = "Level";
         level_v.text = ""+Player.instance.level;
         time.text = "Time";
-        time_v.text = ""+(int)WorldManager.instance.timer + "s";
+        float tempTime = WorldManager.instance.timer;
+        float seconds = (tempTime / 60 - (int) tempTime);
+        if (seconds < 0){
+            seconds *= -1;
+        }
+        time_v.text = ""+(int)tempTime/60+"min "+(int)seconds%60+"s";
         gold.text = "Gold";
         gold_v.text = ""+(int)Player.instance.gold;
         killedEnemies.text = "Killed Enemies";

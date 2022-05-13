@@ -5,15 +5,15 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class EnemyMovement : MonoBehaviour
-{
+public class EnemyMovement : MonoBehaviour{
+    public Vector3 spawnPosition;
     public float lookRadius = 8f;
     public float movementSpeed = 8f;
     public bool attackReady = true;
     public bool attackReadyOnCooldown = true;
     public float fleeRate = 60;
     //private float cooldownAttack = 6;
-
+    public bool reachedSpawn;
     public bool isFleeing = false;
     public bool isStuck = false;
     public bool isChecked = false;
@@ -31,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject weapon;
     private BoxCollider _boxCollider;
     void Start(){
+        reachedSpawn = true;
         _boxCollider = weapon.GetComponent<BoxCollider>();
         agent = GetComponent<NavMeshAgent>();
         if (!Player.instance.isDead){
@@ -44,10 +45,17 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Update (){
+        if (!reachedSpawn){
+            if (Vector3.Distance(transform.position, spawnPosition) < 2f){
+                agent.ResetPath();
+                reachedSpawn = true;
+            }
+        }
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") || _animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
             agent.speed = 0;
+            agent.ResetPath();
         }
         else if (slowed){
             agent.speed = movementSpeed - movementSpeed * Player.instance.slowdown_up/100;
@@ -57,7 +65,12 @@ public class EnemyMovement : MonoBehaviour
         }
         // If inside the radius
         if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("die") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
-            if (distance <= lookRadius * Player.instance.awarenessRange){
+            if (Vector3.Distance(transform.position, spawnPosition) > 15f){
+                agent.ResetPath();
+                agent.destination = spawnPosition;
+                reachedSpawn = false;
+            }
+            else if (distance <= lookRadius * Player.instance.awarenessRange && reachedSpawn){
                 if (distance <= 3f && attackReady && Random.Range(0,100) < 3){
                     //if player is near -> Attack
                     FaceTarget();
