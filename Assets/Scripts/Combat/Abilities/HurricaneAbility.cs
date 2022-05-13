@@ -18,7 +18,7 @@ public class HurricaneAbility : Ability
     }
 
     void moveOverTime(){
-        projectileObj.transform.position = Player.instance.transform.position + Vector3.up * 1.4f;
+        projectileObj.transform.position = Player.instance.transform.position + Vector3.up * 1f;
     }
     void makeDamage(){
         List<GameObject> itemsToAdd = new List<GameObject>();
@@ -53,7 +53,7 @@ public class HurricaneAbility : Ability
         
         if (AbilityHolder.FireHurricaneReady){
             AbilityHolder.FireHurricaneReady = false;
-            projectileObj = Instantiate(projectile, Player.instance.transform.position + Vector3.up * 1.4f, Quaternion.identity);
+            projectileObj = Instantiate(projectile, Player.instance.transform.position + Vector3.up * 1f, Quaternion.identity);
             activeTime = StatDictionary.dict[name][0];
             startedSpell = true;
         }
