@@ -83,7 +83,7 @@ public class LightningFrisbee : Ability
             activeTime += 0.3f;
             enemyHitCounter =
                 enemyDestination.GetComponent<EnemyStats>().damageOverTimeLightningFrisbee(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100)
-                    ? enemyHitCounter++
+                    ? enemyHitCounter+1
                     : enemyHitCounter;
         }
     }

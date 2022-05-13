@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Build.Content;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class XP_UI : MonoBehaviour

@@ -301,7 +301,7 @@ public class Player : MonoBehaviour{
     }
 
     public bool notWalkCauseUI(){
-        if (LevelUpUpgradesUI.Instance.uiActive || Shop.isEnabled){
+        if (LevelUpUpgradesUI.Instance.uiActive || Shop.isEnabled || PauseMenu.gameIsPause){
             return true;
         }
 
