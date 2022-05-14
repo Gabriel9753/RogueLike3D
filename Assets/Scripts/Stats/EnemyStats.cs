@@ -41,6 +41,10 @@ public class EnemyStats : MonoBehaviour{
             Player.instance.killed_mobs++;
             Destroy(gameObject);
         }
+
+        if (GetComponent<Sounds3D>().isPlaying("Hit")){
+            GetComponent<Sounds3D>().Stop("Hit");
+        }
     }
 
     public void damageOverTime(float damage){
@@ -108,6 +112,16 @@ public class EnemyStats : MonoBehaviour{
         else if (enemyType == "mage"){
             _animator.Play("hit");
         }
+        else if (enemyType == "Boss"){
+            if (hittibaleWhileAttack){
+                if (Random.Range(0, 100) < possibilityForKnockback){
+                    _animator.Play("hit");
+                    GetComponent<BossMovement>().endAttack();
+                    _animator.SetBool("Run", false);
+                    _agent.ResetPath();
+                }
+            }
+        }
         else{
             if (hittibaleWhileAttack){
                 if (Random.Range(0, 100) < possibilityForKnockback){
@@ -133,7 +147,13 @@ public class EnemyStats : MonoBehaviour{
         
         GetComponent<CapsuleCollider>().enabled = false;
         _agent.speed = 0;
-        GetComponent<EnemyMovement>().enabled = false;
+        if (enemyType == "Boss"){
+            GetComponent<BossMovement>().enabled = false;
+            Player.instance.spell_dmg_up += Player.instance.spell_dmg_up * 0.03f * level;
+        }
+        else{
+            GetComponent<EnemyMovement>().enabled = false;
+        }
         _animator.Play("die");
         
         //Tell spawnmanager that this enemy died

@@ -21,6 +21,11 @@ public class PlayerAttack : MonoBehaviour{
 
     public float cooldownRunAttack = 2f;
     private bool runAttackReady;
+
+    public GameObject slashVFX1;
+    public GameObject slashVFX2;
+    public GameObject slashVFX3;
+    public GameObject slashVFX4;
     
     
     
@@ -94,6 +99,6 @@ public class PlayerAttack : MonoBehaviour{
         Player.instance.GetComponent<PlayerStats>().TakeDamage(damage);
         Player.instance.GetComponent<PlayerCombo>().ResetCombo();
     }
-    
+
     
 }

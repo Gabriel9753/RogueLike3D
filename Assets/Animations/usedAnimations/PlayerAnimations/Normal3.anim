@@ -123131,6 +123131,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.28333333
+    functionName: startSlashVFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5833333
     functionName: endAttack
     data: 
@@ -123145,6 +123152,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.1666666
+    functionName: SlashVFX_3_2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.45
     functionName: endAttack
     data: 
@@ -123154,6 +123168,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.9333333
     functionName: startAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.9833333
+    functionName: SlashVFX_3_3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

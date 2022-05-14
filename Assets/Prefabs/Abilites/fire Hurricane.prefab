@@ -4708,7 +4708,7 @@ ParticleSystem:
   LightsModule:
     enabled: 0
     ratio: 1
-    light: {fileID: 0}
+    light: {fileID: 4560056790956805035}
     randomDistribution: 1
     color: 1
     range: 1
@@ -10531,7 +10531,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 920.74756
+  m_Intensity: 38.431614
   m_Range: 8.026332
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10593,7 +10593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 723.15344
+  m_Intensity: 30.18412
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0

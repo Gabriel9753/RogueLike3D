@@ -15,11 +15,11 @@ MonoBehaviour:
   name: LightningFrisbee
   symbol: {fileID: 21300000, guid: df5153fca31c9bf47b2d36359b5dd373, type: 3}
   activeTime: 0
-  cooldownTime: -0.0058266763
+  cooldownTime: 26.124073
   key: 114
-  isReady: 1
+  isReady: 0
   isActive: 0
-  isOnCooldown: 0
+  isOnCooldown: 1
   moveMask:
     serializedVersion: 2
     m_Bits: 512

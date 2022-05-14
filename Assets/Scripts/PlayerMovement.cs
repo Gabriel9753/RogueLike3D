@@ -44,7 +44,6 @@ public class PlayerMovement:MonoBehaviour{
         if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit() && !Player.instance.notWalkCauseUI()){
             if (Input.GetMouseButton(0)){
                 Ray ray = Player.instance.camera.ScreenPointToRay(Input.mousePosition);
-                print(ray.origin + " " + Player.instance.camera.transform.position);
                 if (Physics.Raycast(ray, out hit, maxDistance, moveMask)){
                     if (Vector3.Distance(hit.point, transform.position) < 0.3f){
                         animator.SetBool("isRunning", false);Player.instance.destination = transform.position;agent.ResetPath();return;}

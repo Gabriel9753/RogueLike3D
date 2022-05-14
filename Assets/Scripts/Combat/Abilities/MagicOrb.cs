@@ -108,6 +108,14 @@ public class MagicOrb : Ability
                 startedSpell = false;
             }
         }
+        else if (!startedSpell && (Player.instance.isHit() || Player.instance.isRunning())){
+            isActive = false;
+            activeTime = 0;
+            isOnCooldown = true;
+            cooldownTime = StatDictionary.dict[name][1];
+            cooldownTime -= StatDictionary.dict[name][1] * Player.instance.cooldown_up/100;
+            Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
+        }
         
         yield break;
     }

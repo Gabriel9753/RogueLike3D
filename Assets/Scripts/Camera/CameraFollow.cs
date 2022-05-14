@@ -13,9 +13,9 @@ public class CameraFollow : MonoBehaviour
     
     public float smoothSpeed = 2f;
 
-    public float currentZoom = 1f;
-    public float maxZoom = 3f;
-    public float minZoom = .3f;
+    public float currentZoom = 35f;
+    public float maxZoom = 40f;
+    public float minZoom = 30f;
     public float zoomSensitivity = .7f;
 
     float zoomSmoothV;
@@ -49,7 +49,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     void LateUpdate () {
-        gameObject.GetComponent<Camera>().orthographicSize = currentZoom;
+        gameObject.GetComponent<Camera>().fieldOfView = currentZoom;
     }
 
 }

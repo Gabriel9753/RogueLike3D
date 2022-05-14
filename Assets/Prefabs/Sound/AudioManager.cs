@@ -45,12 +45,14 @@ public class AudioManager : MonoBehaviour{
         foreach (var x in sounds){
             if (x.musicForRun){
                 if (x.source.isPlaying){
-                    Stop(x.source.name);
+                    print("stop" + x.name);
+                    Stop(x.name);
                 }
             }
         }
         while(true)
         {
+            print("start" + s.name);
             s.source.Play();
             yield return new WaitForSeconds(length);
             nextSoundReady = true;
@@ -60,7 +62,6 @@ public class AudioManager : MonoBehaviour{
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
             return;
-        Debug.Log(name + " is playing!");
         s.source.Play();
     }
 
@@ -68,7 +69,6 @@ public class AudioManager : MonoBehaviour{
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
             return;
-        Debug.Log(name + " stops!");
         s.source.Stop();
     }
 }

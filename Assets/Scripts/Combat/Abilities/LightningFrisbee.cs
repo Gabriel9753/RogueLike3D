@@ -80,11 +80,14 @@ public class LightningFrisbee : Ability
     }
     void makeDamage(){
         if (enemyDestination && Vector3.Distance(projectileObj.transform.position, enemyDestination.transform.position) < 4f){
-            activeTime += 0.4f;
+            int tempEnemeyHitCounter = enemyHitCounter;
             enemyHitCounter =
                 enemyDestination.GetComponent<EnemyStats>().damageOverTimeLightningFrisbee(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100)
                     ? enemyHitCounter+1
                     : enemyHitCounter;
+            if (tempEnemeyHitCounter < enemyHitCounter){
+                activeTime += 0.3f;
+            }
         }
     }
 

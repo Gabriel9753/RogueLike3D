@@ -23,8 +23,10 @@ public class FireballAbility : Ability{
     private Quaternion rotation;
 
     private Vector3 moveDirection;
+    private bool startedSpell;
 
     public override void Activate(){
+        startedSpell = false;
         Player.instance._agent.ResetPath();
         Player.instance.PlayerToMouseRotation();
         positionOnScreen = camera.WorldToViewportPoint(Player.instance.transform.position);
@@ -116,6 +118,7 @@ public class FireballAbility : Ability{
             fireExplosionCreated = null;
             moveDirection = (new Vector3(destination.x, castPosition.y, destination.z) - castPosition).normalized * projectileSpeed;
             //projectileCreated.GetComponent<Rigidbody>().velocity = (new Vector3(destination.x, castPosition.y, destination.z) - castPosition).normalized * projectileSpeed;
+            startedSpell = true;
         }
 
         if (activeTime > 0){
@@ -123,17 +126,28 @@ public class FireballAbility : Ability{
             moveFireball();
             check_if_destroy();
         }
+        else if (!startedSpell && (Player.instance.isHit() || Player.instance.isRunning())){
+            isActive = false;
+            activeTime = 0;
+            isOnCooldown = true;
+            cooldownTime = StatDictionary.dict[name][1];
+            cooldownTime -= StatDictionary.dict[name][1] * Player.instance.cooldown_up/100;
+            Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
+        }
         else{
             if (projectileCreated){
                 fireballExplosion(projectileCreated.transform.position);
                 Destroy(projectileCreated);
             }
+
+            startedSpell = false;
             isActive = false;
             isOnCooldown = true;
             cooldownTime = StatDictionary.dict[name][1];
             cooldownTime -= StatDictionary.dict[name][1] * Player.instance.cooldown_up/100;
             Skills_menu_in_game.Instance.startCooldownSlider(name, cooldownTime);
         }
+
 
         yield break;
     }
