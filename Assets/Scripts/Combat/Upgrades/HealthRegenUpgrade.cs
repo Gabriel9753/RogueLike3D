@@ -6,7 +6,7 @@ public class HealthRegenUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Passive healer\n \nIncrease your regeneration of health by {var1}%";
+        text = $"Passive healer\n \n Increase your regeneration by {Mathf.Round(var1*100f)/100f}HP per second";
     }
 
     public override string GetText(){
@@ -19,8 +19,8 @@ public class HealthRegenUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        float min = 10 + Player.instance.level * 2 / 10;
-        float max = 30 + Player.instance.level * 5/10;
+        float min = 0.3f;
+        float max = 0.6f;
         return Random.Range((float)System.Math.Round(min,2),(float)System.Math.Round(max,2));
     }
 }

@@ -93,20 +93,20 @@ public class Spawner : MonoBehaviour{
         }
         
         //calculate xp
-        xp = enemyLevel * 1.5f + 20;
+        xp = enemyLevel * 1.5f;
         //calculate health
-        health = enemyLevel * 1.7f + 30;
+        health = enemyLevel * 2.3f;
 
-        damage = enemyLevel * 1.3f + 6;
+        damage = enemyLevel * 1.7f;
 
-        gold = enemyLevel * 1.54f + 3.5f;
+        gold = enemyLevel * 1.5f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }
 
     IEnumerator spawnCooldown(float cooldown){
         spawnReady = false;
-        yield return new WaitForSecondsRealtime(Random.Range(cooldown - 1, cooldown + 1));
+        yield return new WaitForSecondsRealtime(Random.Range(cooldown - 5, cooldown));
         spawnReady = true;
     }
 

@@ -6,7 +6,7 @@ public class ResistanceUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Tanki thingn\n \nDefense +{var1}.";
+        text = $"Tanki thingn\n \n You are {Mathf.Round(var1*100f)/100f}% more robust.";
     }
 
     public override string GetText(){
@@ -19,6 +19,6 @@ public class ResistanceUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((1+Player.instance.level*2), (30+Player.instance.level*5));
+        return 7f;
     }
 }

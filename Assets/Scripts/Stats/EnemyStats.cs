@@ -7,12 +7,19 @@ using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EnemyStats : MonoBehaviour{
+    //For leveling stats
+    public float baseHealth;
+    public float baseExp;
+    public float baseDamage;
+    public float baseGold;
 
+    
     public int level = 0;
     public float exp = 0;
     public float gold;
     public string enemyType;
     public float maxHealth = 200;
+    
     public float health = 50;
     public float damage;
     private Animator _animator;
@@ -161,12 +168,12 @@ public class EnemyStats : MonoBehaviour{
     }
     
     public void setStats(float exp, float health, float damage, float gold){
-        this.exp = exp;
-        this.health = health;
-        maxHealth = health;
+        this.exp = baseExp +exp;
+        this.health = baseHealth + health;
+        maxHealth = baseHealth + health;
 
-        this.damage = damage;
-        this.gold = gold;
+        this.damage = baseDamage + damage;
+        this.gold = baseGold + gold;
     }
 
     public float calculateDamage(){

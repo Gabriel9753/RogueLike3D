@@ -6,7 +6,7 @@ public class MovementSpeedUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Hermes\n \nIncrease your players movement speed by {var1}%";
+        text = $"Hermes\n \nIncrease your players movement speed by {Mathf.Round(var1*100f)/10f}";
     }
 
     public override string GetText(){
@@ -19,6 +19,6 @@ public class MovementSpeedUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range(0.1f, 0.3f);
+        return Mathf.Round(Random.Range(0.1f,0.3f)*100f)/100f;
     }
 }

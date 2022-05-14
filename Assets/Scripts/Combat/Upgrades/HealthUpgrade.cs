@@ -6,7 +6,7 @@ public class HealthUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Life expansion\n \nIncrease your maximum health by {var1}.";
+        text = $"Life expansion\n \nIncrease your maximum health by {Mathf.Round(var1*100f)/100f}.";
     }
 
     public override string GetText(){
@@ -19,6 +19,6 @@ public class HealthUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((1+Player.instance.level*2), (30+Player.instance.level*5));
+        return Random.Range((int)(5+Player.instance.level*0.7f), (int)(40+Player.instance.level*0.9f));
     }
 }

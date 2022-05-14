@@ -6,7 +6,7 @@ public class EXPMultiplierUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Gimme more!\n \nGet +{var1}% experience points!";
+        text = $"Gimme more!\n \nGet {Mathf.Round(var1*100f)}% more experience points!";
     }
 
     public override string GetText(){
@@ -19,6 +19,6 @@ public class EXPMultiplierUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((1+Player.instance.level*2), (30+Player.instance.level*5));
+        return 0.5f;
     }
 }

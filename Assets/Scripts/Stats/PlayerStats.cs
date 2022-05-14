@@ -322,7 +322,7 @@ public class PlayerStats : MonoBehaviour{
         // Make sure damage doesn't go below 0.
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         // damage calculation with respect of resistance
-        damage -= resistance;
+        damage *= 1-(resistance/100f); 
         health -= damage;
         Player.instance.health -= damage;
         //HealthSystemGUI.instance.TakeDamage(damage);
@@ -335,8 +335,8 @@ public class PlayerStats : MonoBehaviour{
     
     
     public float CalculateDamage(float critChance, float critDamage, float rawDamage){
-        if (critChance > 100){
-            critChance = 100;
+        if (critChance > 80){
+            critChance = 80;
         }
         if (Random.Range(0, 100) < critChance){
            Heal((rawDamage + rawDamage * critDamage / 100)*lifesteal);

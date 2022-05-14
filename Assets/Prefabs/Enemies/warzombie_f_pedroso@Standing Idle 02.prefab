@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c698e932feaf45867ca5ec55f5fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 18
   movementSpeed: 8
   attackReady: 1
   attackReadyOnCooldown: 1
@@ -1012,6 +1012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 40
+  baseExp: 16
+  baseDamage: 20
+  baseGold: 9
   level: 0
   exp: 0
   gold: 0

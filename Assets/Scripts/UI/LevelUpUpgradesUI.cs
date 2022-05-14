@@ -58,11 +58,18 @@ public class LevelUpUpgradesUI : MonoBehaviour{
     }
 
     public void ActivateUI(){
-        UpManager.instance.LevelUpped();
-        UpdateUIAbilities();
-        uiActive = true;
-        Time.timeScale = 0f;
-        UpgradeMenuUI.SetActive(true);
+        if(Player.instance.level <= 80){
+            UpManager.instance.LevelUpped();
+            UpdateUIAbilities();
+            uiActive = true;
+            Time.timeScale = 0f;
+            UpgradeMenuUI.SetActive(true);
+            
+        }
+        else{
+            XP_UI.Instance.uncompletedUps--;
+        }
+        
     }
 
     public void closeUI(){

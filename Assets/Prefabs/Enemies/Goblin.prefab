@@ -1916,8 +1916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
-  lookRadius: 15
-  movementSpeed: 6.5
+  lookRadius: 18
+  movementSpeed: 10.5
   attackReady: 1
   attackReadyOnCooldown: 1
   fleeRate: 90
@@ -1939,6 +1939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 60
+  baseExp: 18
+  baseDamage: 12
+  baseGold: 2
   level: 3
   exp: 0
   gold: 0

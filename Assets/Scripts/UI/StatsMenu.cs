@@ -148,7 +148,7 @@ public class StatsMenu : MonoBehaviour
         expMultiplier_value.text = ""+Player.instance.expMultiplier;
         //---------------
         movementSpeed.text = "Move speed";
-        movementSpeed_value.text = ""+Player.instance.movementSpeed;
+        movementSpeed_value.text = ""+(Player.instance.movementSpeed*10f);
         //---------------
         resistance.text = "Defense";
         resistance_value.text = ""+Player.instance.resistance;

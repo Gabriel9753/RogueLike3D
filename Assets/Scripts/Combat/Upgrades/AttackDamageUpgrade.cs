@@ -6,7 +6,7 @@ public class AttackDamageUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Strength like hulk\n \nIncrease your DMG by: {var1} and become stronger!";
+        text = $"Tiger Power\n \nIncrease your Attack Damage by {var1} and become stronger!";
     }
 
     public override string GetText(){
@@ -19,6 +19,6 @@ public class AttackDamageUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((1+Player.instance.level*2), (30+Player.instance.level*5));
+        return Mathf.Round(Random.Range(Player.instance.level*0.7f*100f,Player.instance.level*0.9f*100f)/100f);
     }
 }

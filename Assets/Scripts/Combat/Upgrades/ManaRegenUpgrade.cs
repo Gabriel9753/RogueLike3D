@@ -5,7 +5,7 @@ using UnityEngine;
 public class ManaRegenUpgrade : Upgrade{
     public override void SetText(float var1){
         value = var1;
-        text = $"Passive mana\n \nIncrease your regeneration of mana by {var1}%";
+        text = $"Passive mana\n \nIncrease your regeneration by {Mathf.Round(var1*100f)/100f} Mana per second";
     }
 
     public override string GetText(){
@@ -18,8 +18,8 @@ public class ManaRegenUpgrade : Upgrade{
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        float min = 10 + Player.instance.level * 2;
-        float max = 30 + Player.instance.level * 5;
+        float min = 0.5f;
+        float max = 0.8f;
         return Random.Range((float)System.Math.Round(min,2),(float)System.Math.Round(max,2));
     }
 }
