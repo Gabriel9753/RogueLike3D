@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c9614e964d2e48880696b5cee7545, type: 3}
   m_Name: New Movement Speed Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Hermes\n \nIncrease your players movement speed by 48%"
+  symbol: {fileID: 21300000, guid: ef630bd2e9341ec4e955ee2eedcf33d1, type: 3}
+  value: 48
+  type: movement_up

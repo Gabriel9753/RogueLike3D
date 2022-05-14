@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0933c1f5a4c7af4bb71cb7d82707f0f, type: 3}
   m_Name: New Lifesteal Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Vampire\n Steel 58% more health from your enemies!"
+  symbol: {fileID: 21300000, guid: ecd405cee8c8a174f99f9e31b6393b07, type: 3}
+  value: 58
+  type: lifesteal_up

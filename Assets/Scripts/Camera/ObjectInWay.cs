@@ -8,8 +8,8 @@ public class ObjectInWay : MonoBehaviour{
     public Color col;
     public bool isFadeOut;
     public bool isFadeIn;
-    
-    
+
+
     public void Start(){
         mat = gameObject.GetComponent<Renderer>().material;
         col = mat.color;
@@ -37,16 +37,17 @@ public class ObjectInWay : MonoBehaviour{
         isFadeOut = true;
         Color matColor = mat.color;
         float alphaValue = mat.color.a;
-        
         while (mat.color.a > 0f){
             alphaValue -= Time.deltaTime / fadeSpeed;
-            if (alphaValue >= 0f && alphaValue <= 1f){mat.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);}
+            if (alphaValue >= 0f && alphaValue <= 1f){
+                setAlpha(alphaValue);
+            }
             else{
                 break;
             }
             yield return null;
         }
-        
+
         mat.color = new Color(matColor.r, matColor.g, matColor.b, 0f);
         isFadeOut = false;
     }
@@ -59,7 +60,7 @@ public class ObjectInWay : MonoBehaviour{
         while (mat.color.a <= 1f && mat.color.a >= 0f){
             alphaValue += Time.deltaTime / fadeSpeed;
             if (alphaValue < 1f && alphaValue > 0f){
-                mat.color = new Color(matColor.r, matColor.g, matColor.b, alphaValue);
+                setAlpha(alphaValue);
             }
             else{
                 break;
@@ -69,5 +70,16 @@ public class ObjectInWay : MonoBehaviour{
 
         mat.color = new Color(matColor.r, matColor.g, matColor.b, 1f);
         isFadeIn = false;
+    }
+    
+    public void setAlpha(float alpha) {
+        Renderer[] children = GetComponentsInChildren<Renderer>();
+        Color newColor;
+        foreach(Renderer child in children){
+            
+            newColor = child.material.color;
+            newColor.a = alpha;
+            child.material.color = newColor;
+        }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e010bc64436b33e489eba0bed6bebf42, type: 3}
   m_Name: New Health Regen Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Passive healer\n \nIncrease your regeneration of health by 12.7048%"
+  symbol: {fileID: 21300000, guid: c3aab7237df394c4890e647a4ae580ea, type: 3}
+  value: 12.7048
+  type: hpReg_up

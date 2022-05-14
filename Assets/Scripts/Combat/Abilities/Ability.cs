@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Ability : ScriptableObject{
-    public string name;
+    public new string name;
     public Sprite symbol;
     public float activeTime;
     public float cooldownTime;
@@ -18,8 +18,11 @@ public class Ability : ScriptableObject{
     protected Vector3 destination;
     public LayerMask moveMask;
     public static Animator playerAnimator;
-    public List<GameObject> hit_enemies; 
+    public List<GameObject> hit_enemies;
+    public List<GameObject> hit_frisbee_enemies;
     
+    public List<GameObject> fireballs_to_destroy;
+
     public virtual void Activate(){ }
 
     public virtual IEnumerator Ready(){
@@ -31,7 +34,6 @@ public class Ability : ScriptableObject{
     }
 
     public virtual IEnumerator OnCooldown(){
-
         yield break;
     }
 }

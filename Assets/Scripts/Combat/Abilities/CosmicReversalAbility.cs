@@ -6,7 +6,7 @@ using UnityEngine;
 public class CosmicReversalAbility : Ability
 {
     public GameObject projectile;
-    private float projectileSpeed = 15;
+    
     private GameObject destroyable_projectile;
 
     public override void Activate(){
@@ -30,7 +30,7 @@ public class CosmicReversalAbility : Ability
 
     public override IEnumerator Ready(){
         isReady = false;
-        
+        Player.instance.animator.Play(name);
         Activate();
         isActive = true;
         activeTime = StatDictionary.dict[name][0];
@@ -39,7 +39,6 @@ public class CosmicReversalAbility : Ability
 
     public override IEnumerator Active(){
         if (activeTime < 0.65f){
-            Debug.Log("COLLIDERCOLLIDER");
             destroyable_projectile.GetComponent<CapsuleCollider>().enabled = true;
         }
         if (activeTime > 0){

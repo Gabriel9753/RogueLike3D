@@ -7,7 +7,7 @@ using UnityEngine.AI;
 using UnityEngine.Serialization;
 
 public class PlayerMovement:MonoBehaviour{
-    private new Camera camera;
+    //private new Camera camera;
     public NavMeshAgent agent;
     private RaycastHit hit;
     public static Animator animator;
@@ -16,22 +16,22 @@ public class PlayerMovement:MonoBehaviour{
     public float baseSpeed;
     public float cooldownDash = 1f;
     public bool isDashReady = true;
-    
-    
 
-    
 
     private Vector3 startScale;
     public Vector3 dashScale;
     public float shrinkDuration;
     public GameObject dashVFX;
 
+
+    private bool footsteps = false;
     // Called when a script is enabled
     void Start(){
         animator = Player.instance.getAnimator();
         agent = GetComponent<NavMeshAgent>();
         startScale = transform.localScale;
         baseSpeed = Player.instance.movementSpeed;
+        Player.instance.GetComponent<NavMeshAgent>().enabled = true;
     }
 
     // Called once every frame
@@ -41,9 +41,10 @@ public class PlayerMovement:MonoBehaviour{
             Player.instance._agent.speed = Player.instance.movementSpeed;
         }
         //agent.speed = Player.instance.movementSpeed;
-        if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit()){
+        if (!Player.instance.isDashing() && !Player.instance.isAttacking() && !Player.instance.moveAttack() && !Player.instance.isHit() && !Player.instance.notWalkCauseUI()){
             if (Input.GetMouseButton(0)){
-                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Player.instance.camera.ScreenPointToRay(Input.mousePosition);
+                print(ray.origin + " " + Player.instance.camera.transform.position);
                 if (Physics.Raycast(ray, out hit, maxDistance, moveMask)){
                     if (Vector3.Distance(hit.point, transform.position) < 0.3f){
                         animator.SetBool("isRunning", false);Player.instance.destination = transform.position;agent.ResetPath();return;}
@@ -69,22 +70,17 @@ public class PlayerMovement:MonoBehaviour{
             Player.instance.movementSpeed = baseSpeed;
         }
         
-        //Dash direct after attacking for fast moving
-        /*
-        if (Player.instance.isAttacking() && isDashReady && !Player.instance.isHit()){
-            if (Input.GetKeyDown(DashAbility.instance.key)){
-                DashAbility.InterruptAttackToDash();
-            }
-        }
-
-        if (Player.instance.moveAttack() && isDashReady && !Player.instance.isHit()){
-            if (Input.GetKeyDown(DashAbility.instance.key)){
-                DashAbility.InterruptAttackToDash();
-            }
-        }*/
-
         if (Player.instance.isDashing()){
             animator.SetBool("attackToDash", false);
+        }
+
+        if (Player.instance.isRunning() && !Player.instance.GetComponent<Sounds3D>().isPlaying("Footsteps")){
+            
+            Player.instance.GetComponent<Sounds3D>().Play("Footsteps");
+        }
+        if((!Player.instance.isRunning() && Player.instance.GetComponent<Sounds3D>().isPlaying("Footsteps"))
+           || PauseMenu.gameIsPause || LevelUpUpgradesUI.Instance.uiActive || Shop.isEnabled || DieMenu.instance.DieMenuEnabled){
+            Player.instance.GetComponent<Sounds3D>().Stop("Footsteps");
         }
     }
     
@@ -92,15 +88,7 @@ public class PlayerMovement:MonoBehaviour{
         agent.Warp(newPosition);
         animator.SetBool("isRunning", false);
     }
-
-    public void setCamera(Camera camera){
-        this.camera = camera;
-    }
-
-    public void setSpeed(float speed){
-        Player.instance.movementSpeed = speed;
-    }
-
+    
     public void startDash(){
         dashVFX.SetActive(true);
         Player.instance.GetComponent<CapsuleCollider>().enabled = false;

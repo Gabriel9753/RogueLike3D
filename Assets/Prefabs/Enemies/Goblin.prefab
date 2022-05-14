@@ -1820,6 +1820,7 @@ GameObject:
   - component: {fileID: 7300446256605130018}
   - component: {fileID: 8758745603896043261}
   - component: {fileID: 8459394160424876804}
+  - component: {fileID: 5148392943791041606}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -1913,11 +1914,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504166e20e3f0cc4c8aed6e7a66b4c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPosition: {x: 0, y: 0, z: 0}
   lookRadius: 15
   movementSpeed: 6.5
   attackReady: 1
   attackReadyOnCooldown: 1
   fleeRate: 90
+  reachedSpawn: 0
+  isFleeing: 0
+  isStuck: 0
+  isChecked: 0
+  slowed: 0
   weapon: {fileID: 1081802284217643266}
 --- !u!114 &8758745603896043261
 MonoBehaviour:
@@ -1934,11 +1941,13 @@ MonoBehaviour:
   level: 3
   exp: 0
   gold: 0
+  enemyType: 
   maxHealth: 200
   health: 100
   damage: 0
   possibilityForKnockback: 85
   hittibaleWhileAttack: 1
+  isDead: 0
 --- !u!114 &8459394160424876804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,6 +1961,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 0
+--- !u!114 &5148392943791041606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606875407666948386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f4aec17315bb45b99755b814f7b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Hit
+    musicForRun: 0
+    clip: {fileID: 8300000, guid: c1017379f3d041542bf8f89b0b0f672d, type: 3}
+    volume: 0.25
+    pitch: 1
+    spatial_blend: 1
+    _minDistance: 0
+    maxDistance: 300
+    source: {fileID: 0}
+    loop: 0
 --- !u!1 &7631805960273746732
 GameObject:
   m_ObjectHideFlags: 0

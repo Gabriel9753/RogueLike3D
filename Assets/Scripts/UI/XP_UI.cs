@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Build.Content;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class XP_UI : MonoBehaviour
@@ -15,6 +13,8 @@ public class XP_UI : MonoBehaviour
     public Text levelText;
     public Text xpText;
 
+    public int uncompletedUps;
+
     #region Singleton
     public static XP_UI Instance;
     //==============================================================
@@ -24,9 +24,18 @@ public class XP_UI : MonoBehaviour
     {
         Instance = this;
         xpBar.GetComponent<Slider>().minValue = 0;
+        uncompletedUps = 0;
     }
     #endregion
 
+    public void resetXP(){
+        currentXP = 0;
+        Player.instance.level = 0;
+        uncompletedUps = 0;
+        xpBar.GetComponent<Slider>().minValue = 0;
+        xpBar.GetComponent<Slider>().value = 0;
+        maxXP = calculateMaxXP();
+    }
     private float calculateMaxXP(){
         float max_XP = 25 * Player.instance.level + 100;
         return max_XP;
@@ -47,8 +56,8 @@ public class XP_UI : MonoBehaviour
         maxXP = calculateMaxXP();
         xpBar.GetComponent<Slider>().maxValue = calculateMaxXP();
         xpBar.GetComponent<Slider>().value = currentXP;
-        UpManager.instance.LevelUpped();
         LevelUpUpgradesUI.Instance.ActivateUI();
+        uncompletedUps++;
     }
 
     public void setCurrentXP(float amount){
@@ -65,12 +74,21 @@ public class XP_UI : MonoBehaviour
             xpBar.GetComponent<Slider>().value = currentXP;
             levelText.GetComponent<Text>().text = "- Level " + Player.instance.level + " -";
         }
+
+        Player.instance.needExp = calculateMaxXP() - currentXP;
     }
 
     public void addXP(float amount){
+        Player.instance.sumExp += amount;
         currentXP += amount;
-        xpText.GetComponent<Text>().text = "+ " + amount + " XP";
-        StartCoroutine(routineXPText(3f));
+        float outputXP = amount;
+        if (xpText.enabled){
+            outputXP = amount + float.Parse(xpText.GetComponent<Text>().text.Trim(new char[]{' ', 'X', 'P', '+'}));
+        }
+        xpText.GetComponent<Text>().text = "+ " + (int)outputXP + " XP";
+        if (!StatsMenu.instance.statsMenuEnabled){
+            StartCoroutine(routineXPText(3f));
+        }
         updateUI();
     }
 
@@ -89,12 +107,10 @@ public class XP_UI : MonoBehaviour
     
         public void SelectedUpgradeAfterLevelUp(int button){
         Upgrade upgrade = UpManager.selected_upgrades[button];
-        
         string uptype = upgrade.GetType().Name;
-        print(uptype);
         switch (uptype){
             case "GoldUpgrade":
-                Player.instance.GetComponent<PlayerStats>().IncreaseGold(System.Convert.ToByte(upgrade.value));
+                Player.instance.GetComponent<PlayerStats>().IncreaseGold(upgrade.value);
                 break; 
             case "GoldMultiplierUpgrade":
                 Player.instance.GetComponent<PlayerStats>().IncreaseGold_Multiplier(upgrade.value);
@@ -139,9 +155,8 @@ public class XP_UI : MonoBehaviour
                 Player.instance.GetComponent<PlayerStats>().IncreaseEXPMultiplier(upgrade.value);
                 break;
             
-            
-
         }
+        UpManager.instance.upgradePickByPlayer(uptype);
         updateUI();
     }
 

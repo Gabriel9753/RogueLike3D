@@ -8,13 +8,24 @@ public class Transparent : MonoBehaviour{
     [SerializeField] private List<ObjectInWay> currentlyInWay;
     [SerializeField] private List<ObjectInWay> alreadyTransperant;
     private Transform camera;
+    private GameObject[] allWalls;
 
     private void Awake(){
         currentlyInWay = new List<ObjectInWay>();
         alreadyTransperant = new List<ObjectInWay>();
         camera = this.gameObject.transform;
     }
-    
+
+    private void Start(){
+        allWalls = GameObject.FindGameObjectsWithTag("Wall");
+        foreach (GameObject wall in allWalls){
+            Color color = wall.GetComponent<Renderer>().material.color;
+            color.a = 0;
+        }
+        
+        
+    }
+
     private void Update(){
         GetAllObjectsInWay();
         MakeObjectsTransperant();
@@ -29,21 +40,21 @@ public class Transparent : MonoBehaviour{
         Ray ray1_Backward = new Ray(Player.instance.transform.position,  camera.position - Player.instance.transform.position );
         var hits1_Forward = Physics.RaycastAll(ray1_Forward, cameraPlayerDistance);
         var hits1_Backward = Physics.RaycastAll(ray1_Backward, cameraPlayerDistance);
-
+             
         foreach (var hit in hits1_Forward){
             if (hit.collider.gameObject.TryGetComponent(out ObjectInWay inWay)){
+                if (inWay.gameObject.transform.parent.name.Contains("Archway")){
+                    inWay = inWay.gameObject.transform.parent.parent.GetComponent<ObjectInWay>();
+                }
+                else{
+                    inWay = inWay.gameObject.transform.parent.GetComponent<ObjectInWay>();
+                }
                 if (!currentlyInWay.Contains(inWay)){
                     currentlyInWay.Add(inWay);
                 }
             }   
         }
-        foreach (var hit in hits1_Backward){
-            if (hit.collider.gameObject.TryGetComponent(out ObjectInWay inWay)){
-                if (!currentlyInWay.Contains(inWay)){
-                    currentlyInWay.Add(inWay);
-                }
-            }   
-        }
+
     }
 
     private void MakeObjectsTransperant(){

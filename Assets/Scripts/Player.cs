@@ -10,28 +10,43 @@ public class Player : MonoBehaviour{
     public NavMeshAgent _agent;
     public new Camera camera;
     public GameObject weapon;
+    public GameObject leftHand;
     public Vector3 destination;
+
+    public bool isDead;
+    public static bool nearDoor;
+    public static bool nearUpStation;
+    public static bool nearTeleporter;
     #region Player stats
 
-    public int level = 1;
-    public float maxHealth = 100; // Maximum amount of health
-    public float maxMana = 100;
-    public float health = 100; // Current amount of health
-    public float mana = 100;
-    public float healthRegen = 0.1f;
-    public float manaRegen = 0.1f;
-    public float gold = 0;
-    public float goldMultiplier = 1;
-    public float exp = 0;
-    public float expMultiplier = 1;
-    public float movementSpeed = 8;
-    public float attackSpeed = 1;
-    public float resistance = 0;
-    public float lifesteal = 0;
-    public float attackDamage = 10;
-    public float criticalChance = 50;//%
-    public float criticalDamage = 50;//%
-    public float awarenessRange = 1; //Multiplier
+    public int level;
+    public float maxHealth; // Maximum amount of health
+    public float maxMana;
+    public float health; // Current amount of health
+    public float mana;
+    public float healthRegen;
+    public float manaRegen;
+    public float gold;
+    public float goldMultiplier;
+    public float exp;
+    public float expMultiplier;
+    public float movementSpeed;
+    public float attackSpeed;
+    public float resistance;
+    public float lifesteal;
+    public float attackDamage;
+    public float criticalChance;//%
+    public float criticalDamage;//%
+    public float awarenessRange; //Multiplier
+
+    public float sumExp = 0;
+    public float needExp = 0;
+    public int killed_mobs = 0;
+    
+    public float spell_dmg_up;
+    public float cooldown_up;
+    public float frisbee_up;
+    public float slowdown_up;
 
     #endregion
     #region Singleton
@@ -44,17 +59,28 @@ public class Player : MonoBehaviour{
         animator = instance.GetComponent<Animator>();
         _agent = instance.GetComponent<NavMeshAgent>();
         destination = _agent.destination;
-
+        instance.GetComponent<AbilityHolder>().enabled = false;
+        isDead = false;
+        resetStats();
+        load_upgrades();
     }
 
     #endregion
 
-    //public CharacterCombat playerCombatManager;
-    //public PlayerStats playerStats;
-
-
-    void Die() {
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void Die(){
+        SpawnManager.instance.killAllEnemies();
+        isDead = true;
+       //TODO:show screen and stats
+       instance._agent.enabled = false;
+       instance.GetComponent<CapsuleCollider>().enabled = false;
+       instance.GetComponent<PlayerMovement>().enabled = false;
+       instance.GetComponent<PlayerAttack>().enabled = false;
+       instance.GetComponent<PlayerCombo>().enabled = false;
+       instance.GetComponent<PlayerStats>().enabled = false;
+       instance.GetComponent<AbilityHolder>().enabled = false;
+       WorldManager.instance.stopTime = false;
+       
+       DieMenu.instance.dieMenuStart();
     }
 
     #region Check animation states from player
@@ -72,6 +98,16 @@ public class Player : MonoBehaviour{
             return true;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
             return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Heal"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Cosmic"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Fireball"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("LightningFrisbee"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("fireHurricane"))
+            return true;
 
         return false;
     }
@@ -80,6 +116,16 @@ public class Player : MonoBehaviour{
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicOrb"))
             return true;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Heal"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Cosmic"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Fireball"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("LightningFrisbee"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("fireHurricane"))
             return true;
         return false;
     }
@@ -94,6 +140,16 @@ public class Player : MonoBehaviour{
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("MagicOrb"))
             return true;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Laserbeam"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Heal"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Cosmic"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Fireball"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("LightningFrisbee"))
+            return true;
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("fireHurricane"))
             return true;
         return false;
     }
@@ -183,5 +239,72 @@ public class Player : MonoBehaviour{
         Vector2 mouseOnScreen = camera.ScreenToViewportPoint(Input.mousePosition);
         float angle =  Mathf.Atan2(positionOnScreen.y - mouseOnScreen.y, positionOnScreen.x - mouseOnScreen.x) * Mathf.Rad2Deg;
         transform.rotation =  Quaternion.Euler (new Vector3(0f,transform.rotation.y-angle-45,0f));
+    }
+
+    public void resetStats(){
+        isDead = false;
+        
+        level = WorldManager.instance.config.level;
+        maxHealth = WorldManager.instance.config.maxHealth; // Maximum amount of health
+        maxMana = WorldManager.instance.config.maxMana;
+        health = WorldManager.instance.config.health; // Current amount of health
+        mana = WorldManager.instance.config.mana;
+        healthRegen = WorldManager.instance.config.healthRegen;
+        manaRegen = WorldManager.instance.config.manaRegen;
+        if (PlayerPrefs.HasKey("restartGold")){
+            gold = PlayerPrefs.GetInt("restartGold");
+            PlayerPrefs.DeleteKey("restartGold");
+        }
+        else{
+            gold = WorldManager.instance.config.gold;
+        }
+        
+        goldMultiplier = WorldManager.instance.config.goldMultiplier;
+        exp = WorldManager.instance.config.exp;
+        expMultiplier = WorldManager.instance.config.expMultiplier;
+        movementSpeed = WorldManager.instance.config.movementSpeed;
+        resistance = WorldManager.instance.config.resistance;
+        lifesteal = WorldManager.instance.config.lifesteal;
+        attackDamage = WorldManager.instance.config.attackDamage;
+        criticalChance = WorldManager.instance.config.criticalChance;//%
+        criticalDamage = WorldManager.instance.config.criticalDamage;//%
+        awarenessRange = WorldManager.instance.config.awarenessRange; //Multiplier
+
+        sumExp = WorldManager.instance.config.sumExp;
+        needExp = WorldManager.instance.config.needExp;
+        killed_mobs = WorldManager.instance.config.killed_mobs;
+        /*spell_dmg = WorldManager.instance.config.spell_dmg;
+        spell_1_up = WorldManager.instance.config.spell_1_up;
+        spell_2_up = WorldManager.instance.config.spell_2_up;
+        spell_3_up = WorldManager.instance.config.spell_3_up;
+        spell_4_up = WorldManager.instance.config.spell_4_up;*/
+    }
+
+    public void load_upgrades(){
+        if (PlayerPrefs.HasKey("up1") && PlayerPrefs.HasKey("up2") && PlayerPrefs.HasKey("up3") &&
+            PlayerPrefs.HasKey("up4")){
+            spell_dmg_up = PlayerPrefs.GetInt("up1");
+            cooldown_up = PlayerPrefs.GetInt("up2");
+            frisbee_up = PlayerPrefs.GetInt("up3");
+            slowdown_up = PlayerPrefs.GetInt("up4");
+        }
+        else{
+            spell_dmg_up = 10;
+            cooldown_up = 5;
+            frisbee_up = 4;
+            slowdown_up = 5;
+            PlayerPrefs.SetInt("up1", (int)spell_dmg_up);
+            PlayerPrefs.SetInt("up2", (int)cooldown_up);
+            PlayerPrefs.SetInt("up3", (int)frisbee_up);
+            PlayerPrefs.SetInt("up4", (int)slowdown_up);
+        }
+    }
+
+    public bool notWalkCauseUI(){
+        if (LevelUpUpgradesUI.Instance.uiActive || Shop.isEnabled || PauseMenu.gameIsPause){
+            return true;
+        }
+
+        return false;
     }
 }

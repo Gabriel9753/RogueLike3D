@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6fb1b880adc41468a1c679e57935e0, type: 3}
   m_Name: Mana Upgrade
   m_EditorClassIdentifier: 
-  text: 
-  symbol: {fileID: 0}
-  value: 0
-  type: 
+  text: "Mana expansion\n \n Increase your maximum mana by 51."
+  symbol: {fileID: 21300000, guid: fe9206383b6d8cc40ab3685c158bf99d, type: 3}
+  value: 51
+  type: mana_up

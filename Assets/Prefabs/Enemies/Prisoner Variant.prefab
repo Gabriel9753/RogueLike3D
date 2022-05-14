@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 7446002026807429254}
   - component: {fileID: 9087513087547249788}
   - component: {fileID: 2390954636318747275}
+  - component: {fileID: 8459012555946358295}
   m_Layer: 0
   m_Name: Prisoner Variant
   m_TagString: Enemy
@@ -1071,10 +1072,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504166e20e3f0cc4c8aed6e7a66b4c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPosition: {x: 0, y: 0, z: 0}
   lookRadius: 19
   movementSpeed: 8
   attackReady: 1
+  attackReadyOnCooldown: 1
   fleeRate: 70
+  reachedSpawn: 0
+  isFleeing: 0
+  isStuck: 0
+  isChecked: 0
+  slowed: 0
   weapon: {fileID: 1507378365746992971}
 --- !u!195 &7446002026807429254
 NavMeshAgent:
@@ -1113,11 +1121,13 @@ MonoBehaviour:
   level: 0
   exp: 0
   gold: 0
+  enemyType: 
   maxHealth: 200
   health: 50
   damage: 0
   possibilityForKnockback: 90
   hittibaleWhileAttack: 1
+  isDead: 0
 --- !u!114 &2390954636318747275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,6 +1141,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 0
+--- !u!114 &8459012555946358295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861508881403759906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f4aec17315bb45b99755b814f7b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Hit
+    musicForRun: 0
+    clip: {fileID: 8300000, guid: 1f36a42be1e26184aa9f8c3bfca0cd1c, type: 3}
+    volume: 0.25
+    pitch: 1
+    spatial_blend: 1
+    _minDistance: 0
+    maxDistance: 200
+    source: {fileID: 0}
+    loop: 0
 --- !u!1 &5982412818813123792
 GameObject:
   m_ObjectHideFlags: 0

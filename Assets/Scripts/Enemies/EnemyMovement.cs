@@ -5,15 +5,15 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class EnemyMovement : MonoBehaviour
-{
+public class EnemyMovement : MonoBehaviour{
+    public Vector3 spawnPosition;
     public float lookRadius = 8f;
     public float movementSpeed = 8f;
     public bool attackReady = true;
     public bool attackReadyOnCooldown = true;
     public float fleeRate = 60;
-    private float cooldownAttack = 6;
-
+    //private float cooldownAttack = 6;
+    public bool reachedSpawn;
     public bool isFleeing = false;
     public bool isStuck = false;
     public bool isChecked = false;
@@ -22,8 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 position1;
     private Vector3 position2;
-    
-    
+
     private Vector3 evadeDestination;
     
     Transform target;
@@ -32,28 +31,46 @@ public class EnemyMovement : MonoBehaviour
     public GameObject weapon;
     private BoxCollider _boxCollider;
     void Start(){
+        reachedSpawn = true;
         _boxCollider = weapon.GetComponent<BoxCollider>();
         agent = GetComponent<NavMeshAgent>();
-        target = Player.instance.transform;
+        if (!Player.instance.isDead){
+            target = Player.instance.transform;
+        }
+        else{
+            Destroy(gameObject);
+        }
         _animator = GetComponent<Animator>();
         slowed = false;
     }
 
     void Update (){
+        if (!reachedSpawn){
+            if (Vector3.Distance(transform.position, spawnPosition) < 2f){
+                agent.ResetPath();
+                reachedSpawn = true;
+            }
+        }
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") || _animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
             agent.speed = 0;
+            agent.ResetPath();
         }
         else if (slowed){
-            agent.speed = movementSpeed - (movementSpeed) * 0.15f;
+            agent.speed = movementSpeed - movementSpeed * Player.instance.slowdown_up/100;
         }
         else{
             agent.speed = movementSpeed - (movementSpeed) * 0.15f;
         }
         // If inside the radius
         if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("die") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
-            if (distance <= lookRadius * Player.instance.awarenessRange){
+            if (Vector3.Distance(transform.position, spawnPosition) > 110f){
+                agent.ResetPath();
+                agent.destination = spawnPosition;
+                reachedSpawn = false;
+            }
+            else if (distance <= lookRadius * Player.instance.awarenessRange && reachedSpawn){
                 if (distance <= 3f && attackReady && Random.Range(0,100) < 3){
                     //if player is near -> Attack
                     FaceTarget();
@@ -82,7 +99,8 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
             else{
-                _animator.SetBool("isRunning", false);
+                //_animator.SetBool("isRunning", true);
+                
             }
         }
 
@@ -103,9 +121,7 @@ public class EnemyMovement : MonoBehaviour
         Vector3 position1 = transform.position;
         yield return new WaitForSeconds(0.3f);
         Vector3 position2 = transform.position;
-        //print(Vector3.Distance(position1, position2));
         if (Vector3.Distance(position1, position2) < 0.1f){
-            print("YEP HELP ME IM STUCK");
             isStuck = true;
             isFleeing = false;
         }
@@ -150,7 +166,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void setSlow(bool slow){
-        print(slow + "!!!");
         slowed = slow;
     }
 }

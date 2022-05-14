@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Base Attack Upgrade
   m_EditorClassIdentifier: 
   text: 
-  symbol: {fileID: 0}
+  symbol: {fileID: 21300000, guid: cdd2026808dca0a46bdb4fe66bf41a61, type: 3}
   value: 0
-  type: 
+  type: ad_up

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f4b521f931769428e80de30d741c31, type: 3}
+  m_Name: Heal Spell
+  m_EditorClassIdentifier: 
+  name: Heal
+  symbol: {fileID: 21300000, guid: 89a7c2b9294dbaa4985085575713504f, type: 3}
+  activeTime: -0.014926803
+  cooldownTime: 0
+  key: 104
+  isReady: 1
+  isActive: 0
+  isOnCooldown: 0
+  moveMask:
+    serializedVersion: 2
+    m_Bits: 0
+  hit_enemies: []
+  projectile: {fileID: 158008, guid: 111a662fbbfb1164b9473adae58853b2, type: 3}

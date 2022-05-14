@@ -48,10 +48,6 @@ public class HealthSystemGUI : MonoBehaviour
 	//==============================================================
   	void Start(){
 	    regenerate = true;
-	    maxHealth = Player.instance.maxHealth;
-	    health = Player.instance.health;
-	    maxMana = Player.instance.maxMana;
-	    mana = Player.instance.mana;
 
 	    UpdateGraphics();
 		timeleft = regenUpdateInterval; 
@@ -62,12 +58,23 @@ public class HealthSystemGUI : MonoBehaviour
 	//==============================================================
 	void Update ()
 	{
-		Player.instance.maxHealth = maxHealth;
-		Player.instance.health = health;
-		Player.instance.maxMana = maxMana;
-		Player.instance.mana = mana;	
-		if (regenerate)
-			Regen();
+		maxHealth = Player.instance.maxHealth;
+		if (Player.instance.health > maxHealth){
+			health = maxHealth;
+		}
+		else{
+			health = Player.instance.health;
+		}
+		maxMana = Player.instance.maxMana;
+		
+		if (Player.instance.mana > maxMana){
+			mana = maxMana;
+		}
+		else{
+			mana = Player.instance.mana;
+		}
+		//if (regenerate)
+			//Regen();
 	}
 
 	
@@ -209,7 +216,7 @@ public class HealthSystemGUI : MonoBehaviour
 	//==============================================================
 	// Update all Bars & Globes UI graphics
 	//==============================================================
-	private void UpdateGraphics()
+	public void UpdateGraphics()
 	{
 		//UpdateHealthBar();
 		UpdateHealthGlobe();

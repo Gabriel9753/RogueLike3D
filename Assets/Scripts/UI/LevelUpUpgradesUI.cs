@@ -41,16 +41,10 @@ public class LevelUpUpgradesUI : MonoBehaviour{
 
     #endregion
 
-    private void Start(){
-
-        //upgrade_text_1 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_1_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();
-        /*
-        upgrade_text_2 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_2_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();
-        upgrade_text_3 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_3_canvas/Upgrade_text_canvas/Upgrade_text").GetComponent<TextMeshProUGUI>();
-        upgrade_image_1 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_1_canvas/Upgrade_image").GetComponent<Image>();
-        upgrade_image_2 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_2_canvas/Upgrade_image").GetComponent<Image>();
-        upgrade_image_3 = GameObject.Find("LevelUpgradeMenu/LevelUpgradeWindow/Upgrade_3_canvas/Upgrade_image").GetComponent<Image>();
-        */
+    private void Update(){
+        if (XP_UI.Instance.uncompletedUps > 0 && !uiActive && !StatsMenu.instance.statsMenuEnabled && !DieMenu.instance.DieMenuEnabled){
+            ActivateUI();
+        }
     }
 
     // Update is called once per frame
@@ -64,6 +58,7 @@ public class LevelUpUpgradesUI : MonoBehaviour{
     }
 
     public void ActivateUI(){
+        UpManager.instance.LevelUpped();
         UpdateUIAbilities();
         uiActive = true;
         Time.timeScale = 0f;
@@ -71,6 +66,8 @@ public class LevelUpUpgradesUI : MonoBehaviour{
     }
 
     public void closeUI(){
+        AudioManager.instance.Play("upgrade_select");
+        XP_UI.Instance.uncompletedUps--;
         uiActive = false;
         Time.timeScale = 1f;
         UpgradeMenuUI.SetActive(false);
