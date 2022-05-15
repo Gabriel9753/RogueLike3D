@@ -236,8 +236,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: -983
     y: -28
-    width: 2105
-    height: 1961
+    width: 2106
+    height: 1969
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,8 +312,8 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 3
-    min: -Infinity
-    max: Infinity
+    min: 0
+    max: 4
     enumValues: []
     descendantCount: 0
   - name: Turbulence drag
@@ -326,8 +326,8 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 5
-    min: -Infinity
-    max: Infinity
+    min: 0
+    max: 6
     enumValues: []
     descendantCount: 0
   - name: Turbulence frequency
@@ -340,8 +340,8 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 1.5
-    min: -Infinity
-    max: Infinity
+    min: 0
+    max: 4
     enumValues: []
     descendantCount: 0
   m_ImportDependencies: []
@@ -406,7 +406,7 @@ MonoBehaviour:
   - {fileID: 114780028408030698}
   - {fileID: 114063133802684794}
   dataType: 0
-  capacity: 1000000
+  capacity: 60000
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 300000
+      m_SerializableObject: 60000
     m_Space: 2147483647
   m_Property:
     name: Rate

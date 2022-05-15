@@ -60,13 +60,13 @@ public class BossSpawner : MonoBehaviour{
         }
         
         //calculate xp
-        xp = enemyLevel * 3.5f + 20;
+        xp = enemyLevel * 6.5f + 20;
         //calculate health
-        health = enemyLevel * 5.7f + 30;
+        health = enemyLevel * 9.7f + 30;
 
-        damage = enemyLevel * 1.5f + 6;
+        damage = enemyLevel * 2.3f + 6;
 
-        gold = enemyLevel * 3.54f + 3.5f;
+        gold = enemyLevel * 5.54f + 3.5f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }

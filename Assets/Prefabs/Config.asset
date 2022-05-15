@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   level: 1
-  maxHealth: 40
-  maxMana: 50
-  health: 40
-  mana: 50
-  healthRegen: 1
-  manaRegen: 2.3
+  maxHealth: 60
+  maxMana: 60
+  health: 60
+  mana: 60
+  healthRegen: 1.5
+  manaRegen: 1.5
   gold: 0
   goldMultiplier: 1
   exp: 0
@@ -26,10 +26,10 @@ MonoBehaviour:
   movementSpeed: 10
   resistance: 0
   lifesteal: 0
-  attackDamage: 20
-  criticalChance: 10
-  criticalDamage: 10
-  awarenessRange: 1
+  attackDamage: 17
+  criticalChance: 15
+  criticalDamage: 25
+  awarenessRange: 1.3
   sumExp: 0
   needExp: 0
   killed_mobs: 0
@@ -38,11 +38,11 @@ MonoBehaviour:
   spell_2_up: 1
   spell_3_up: 1
   spell_4_up: 1
-  max_gold: 20
-  max_mana_up: 10
+  max_gold: 30
+  max_mana_up: 20
   max_goldMul_up: 5
   max_manaReg_up: 7
-  max_hp_up: 10
+  max_hp_up: 20
   max_hpReg_up: 7
   max_lifesteal_up: 7
   max_ad_up: 10

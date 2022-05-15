@@ -17,6 +17,8 @@ public class Player : MonoBehaviour{
     public static bool nearDoor;
     public static bool nearUpStation;
     public static bool nearTeleporter;
+
+    public bool isRolling;
     #region Player stats
 
     public int level;
@@ -53,8 +55,8 @@ public class Player : MonoBehaviour{
 
     public static Player instance;
 
-    void Awake ()
-    {
+    void Awake (){
+        isRolling = false;
         instance = this;
         animator = instance.GetComponent<Animator>();
         _agent = instance.GetComponent<NavMeshAgent>();

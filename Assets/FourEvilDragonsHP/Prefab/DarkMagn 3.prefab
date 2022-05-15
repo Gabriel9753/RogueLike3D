@@ -1219,6 +1219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 0
+  deadMat: {fileID: 2100000, guid: 03db5111fd528b64783c121d620a1d1b, type: 2}
+  whereToSetMaterial: {fileID: 107884}
 --- !u!195 &-5228434494372965715
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1228,16 +1230,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 132742}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 2.58
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 80
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 220
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 6.7
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

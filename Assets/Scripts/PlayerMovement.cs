@@ -57,11 +57,11 @@ public class PlayerMovement:MonoBehaviour{
         else{
             animator.SetBool("isRunning", false);
         }
-        if (Vector3.Distance(Player.instance.destination, transform.position) == 0){
+        if (!Player.instance.isDashing() && Vector3.Distance(Player.instance.destination, transform.position) == 0){
             agent.ResetPath();
             animator.SetBool("isRunning", false);
         }
-        if (Player.instance.standAttack() || Player.instance.isHit()){
+        if (Player.instance.standAttack() || (Player.instance.isHit() && !Player.instance.isDashing())){
             agent.ResetPath();
         }
 
@@ -80,13 +80,17 @@ public class PlayerMovement:MonoBehaviour{
            || PauseMenu.gameIsPause || LevelUpUpgradesUI.Instance.uiActive || Shop.isEnabled || DieMenu.instance.DieMenuEnabled){
             Player.instance.GetComponent<Sounds3D>().Stop("Footsteps");
         }
+
+        if (Input.GetKeyDown(KeyCode.D)){
+            Player.instance.animator.Play("Dance");
+        }
     }
     
     public void Warp(Vector3 newPosition){
         agent.Warp(newPosition);
         animator.SetBool("isRunning", false);
     }
-    
+
     public void startDash(){
         dashVFX.SetActive(true);
         Player.instance.GetComponent<CapsuleCollider>().enabled = false;
@@ -98,9 +102,12 @@ public class PlayerMovement:MonoBehaviour{
         Player.instance.GetComponent<CapsuleCollider>().enabled = true;
     }
 
-
-
-
-    
-
+    public void startRoll(){
+        print("START");
+        Player.instance.isRolling = true;
+    }
+    public void endRoll(){
+        print("END");
+        Player.instance.isRolling = false;
+    }
 }

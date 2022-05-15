@@ -1939,9 +1939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 60
-  baseExp: 18
-  baseDamage: 12
+  baseHealth: 70
+  baseExp: 30
+  baseDamage: 8
   baseGold: 2
   level: 3
   exp: 0
@@ -2846,7 +2846,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 2.93, z: 0.42}
+  m_Size: {x: 0.54, y: 2.17, z: 0.32}
   m_Center: {x: 0.003270317, y: 0.5679798, z: -0.0000059668714}
 --- !u!114 &8870572200089541038
 MonoBehaviour:

@@ -57,7 +57,7 @@ public class Challanges : MonoBehaviour
             if (!startedTimerForBetweenChallanges && !challangeReady && !startedChallange){
                 StartCoroutine(TimerForNextChallange());
             }
-            if (challangeReady && !startedChallange && !LevelUpUpgradesUI.Instance.uiActive && !PauseMenu.gameIsPause){
+            if (completedChallanges < 30 && challangeReady && !startedChallange && !LevelUpUpgradesUI.Instance.uiActive && !PauseMenu.gameIsPause){
                 StartChallange();
             }
         }
@@ -281,11 +281,18 @@ public class Challanges : MonoBehaviour
     }
 
     private IEnumerator noDamageChallange(int time, int amount){
+        float tempRegen = Player.instance.healthRegen;
+        Player.instance.healthRegen = 0;
         int currentHealth = (int)Player.instance.health;
         bool failedCh = false;
         float timer = 0.0f;
         while(timer < time){
             timer += Time.deltaTime;
+            
+            if (Player.instance.healthRegen > 0){
+                tempRegen += Player.instance.healthRegen;
+                Player.instance.healthRegen = 0;
+            }
             
             if (Player.instance.health < currentHealth){
                 failedCh = true;
@@ -318,15 +325,24 @@ public class Challanges : MonoBehaviour
         challangeImage.SetActive(false);
         startedChallange = false;
         challangeReady = false;
+        Player.instance.healthRegen = tempRegen;
         StartCoroutine(TimerFeedback(failedCh));
         yield return null;
     }
     private IEnumerator noAbilitiesChallange(int time, int amount){
+        float tempRegen = Player.instance.manaRegen;
+        Player.instance.manaRegen = 0;
         int currentMana = (int)Player.instance.mana;
         bool failedCh = false;
         float timer = 0.0f;
         while(timer < time){
             timer += Time.deltaTime;
+
+            if (Player.instance.manaRegen > 0){
+                tempRegen += Player.instance.manaRegen;
+                Player.instance.manaRegen = 0;
+            }
+            
             if (Player.instance.mana < currentMana){
                 failedCh = true;
                 break;
@@ -359,6 +375,8 @@ public class Challanges : MonoBehaviour
         
         startedChallange = false;
         challangeReady = false;
+        challangeImage.SetActive(false);
+        Player.instance.manaRegen = tempRegen;
         StartCoroutine(TimerFeedback(failedCh));
         yield return null;
     }

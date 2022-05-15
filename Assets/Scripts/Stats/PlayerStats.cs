@@ -33,6 +33,8 @@ public class PlayerStats : MonoBehaviour{
     private float timeleft = 0.0f;	// Left time for current interval
     public float regenUpdateInterval = 2f;
 
+    private bool canGetDamageAgain;
+
 
     public void Start(){
         XP_UI.Instance.updateUI();
@@ -55,6 +57,8 @@ public class PlayerStats : MonoBehaviour{
         criticalChance = Player.instance.criticalChance;
         criticalDamage = Player.instance.criticalDamage;
         awarenessRange = Player.instance.awarenessRange;
+
+        canGetDamageAgain = true;
     }
 
     private void Update(){
@@ -316,22 +320,35 @@ public class PlayerStats : MonoBehaviour{
 
 
     public void TakeDamage(float damage){
-        BloodScreen.instance.activateUI();
-        GetComponent<Sounds3D>().Play("Hit");
-        if(!Player.instance.isHit())
-            Player.instance.animator.Play("playerHit");
-        // Make sure damage doesn't go below 0.
-        damage = Mathf.Clamp(damage, 0, int.MaxValue);
-        // damage calculation with respect of resistance
-        damage *= 1-(resistance/100f); 
-        health -= damage;
-        Player.instance.health -= damage;
-        //HealthSystemGUI.instance.TakeDamage(damage);
-
-        // If we hit 0. Die.
-        if (health < 1){
-            Player.instance.Die();
+        if (canGetDamageAgain && !Player.instance.moveAttack() && !Player.instance.isDashing()){
+            BloodScreen.instance.activateUI();
+            GetComponent<Sounds3D>().Play("Hit");
+            if(!Player.instance.isHit())
+                Player.instance.animator.Play("playerHit");
+            // Make sure damage doesn't go below 0.
+            damage = Mathf.Clamp(damage, 0, int.MaxValue);
+            // damage calculation with respect of resistance
+            damage *= 1-(resistance/100f); 
+            health -= damage;
+            Player.instance.health -= damage;
+            //HealthSystemGUI.instance.TakeDamage(damage);
+        
+        
+            Player.instance.GetComponent<PlayerCombo>().ResetCombo();
+        
+            StartCoroutine(timerForDamage());
+            
+            // If we hit 0. Die.
+            if (health < 1){
+                Player.instance.Die();
+            }
         }
+    }
+
+    IEnumerator timerForDamage(){
+        canGetDamageAgain = false;
+        yield return new WaitForSecondsRealtime(0.5f);
+        canGetDamageAgain = true;
     }
     
     

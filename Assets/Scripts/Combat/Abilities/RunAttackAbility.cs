@@ -5,21 +5,15 @@ using System.Runtime.InteropServices;
 
 [CreateAssetMenu]
 public class RunAttackAbility:Ability{
-    
-
 
     #region Singleton
-
     public static RunAttackAbility instance;
     private Vector3 direction;
     public float factor;
-    
-    
 
     void Awake(){
         instance = this;
     }
-
     #endregion
 
     public override void Activate(){

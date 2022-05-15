@@ -86,7 +86,7 @@ public class LightningFrisbee : Ability
                     ? enemyHitCounter+1
                     : enemyHitCounter;
             if (tempEnemeyHitCounter < enemyHitCounter){
-                activeTime += 0.3f;
+                activeTime += 0.05f;
             }
         }
     }
@@ -108,7 +108,7 @@ public class LightningFrisbee : Ability
 
     private void moveToPlayer(){
         Vector3 vectorToPlayer = (Player.instance.transform.position - Vector3.back - projectileObj.transform.position).normalized *
-                                 projectileSpeed/2;
+                                 projectileSpeed/1.5f;
         vectorToPlayer.y = 0;
         projectileObj.transform.position += vectorToPlayer * Time.deltaTime;
     }
@@ -126,7 +126,7 @@ public class LightningFrisbee : Ability
         }
 
         if (startedSpell){
-            if (enemyHitCounter == maxHitEnemies + (int)Player.instance.frisbee_up){
+            if (enemyHitCounter >= maxHitEnemies + (int)Player.instance.frisbee_up){
                 activeTime = 0;
             }
             if (activeTime > 0){

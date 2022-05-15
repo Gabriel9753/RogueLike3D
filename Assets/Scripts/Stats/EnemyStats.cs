@@ -154,8 +154,7 @@ public class EnemyStats : MonoBehaviour{
 
     public void Die(){
         Player.instance.killed_mobs++;
-        if(enemyType != "Boss")
-            GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;
+        GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;
         isDead = true;
         //Give exp to player
         XP_UI.Instance.addXP(exp);
@@ -166,7 +165,7 @@ public class EnemyStats : MonoBehaviour{
         _agent.speed = 0;
         if (enemyType == "Boss"){
             GetComponent<BossMovement>().enabled = false;
-            Player.instance.spell_dmg_up += Player.instance.spell_dmg_up * 0.03f * level;
+            Player.instance.spell_dmg_up += Player.instance.spell_dmg_up * 0.01f * level;
         }
         else{
             GetComponent<EnemyMovement>().enabled = false;

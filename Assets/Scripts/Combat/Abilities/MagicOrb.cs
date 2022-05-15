@@ -37,7 +37,7 @@ public class MagicOrb : Ability
         foreach (GameObject enemy in SpawnManager.instance.listEnemiesOnField){
             if (Vector3.Distance(enemy.transform.position, projectileObj.transform.position) < 12f + 25 * (Player.instance.slowdown_up / 100)){
                 Vector3 direction = (projectileObj.transform.position - enemy.transform.position).normalized * 
-                                    (1.35f + 3 * (Player.instance.slowdown_up / 100)) ;
+                                    (1.55f + 3 * (Player.instance.slowdown_up / 100)) ;
                 enemy.transform.position += direction * Time.deltaTime;
             }
         }
@@ -84,7 +84,7 @@ public class MagicOrb : Ability
         if (AbilityHolder.magicOrbAnimationReady){
             AbilityHolder.magicOrbAnimationReady = false;
             Player.instance.GetComponent<Sounds3D>().Play("MagicOrb_cast");
-            projectileObj = Instantiate(projectile, destination, rotation);
+            projectileObj = Instantiate(projectile, destination+Vector3.up*1, rotation);
             activeTime = StatDictionary.dict[name][0];
             startedSpell = true;
         }

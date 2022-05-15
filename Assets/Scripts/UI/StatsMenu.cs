@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,58 +116,58 @@ public class StatsMenu : MonoBehaviour
         level_value.text = ""+Player.instance.level;
         //---------------
         maxHealth.text = "max. Health";
-        maxHealth_value.text = ""+Player.instance.maxHealth;
+        maxHealth_value.text = ""+Math.Round(Player.instance.maxHealth,2);
         //---------------
         maxMana.text = "max. Mana";
-        maxMana_value.text = ""+Player.instance.maxMana;
+        maxMana_value.text = ""+Math.Round(Player.instance.maxMana,2);
         //---------------
         mana.text = "Mana";
-        mana_value.text = ""+Player.instance.mana;
+        mana_value.text = ""+Math.Round(Player.instance.mana,2);
         //---------------
         mana.text = "Health";
-        mana_value.text = ""+Player.instance.health;
+        mana_value.text = ""+Math.Round(Player.instance.health,2);
         //---------------
         healthRegen.text = "Health reg.";
-        healthRegen_value.text = ""+Player.instance.healthRegen;
+        healthRegen_value.text = ""+Math.Round(Player.instance.healthRegen,2);
         //---------------
         manaRegen.text = "Mana reg.";
-        manaRegen_value.text = ""+Player.instance.manaRegen;
+        manaRegen_value.text = ""+Math.Round(Player.instance.manaRegen,2);
         //---------------
         gold.text = "Gold";
         gold_value.text = ""+(int)Player.instance.gold;
         //---------------
         goldMultiplier.text = "Gold mult.";
-        goldMultiplier_value.text = ""+Player.instance.goldMultiplier;
+        goldMultiplier_value.text = ""+Math.Round(Player.instance.goldMultiplier,2);
         //---------------
         exp.text = "Sum exp";
-        exp_value.text = ""+Player.instance.sumExp;
+        exp_value.text = ""+Math.Round(Player.instance.sumExp,2);
         //---------------
         exp_to_next.text = "Need exp";
-        exp_to_next_value.text = ""+Player.instance.needExp;
+        exp_to_next_value.text = ""+Math.Round(Player.instance.needExp,2);
         //---------------
         expMultiplier.text = "Exp mult.";
-        expMultiplier_value.text = ""+Player.instance.expMultiplier;
+        expMultiplier_value.text = ""+Math.Round(Player.instance.expMultiplier,2);
         //---------------
         movementSpeed.text = "Move speed";
-        movementSpeed_value.text = ""+(Player.instance.movementSpeed*10f);
+        movementSpeed_value.text = ""+Math.Round(Player.instance.movementSpeed*10f,2);
         //---------------
         resistance.text = "Defense";
-        resistance_value.text = ""+Player.instance.resistance;
+        resistance_value.text = ""+Math.Round(Player.instance.resistance,2);
         //---------------
         lifesteal.text = "Lifesteal";
-        lifesteal_value.text = ""+Player.instance.lifesteal;
+        lifesteal_value.text = ""+Math.Round(Player.instance.lifesteal,2);
         //---------------
         attackDamage.text = "AD";
-        attackDamage_value.text = ""+Player.instance.attackDamage;
+        attackDamage_value.text = ""+Math.Round(Player.instance.attackDamage,2);
         //---------------
         criticalChance.text = "CC";
-        criticalChance_value.text = ""+Player.instance.criticalChance;
+        criticalChance_value.text = ""+Math.Round(Player.instance.criticalChance,2);
         //---------------
         criticalDamage.text = "CD";
-        criticalDamage_value.text = ""+Player.instance.criticalDamage;
+        criticalDamage_value.text = ""+Math.Round(Player.instance.criticalDamage,2);
         //---------------
         awarenessRange.text = "Awareness";
-        awarenessRange_value.text = ""+Player.instance.awarenessRange;
+        awarenessRange_value.text = ""+Math.Round(Player.instance.awarenessRange,2);
         //---------------
         time.text = "Time";
         float tempTime = WorldManager.instance.timer;
@@ -180,16 +181,16 @@ public class StatsMenu : MonoBehaviour
         killed_enemies_value.text = ""+Player.instance.killed_mobs;
         //---------------
         spell_dmg.text = "Spell dmg";
-        spell_dmg_value.text = ""+Player.instance.spell_dmg_up+"%";
+        spell_dmg_value.text = ""+Math.Round(Player.instance.spell_dmg_up,2)+"%";
         //---------------
         spell_1.text = "Cooldown";
-        spell_1_value.text = "-"+Player.instance.cooldown_up+"%";
+        spell_1_value.text = "-"+Math.Round(Player.instance.cooldown_up,2)+"%";
         //---------------
         spell_2.text = "Frisbee Up";
-        spell_2_value.text = ""+Player.instance.frisbee_up;
+        spell_2_value.text = ""+Math.Round(Player.instance.frisbee_up,2);
         //---------------
         spell_3.text = "Slowdown up";
-        spell_3_value.text = ""+Player.instance.slowdown_up;
+        spell_3_value.text = ""+Math.Round(Player.instance.slowdown_up,2);
     }
 
     // Update is called once per frame

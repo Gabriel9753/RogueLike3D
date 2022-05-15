@@ -19,6 +19,6 @@ public class ManaUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((int)(5+Player.instance.level*0.6f), (int)(20+Player.instance.level*0.8f));
+        return Random.Range((int)(5+Player.instance.level*0.9f), (int)(20+Player.instance.level*1.2f));
     }
 }
