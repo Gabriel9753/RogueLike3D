@@ -37,7 +37,7 @@ public class MagicOrb : Ability
         foreach (GameObject enemy in SpawnManager.instance.listEnemiesOnField){
             if (Vector3.Distance(enemy.transform.position, projectileObj.transform.position) < 12f + 25 * (Player.instance.slowdown_up / 100)){
                 Vector3 direction = (projectileObj.transform.position - enemy.transform.position).normalized * 
-                                    (0.9f + 3 * (Player.instance.slowdown_up / 100)) ;
+                                    (1.35f + 3 * (Player.instance.slowdown_up / 100)) ;
                 enemy.transform.position += direction * Time.deltaTime;
             }
         }

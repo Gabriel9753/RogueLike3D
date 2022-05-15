@@ -67,7 +67,16 @@ public class Skills_menu_in_game : MonoBehaviour{
     public float cooldown_skill_heal;
     public Image skillImage_skill_heal;
     public TextMeshProUGUI key_text_skill_heal;
-    public GameObject slider_skill_heal;
+    public GameObject slider_skill_heal; 
+    //
+    //Stuff for RunAttack
+    //
+    private String name_runAttack;
+    public KeyCode key_skill_runAttack;
+    public float cooldown_skill_runAttack;
+    public Image skillImage_skill_runAttack;
+    public TextMeshProUGUI key_text_skill_runAttack;
+    public GameObject slider_skill_runAttack;
     
     #region Singleton
     public static Skills_menu_in_game Instance;
@@ -113,6 +122,15 @@ public class Skills_menu_in_game : MonoBehaviour{
 
     public void setupUI(List<string> nameAbilites, List<KeyCode> keyFromAbilities, List<Sprite> spriteAbilities, List<float> cooldownTimeAbilities){
         for (int i = 0; i < nameAbilites.Count; i++){
+            if(nameAbilites[i] == "RunAttack")
+            {
+                cooldown_skill_runAttack = cooldownTimeAbilities[i];
+                skillImage_skill_runAttack.sprite = spriteAbilities[i];
+                key_skill_runAttack = keyFromAbilities[i];
+                key_text_skill_runAttack.text = ""+keyFromAbilities[i];
+                name_runAttack = nameAbilites[i];
+                continue;
+            }
             if (nameAbilites[i] == "Dash"){
                 cooldown_skill_dash = cooldownTimeAbilities[i];
                 skillImage_skill_dash.sprite = spriteAbilities[i];
@@ -183,6 +201,9 @@ public class Skills_menu_in_game : MonoBehaviour{
         }
         if (name == name_heal){
             StartCoroutine(SlideAnimation(slider_skill_heal, cooldownTime));
+        }
+        if (name == name_runAttack){
+            StartCoroutine(SlideAnimation(slider_skill_runAttack, cooldownTime));
         }
     }
     

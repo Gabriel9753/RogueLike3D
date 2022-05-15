@@ -43,15 +43,26 @@ public class PlayerAttack : MonoBehaviour{
     
     // Called once every frame
     void Update(){
-        if(Player.instance.standAttack()) 
+        if (Player.instance.standAttack()){
             _animator.SetBool("isRunToNormal", false);
+            if (Player.instance.weapon.GetComponent<BoxCollider>().enabled){
+                float alpha = (float)((Player.instance.transform.rotation.eulerAngles.y % 360) * Math.PI)/180;
+                Vector3 forward = new Vector3((float)Math.Sin(alpha), 0, (float)Math.Cos(alpha));
+                Vector3 newDestination = Player.instance.transform.position + forward * (3f);
+                Vector3 direction = (newDestination - Player.instance.transform.position).normalized;
+                Player.instance.transform.position += direction * 4f * Time.deltaTime;
+            }
+            
+        }
+            
+        
         if (checkRunAttack && !Player.instance.moveAttack() && !Player.instance.isDashing()){
             _agent.ResetPath();
             checkRunAttack = false;
         }
 
             //Right click for attack animation and not running
-        if (Input.GetMouseButtonDown(1) && !Player.instance.isRunning() && !Player.instance.isDashing() && !Player.instance.isHit() && !Player.instance.isCasting()){
+        if (Input.GetMouseButtonDown(1) && !Player.instance.isDashing() && !Player.instance.isHit() && !Player.instance.isCasting()){
             if (!Player.instance.moveAttack()){
                 _agent.ResetPath();
                 Player.instance.GetComponent<PlayerCombo>().NormalAttack();
@@ -60,7 +71,7 @@ public class PlayerAttack : MonoBehaviour{
 
         
         //When running -> other attack animation
-        if (Input.GetMouseButtonDown(1) && Player.instance.isRunning() && !Player.instance.isHit() && !Player.instance.isCasting() /*&& runAttackReady*/){
+        /*if (Input.GetMouseButtonDown(1) && Player.instance.isRunning() && !Player.instance.isHit() && !Player.instance.isCasting() /*&& runAttackReady#1#){
             //Dash Attack
             if (_agent && _animator){
                 Player.instance.PlayerToMouseRotation();
@@ -73,14 +84,14 @@ public class PlayerAttack : MonoBehaviour{
                 checkRunAttack = true;
                 StartCoroutine(moveAttackCooldown());
             }
-        }
+        }*/
     }
     
-    IEnumerator moveAttackCooldown(){
+    /*IEnumerator moveAttackCooldown(){
         runAttackReady = false;
         yield return new WaitForSecondsRealtime(cooldownRunAttack);
         runAttackReady = true; 
-    }
+    }*/
 
 
     public void startAttack(){

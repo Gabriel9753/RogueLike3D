@@ -187,7 +187,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 14421
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -2.081183e+32}
+  m_BoundingSphereOverride: {x: 0, y: -1.469368e-39, z: 0, w: -8.110903e-10}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.57
@@ -18911,6 +18911,7 @@ GameObject:
   - component: {fileID: 7605173586678213952}
   - component: {fileID: 4319317817758459847}
   - component: {fileID: 1906370316692346271}
+  - component: {fileID: 3583071819395148311}
   m_Layer: 0
   m_Name: pf_vfx-inf_psys_demo_loop_solara
   m_TagString: Untagged
@@ -23612,3 +23613,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionWithWall: 0
+--- !u!54 &3583071819395148311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731468968428296740}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

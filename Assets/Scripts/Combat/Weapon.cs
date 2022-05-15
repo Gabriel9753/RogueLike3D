@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other){
         // PLAYER HITS ENEMY
-        if (other.CompareTag("Enemy")){
+        if (other.CompareTag("Enemy") && holder.gameObject.CompareTag("Player")){
             PlayerStats stats = Player.instance.GetComponent<PlayerStats>();
             float damage = Player.instance.GetComponent<PlayerStats>().CalculateDamage(
                 instance.criticalChance,
@@ -24,7 +24,9 @@ public class Weapon : MonoBehaviour{
         // ENEMY HITS PLAYER
         if (other.CompareTag("Player")){
             float damage = holder.GetComponent<EnemyStats>().calculateDamage();
-            instance.GetComponent<PlayerAttack>().GotHit(damage);
+            if (!instance.isDashing()){
+                instance.GetComponent<PlayerAttack>().GotHit(damage);
+            }
         }
     }
 }

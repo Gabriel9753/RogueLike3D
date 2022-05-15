@@ -22,7 +22,8 @@ public class DamageTextManager : MonoBehaviour{
         GameObject dmgTextToSpawn = damageText;
         TextMeshPro textMesh = dmgTextToSpawn.GetComponent<TextMeshPro>();
         textMesh.text = num.ToString();
-        dmgTextToSpawn = Instantiate(dmgTextToSpawn, position, Quaternion.Euler(30, 45, 0));
+        Vector3 directionToCamera = (Player.instance.camera.transform.position - position + Vector3.up * 2).normalized;
+        dmgTextToSpawn = Instantiate(dmgTextToSpawn, (position+Vector3.up*2) + directionToCamera * 5, Quaternion.Euler(30, 45, 0));
         StartCoroutine(PositionChange(dmgTextToSpawn, dmgTextToSpawn.transform.localPosition, 1f));
     }
     

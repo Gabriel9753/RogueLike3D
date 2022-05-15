@@ -74,7 +74,6 @@ public class PlayerMovement:MonoBehaviour{
         }
 
         if (Player.instance.isRunning() && !Player.instance.GetComponent<Sounds3D>().isPlaying("Footsteps")){
-            
             Player.instance.GetComponent<Sounds3D>().Play("Footsteps");
         }
         if((!Player.instance.isRunning() && Player.instance.GetComponent<Sounds3D>().isPlaying("Footsteps"))

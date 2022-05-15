@@ -5,6 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour{
     private static int enemiesCreated = 0;
     public int enemyID;
+
+    public Material deadMat;
+
+    public GameObject whereToSetMaterial;
     // Start is called before the first frame update
     void Start(){
         enemyID = enemiesCreated;

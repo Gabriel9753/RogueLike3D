@@ -335,17 +335,16 @@ public class PlayerStats : MonoBehaviour{
     
     
     public float CalculateDamage(float critChance, float critDamage, float rawDamage){
+        float dmg = rawDamage * damageMultiplicatorFromAttack();
         if (critChance > 80){
             critChance = 80;
         }
         if (Random.Range(0, 100) < critChance){
-           Heal((rawDamage + rawDamage * critDamage / 100)*lifesteal);
-            return rawDamage + rawDamage * critDamage / 100;
+           Heal((dmg + dmg * critDamage / 100)*lifesteal);
+            return dmg + dmg * critDamage / 100;
         }
-        else{
-            Heal(rawDamage*lifesteal);
-            return rawDamage;
-        }
+        Heal(dmg*lifesteal);
+        return dmg;
     }
     
     
@@ -370,6 +369,23 @@ public class PlayerStats : MonoBehaviour{
     //------------------------------ Not considered yet -----------------------------------------
 
 
+    private float damageMultiplicatorFromAttack(){
+        if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_1"))
+            return 1.2f;
+        if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_2"))
+            return 1.3f;
+        if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_3"))
+            return 1.5f;
+        if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("RunAttack"))
+            return 0.6f;
+        return 1;
+    }
+    
+    
+    
+    
+    
+    
 
     public void addPlayerDamage(float dmg){
         sumDamage = attackDamage + dmg;

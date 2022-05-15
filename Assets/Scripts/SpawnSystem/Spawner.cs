@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour{
             }
         }
 
-        if (spawnReady && playerInRange && levelStartToSpawn <= Player.instance.level){
+        if ((spawnReady) && playerInRange && levelStartToSpawn <= Player.instance.level){
             if (!PauseMenu.gameIsPause && !LevelUpUpgradesUI.Instance.uiActive){
                 removeNullEnemiesFromList();
                 if (spawnedEnemies.Count <= maxEnemiesToSpawn){

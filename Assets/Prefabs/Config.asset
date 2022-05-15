@@ -18,7 +18,7 @@ MonoBehaviour:
   health: 40
   mana: 50
   healthRegen: 1
-  manaRegen: 1
+  manaRegen: 2.3
   gold: 0
   goldMultiplier: 1
   exp: 0

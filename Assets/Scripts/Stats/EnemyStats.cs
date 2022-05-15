@@ -12,7 +12,8 @@ public class EnemyStats : MonoBehaviour{
     public float baseExp;
     public float baseDamage;
     public float baseGold;
-
+    
+    
     
     public int level = 0;
     public float exp = 0;
@@ -103,6 +104,11 @@ public class EnemyStats : MonoBehaviour{
     }   
     
     public void TakeDamage(float damage){
+        if (PauseMenu.gameIsPause || LevelUpUpgradesUI.Instance.uiActive){
+            return;
+        }
+        
+        
         gameObject.GetComponent<Sounds3D>().Play("Hit");
         if (isDead){
             return;
@@ -111,7 +117,7 @@ public class EnemyStats : MonoBehaviour{
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         // Subtract damage from health
         health -= damage;
-        DamageTextManager.instance.DamageCreate(transform.position + new Vector3(0,3,0), damage, 11);
+        DamageTextManager.instance.DamageCreate(transform.position, damage, 11);
         
         if (health <= 0){
             Die();
@@ -125,7 +131,8 @@ public class EnemyStats : MonoBehaviour{
                     _animator.Play("hit");
                     GetComponent<BossMovement>().endAttack();
                     _animator.SetBool("Run", false);
-                    _agent.ResetPath();
+                    if(_agent.enabled)
+                        _agent.ResetPath();
                 }
             }
         }
@@ -136,7 +143,8 @@ public class EnemyStats : MonoBehaviour{
                     GetComponent<EnemyMovement>().endAttack();
                     _animator.SetBool("isRunning", false);
                     _animator.SetBool("isAttacking", false);
-                    _agent.ResetPath();
+                    if(_agent.enabled)
+                        _agent.ResetPath();
                     GetComponent<EnemyMovement>().attackReady = true;
                 }
             }
@@ -146,6 +154,8 @@ public class EnemyStats : MonoBehaviour{
 
 
     public void Die(){
+        if(enemyType != "Boss")
+            GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;
         isDead = true;
         //Give exp to player
         XP_UI.Instance.addXP(exp);

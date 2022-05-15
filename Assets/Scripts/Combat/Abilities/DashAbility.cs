@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 
 [CreateAssetMenu]
 public class DashAbility : Ability{
-    public static float dashSpeed = 18.0f;
-    public static float dashDistance = 14.0f;
+    public static float dashSpeed = 19.0f;
+    public static float dashDistance = 17.0f;
     public static float baseSpeed;
 
  
@@ -60,6 +60,7 @@ public class DashAbility : Ability{
             Player.instance.animator.SetBool("isRunToNormal", false);
             Player.instance.GetComponent<PlayerCombo>().ResetCombo();
             Player.instance.PlayerToMouseRotation();
+            Player.instance.GetComponent<PlayerAttack>().endAttack();
             float alpha = (float)((Player.instance.transform.rotation.eulerAngles.y % 360) * Math.PI)/180;
             Vector3 forward = new Vector3((float)Math.Sin(alpha), 0, (float)Math.Cos(alpha));
             Vector3 newDestination = Player.instance.transform.position + forward * (dashDistance/1.2f);

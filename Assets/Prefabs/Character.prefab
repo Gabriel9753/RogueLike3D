@@ -432,6 +432,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 65847b3992f9e474c8829bfe313fe718, type: 2}
   - {fileID: 11400000, guid: d371cb6d8042a8743ba320ee5cb1283f, type: 2}
   - {fileID: 11400000, guid: 673ecefd1e9a76c46853dd720f4de94f, type: 2}
+  - {fileID: 11400000, guid: 7082d4c1db69a91469ebb88565bedc9f, type: 2}
 --- !u!114 &-5335563267253420648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +499,7 @@ MonoBehaviour:
   - name: Footsteps
     musicForRun: 0
     clip: {fileID: 8300000, guid: f1b6228e690568e43b83ec6ee001027f, type: 3}
-    volume: 0.1
+    volume: 0.077
     pitch: 1
     spatial_blend: 0
     _minDistance: 0
