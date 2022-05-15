@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour{
         
         if (_enemyStats.enemyType == "Goblin"){
             if(weapon.GetComponent<BoxCollider>().enabled){
-                transform.position += direction * 55 * Time.deltaTime;
+                transform.position += direction * 65 * Time.deltaTime;
                 agent.enabled = false;
             }
             else{

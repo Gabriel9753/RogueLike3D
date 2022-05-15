@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,30 @@ public class BloodScreen : MonoBehaviour{
     private Color c;
     public float time;
     public float endAlpha;
+
+    private bool isEnabled;
+    public static BloodScreen instance;
+
+    private void Awake(){
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start(){
+        isEnabled = false;
         c = Image.GetComponent<Image>().color;
         Image.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
 
     public void activateUI(){
-        StartCoroutine(PositionChange());
+        if (!isEnabled){
+            isEnabled = true;
+            StartCoroutine(PositionChange());
+        }
     }
 
-    private IEnumerator PositionChange(){
+    public IEnumerator PositionChange(){
         Image.SetActive(true);
         c.a = 0;
         Image.GetComponent<Image>().color = c;
@@ -32,7 +39,7 @@ public class BloodScreen : MonoBehaviour{
         float timer = 0.0f;
         while(timer < time){
             timer += Time.deltaTime;
-            c.a += 0.01f;
+            c.a += 0.03f;
             print(c.a);
             Image.GetComponent<Image>().color = c;
             yield return null;
@@ -40,13 +47,14 @@ public class BloodScreen : MonoBehaviour{
         timer = 0.0f;
         while(timer < time){
             timer += Time.deltaTime;
-            c.a -= 0.01f;
+            c.a -= 0.03f;
             print(c.a);
             Image.GetComponent<Image>().color = c;
             yield return null;
         }
         c.a = 0;
         Image.SetActive(false);
+        isEnabled = false;
         yield return null;
     }
 }

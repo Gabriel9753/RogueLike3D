@@ -316,6 +316,7 @@ public class PlayerStats : MonoBehaviour{
 
 
     public void TakeDamage(float damage){
+        BloodScreen.instance.activateUI();
         GetComponent<Sounds3D>().Play("Hit");
         if(!Player.instance.isHit())
             Player.instance.animator.Play("playerHit");

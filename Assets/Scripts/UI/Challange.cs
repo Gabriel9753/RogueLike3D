@@ -11,7 +11,10 @@ public class Challange{
     public string text;
     
     public void updateText(int amount){
-        Debug.Log(beforeAmount + " " + amount + " " + afterAmount);
         text = beforeAmount + " " + amount + " " + afterAmount;
+    }
+    
+    public void updateText(){
+        text = beforeAmount  + " " + afterAmount;
     }
 }
