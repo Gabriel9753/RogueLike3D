@@ -33,9 +33,6 @@ public class AudioManager : MonoBehaviour{
         }
     }
 
-    public void StartMusicLoopRun(){
-
-    }
     IEnumerator LoopAudio(){
         nextSoundReady = false;
         Random random = new Random();

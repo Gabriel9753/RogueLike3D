@@ -46,7 +46,6 @@ public class EnemyStats : MonoBehaviour{
         //TODO: DIE in an "enemy" class
         if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f &&
             _animator.GetCurrentAnimatorStateInfo(0).IsName("die")){
-            Player.instance.killed_mobs++;
             Destroy(gameObject);
         }
 
@@ -154,6 +153,7 @@ public class EnemyStats : MonoBehaviour{
 
 
     public void Die(){
+        Player.instance.killed_mobs++;
         if(enemyType != "Boss")
             GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;
         isDead = true;

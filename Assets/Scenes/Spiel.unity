@@ -721,6 +721,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[0].amount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[1].amount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[2].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[0].time_seconds
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[1].time_seconds
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 2465130334205331094, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}
       propertyPath: m_AnchorMax.x
