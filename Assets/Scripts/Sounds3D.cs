@@ -27,6 +27,7 @@ public class Sounds3D : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
             return;
+        s.source.volume = 0;
         s.source.Play();
     }
 

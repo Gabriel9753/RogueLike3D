@@ -3,11 +3,13 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Linq;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class AudioManager : MonoBehaviour{ 
     public Sound[] sounds;
     public static AudioManager instance;
+    public Slider volumeSlider;
 
     private bool nextSoundReady = true;
     void Awake(){
@@ -67,5 +69,14 @@ public class AudioManager : MonoBehaviour{
         if(s == null)
             return;
         s.source.Stop();
+    }
+    
+    public void AdjustVolume(){
+        PlayerPrefs.SetFloat("volumeFromSlider", volumeSlider.value);
+        foreach (var sound in  sounds){
+            sound.source.volume = PlayerPrefs.GetFloat("volumeFromSlider");
+        }
+
+       
     }
 }
