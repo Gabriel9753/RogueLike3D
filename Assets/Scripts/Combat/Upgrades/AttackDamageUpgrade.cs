@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 [CreateAssetMenu]
 public class AttackDamageUpgrade : Upgrade
 {
@@ -19,6 +22,6 @@ public class AttackDamageUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Mathf.Round(Random.Range(Player.instance.level*0.7f*100f,Player.instance.level*0.9f*100f)/100f);
+        return (float)Math.Round(Random.Range(5f,10f),2);
     }
 }

@@ -41,8 +41,8 @@ public class Challanges : MonoBehaviour
         challangeImage = Challange_UI.transform.GetChild(0).gameObject;
         Challange_UI.SetActive(true);
         challangeImage.SetActive(false);
-        minTime = 5;
-        maxTime = 10;
+        minTime = 20;
+        maxTime = 40;
         startedTimerForBetweenChallanges = false;
         startedChallange = false;
         timeBetweenChallange = Random.Range(minTime, maxTime);
@@ -102,21 +102,21 @@ public class Challanges : MonoBehaviour
                 StartCoroutine(NotMoveAndKillChallange(timeForChallange, randomAmount));
                 break;
             case "noHP":
-                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 15);
+                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 10);
                 randomChallange.updateText();
                 challange_text.text = randomChallange.text;
                 amount_text.text = "";
                 StartCoroutine(noDamageChallange(timeForChallange, -1));
                 break;
             case "noAbilities":
-                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 15);
+                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 10);
                 randomChallange.updateText();
                 challange_text.text = randomChallange.text;
                 amount_text.text = "";
                 StartCoroutine(noAbilitiesChallange(timeForChallange, -1));
                 break;
             case "traveller":
-                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 15);
+                timeForChallange = Random.Range(randomChallange.time_seconds, randomChallange.time_seconds + 10);
                 randomChallange.updateText();
                 challange_text.text = randomChallange.text;
                 amount_text.text = "";

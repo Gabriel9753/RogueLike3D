@@ -66,13 +66,13 @@ public class Shop : MonoBehaviour{
         currentUpgrade_slowdown.text = "" + upgradeLevel_slowdown;
 
         //current_cost_dmg = cost_start_dmg + cost_inc_dmg * (upgradeLevel_dmg-1);
-        float[] functionFactors = calculateCostFunction(55, 25000, 1, maxUpgrade_dmg-1);
+        float[] functionFactors = calculateCostFunction(55, 45000, 1, maxUpgrade_dmg-1);
         current_cost_dmg = (int)(functionFactors[0] * Math.Pow(Math.E, functionFactors[1] * upgradeLevel_dmg));
-        functionFactors = calculateCostFunction(200, 33000, 1, maxUpgrade_cooldown-1);
+        functionFactors = calculateCostFunction(500, 65000, 1, maxUpgrade_cooldown-1);
         current_cost_cooldown = (int)(functionFactors[0] * Math.Pow(Math.E, functionFactors[1] * upgradeLevel_cooldown));
         functionFactors = calculateCostFunction(40, 36350, 1, maxUpgrade_frisbee-1);
         current_cost_frisbee = (int)(functionFactors[0] * Math.Pow(Math.E, functionFactors[1] * upgradeLevel_frisbee));
-        functionFactors = calculateCostFunction(350, 18500, 1, maxUpgrade_slow-1);
+        functionFactors = calculateCostFunction(645, 64000, 1, maxUpgrade_slow-1);
         current_cost_slowdown = (int)(functionFactors[0] * Math.Pow(Math.E, functionFactors[1] * upgradeLevel_slowdown));
 
         cost_dmg.text = "" + current_cost_dmg+"g";

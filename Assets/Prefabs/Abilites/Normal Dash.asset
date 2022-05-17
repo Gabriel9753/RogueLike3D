@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dash
   symbol: {fileID: 21300000, guid: 9d7adab79f7c9124aae84ee69000e28f, type: 3}
   activeTime: 0
-  cooldownTime: -0.001583871
+  cooldownTime: -0.007419195
   key: 102
   isReady: 1
   isActive: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
   hit_enemies: []
   hit_frisbee_enemies: []
   fireballs_to_destroy: []
-  factor: 29
+  factor: 30

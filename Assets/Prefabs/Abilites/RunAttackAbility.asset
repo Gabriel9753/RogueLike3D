@@ -15,7 +15,7 @@ MonoBehaviour:
   name: RunAttack
   symbol: {fileID: 21300000, guid: 0e7966e8857d9da42bd7ac9668f85ce2, type: 3}
   activeTime: 0
-  cooldownTime: 0.56303066
+  cooldownTime: 1.0065987
   key: 99
   isReady: 0
   isActive: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
   hit_enemies: []
   hit_frisbee_enemies: []
   fireballs_to_destroy: []
-  factor: 45
+  factor: 50

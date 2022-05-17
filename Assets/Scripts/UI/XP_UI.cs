@@ -37,7 +37,7 @@ public class XP_UI : MonoBehaviour
         maxXP = calculateMaxXP();
     }
     private float calculateMaxXP(){
-        float max_XP = 25 * Player.instance.level + 100;
+        float max_XP = 50 * Player.instance.level + 100;
         return max_XP;
     }
 

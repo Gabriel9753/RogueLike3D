@@ -19,6 +19,6 @@ public class MovementSpeedUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Mathf.Round(Random.Range(0.1f,0.3f)*100f)/100f;
+        return Mathf.Round(Random.Range(0.2f,0.4f)*100f)/100f;
     }
 }

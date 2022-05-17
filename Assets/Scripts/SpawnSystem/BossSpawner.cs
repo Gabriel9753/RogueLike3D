@@ -62,7 +62,7 @@ public class BossSpawner : MonoBehaviour{
         //calculate xp
         xp = enemyLevel * 6.5f + 20;
         //calculate health
-        health = enemyLevel * 9.7f + 30;
+        health = enemyLevel * 15.7f;
 
         damage = enemyLevel * 2.3f + 6;
 

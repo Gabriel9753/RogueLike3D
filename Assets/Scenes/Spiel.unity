@@ -363,7 +363,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1574371551 stripped
 Camera:
@@ -602,7 +602,7 @@ PrefabInstance:
     - target: {fileID: 547783672098846965, guid: 60c9e829495419b4396c60f89fc2e091,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 547783672098846965, guid: 60c9e829495419b4396c60f89fc2e091,
         type: 3}
@@ -679,6 +679,38 @@ PrefabInstance:
     - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[0].amount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[1].amount
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[0].time_seconds
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[1].time_seconds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[2].time_seconds
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[3].time_seconds
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[4].time_seconds
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
+      propertyPath: challanges.Array.data[5].time_seconds
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2465130334205331094, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}

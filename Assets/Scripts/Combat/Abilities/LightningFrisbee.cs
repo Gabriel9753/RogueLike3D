@@ -94,12 +94,12 @@ public class LightningFrisbee : Ability
     public override IEnumerator Ready(){
         camera = Player.instance.camera;
         ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (Player.instance.mana >= StatDictionary.dict[name][3] && Physics.Raycast(ray, out hit, 1000, moveMask)){
+        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level/2f && Physics.Raycast(ray, out hit, 1000, moveMask)){
             destination = hit.point;
             isReady = false;
             Activate();
             Player.instance.animator.Play(name);
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/2f);
             isActive = true;
             activeTime = StatDictionary.dict[name][0];
         }
@@ -123,6 +123,13 @@ public class LightningFrisbee : Ability
             activeTime = StatDictionary.dict[name][0];
             startedSpell = true;
             searchRandomNearEnemy();
+        }
+
+        if (!startedSpell && activeTime < StatDictionary.dict[name][0] * 0.5f){
+            isActive = false;
+            startedSpell = false;
+            isOnCooldown = false;
+            isReady = true;
         }
 
         if (startedSpell){

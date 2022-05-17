@@ -37,7 +37,7 @@ public class MagicOrb : Ability
         foreach (GameObject enemy in SpawnManager.instance.listEnemiesOnField){
             if (Vector3.Distance(enemy.transform.position, projectileObj.transform.position) < 12f + 25 * (Player.instance.slowdown_up / 100)){
                 Vector3 direction = (projectileObj.transform.position - enemy.transform.position).normalized * 
-                                    (1.55f + 3 * (Player.instance.slowdown_up / 100)) ;
+                                    (1.55f + 5 * (Player.instance.slowdown_up / 100)) ;
                 enemy.transform.position += direction * Time.deltaTime;
             }
         }
@@ -66,12 +66,12 @@ public class MagicOrb : Ability
     public override IEnumerator Ready(){
         camera = Player.instance.camera;
         ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (Player.instance.mana >= StatDictionary.dict[name][3] && Physics.Raycast(ray, out hit, 1000, moveMask)){
+        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level/2f && Physics.Raycast(ray, out hit, 1000, moveMask)){
             destination = hit.point;
             isReady = false;
             Activate();
             Player.instance.animator.Play(name);
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/2f);
             isActive = true;
             activeTime = StatDictionary.dict[name][0];
         }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder;
+
 [CreateAssetMenu]
 public class ResistanceUpgrade : Upgrade
 {
@@ -19,6 +21,6 @@ public class ResistanceUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return 7f;
+        return Random.Range(3f, 6f);
     }
 }

@@ -26,18 +26,26 @@ public class OptionsInGame : MonoBehaviour{
             sliderMusic.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumeFromSlider");
             musicSettings = PlayerPrefs.GetFloat("volumeFromSlider");
         }
+        else{
+            musicSettings = 0.5f;
+        }
 
         if (PlayerPrefs.HasKey("volumeVFX")){
+            print("True");
             sliderVFX.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumeVFX");
             VFXSettings = PlayerPrefs.GetFloat("volumeVFX");
         }
         else{
-            musicSettings = 0.5f;
             VFXSettings = 0.5f;
         }
+
     }
 
     public void AdjustVolume(){
+        if (sliderVFX.GetComponent<Slider>().value == 0.5f)
+            return;
+        
+        
         PlayerPrefs.SetFloat("volumeFromSlider", sliderMusic.GetComponent<Slider>().value);
         musicSettings = sliderMusic.GetComponent<Slider>().value;
         PlayerPrefs.SetFloat("volumeVFX", sliderVFX.GetComponent<Slider>().value);

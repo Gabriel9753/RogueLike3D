@@ -23,6 +23,6 @@ public class GoldUpgrade : Upgrade{
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((Player.instance.level*2), (Player.instance.level*5))*10f;
+        return Random.Range((Player.instance.level*2), (Player.instance.level*4))*6f;
     }
 }

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: LightningFrisbee
   symbol: {fileID: 21300000, guid: df5153fca31c9bf47b2d36359b5dd373, type: 3}
-  activeTime: 0
-  cooldownTime: 26.124073
+  activeTime: 15.741867
+  cooldownTime: 0
   key: 114
   isReady: 0
-  isActive: 0
-  isOnCooldown: 1
+  isActive: 1
+  isOnCooldown: 0
   moveMask:
     serializedVersion: 2
     m_Bits: 512
@@ -27,6 +27,6 @@ MonoBehaviour:
   hit_frisbee_enemies: []
   fireballs_to_destroy: []
   projectile: {fileID: 100004, guid: d4e4b4cb393c29742b6b98cbf622aa4a, type: 3}
-  projectileSpeed: 20
-  searchRadius: 18
+  projectileSpeed: 27
+  searchRadius: 20
   maxHitEnemies: 40

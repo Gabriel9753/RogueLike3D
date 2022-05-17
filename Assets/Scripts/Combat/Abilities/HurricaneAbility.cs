@@ -35,11 +35,11 @@ public class HurricaneAbility : Ability
     }
 
     public override IEnumerator Ready(){
-        if (Player.instance.mana >= StatDictionary.dict[name][3]){
+        if (Player.instance.mana  + Player.instance.level/3f >= StatDictionary.dict[name][3]){
             isReady = false;
             Activate();
             Player.instance.animator.Play(name);
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/3f);
             isActive = true;
             activeTime = StatDictionary.dict[name][0];
         }

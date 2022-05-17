@@ -83355,7 +83355,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
+  - time: 0.21666667
     functionName: ComboPossible
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -83383,14 +83383,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2833333
+  - time: 1.3333334
     functionName: NextAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.3166667
+  - time: 1.4166666
     functionName: ResetCombo
     data: 
     objectReferenceParameter: {fileID: 0}

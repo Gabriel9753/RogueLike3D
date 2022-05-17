@@ -35,9 +35,9 @@ public class RunAttackAbility:Ability{
     }
 
     public override IEnumerator Ready(){
-        if (Player.instance.mana >= StatDictionary.dict[name][3]){
+        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level/4f){
             Activate();
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3]);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/4f);
         }
         yield break;
     }

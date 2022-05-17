@@ -19,6 +19,6 @@ public class CriticalDamageUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return 10f;
+        return Random.Range(5,10);
     }
 }

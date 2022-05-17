@@ -27,8 +27,8 @@ public class Spawner : MonoBehaviour{
     {
         
         if (Player.instance){
-            if (Vector3.Distance(Player.instance.transform.position, transform.position) < 5 * radiusX ||
-                Vector3.Distance(Player.instance.transform.position, transform.position) < 5 * radiusZ){
+            if (Vector3.Distance(Player.instance.transform.position, transform.position) < 2f * radiusX ||
+                Vector3.Distance(Player.instance.transform.position, transform.position) < 2f * radiusZ){
                 playerInRange = true;
             }
             else{
@@ -79,7 +79,7 @@ public class Spawner : MonoBehaviour{
         }
         //Player level greater than max
         else if (Player.instance.level > levelRange[1]){
-            enemyLevel = (int)(levelRange[1] + Player.instance.level * Random.Range(0.5f, 0.8f));
+            enemyLevel = (int)(levelRange[1] + Player.instance.level * Random.Range(0.2f, 0.5f));
         }
         //In beginning
         else if (Player.instance.level == 1 || Player.instance.level == 2 || Player.instance.level == 3){
@@ -93,13 +93,13 @@ public class Spawner : MonoBehaviour{
         }
         
         //calculate xp
-        xp = enemyLevel * 1.5f;
+        xp = enemyLevel * 2f;
         //calculate health
-        health = enemyLevel * 2.3f;
+        health = enemyLevel * 2.6f;
 
-        damage = enemyLevel * 1.7f;
+        damage = enemyLevel * 1.8f;
 
-        gold = enemyLevel * 1.5f;
+        gold = enemyLevel * 1.3f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }
