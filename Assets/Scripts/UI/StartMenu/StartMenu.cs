@@ -67,7 +67,19 @@ public class StartMenu : MonoBehaviour
     }
     
     public void ResetButton(){
+        float temp1 = 0.5f;
+        float temp2 = 0.5f;
+        if (PlayerPrefs.HasKey("volumeFromSlider")){
+            temp1 = PlayerPrefs.GetFloat("volumeFromSlider");
+        }
+
+        if (PlayerPrefs.HasKey("volumeVFX")){
+            temp2 = PlayerPrefs.GetFloat("volumeVFX");
+        }
         PlayerPrefs.DeleteAll();
+        
+        PlayerPrefs.SetFloat("volumeFromSlider", temp1);
+        PlayerPrefs.SetFloat("volumeVFX", temp2);
         Start();
     }
 }

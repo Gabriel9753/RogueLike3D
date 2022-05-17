@@ -103,11 +103,9 @@ public class PlayerMovement:MonoBehaviour{
     }
 
     public void startRoll(){
-        print("START");
         Player.instance.isRolling = true;
     }
     public void endRoll(){
-        print("END");
         Player.instance.isRolling = false;
     }
 }

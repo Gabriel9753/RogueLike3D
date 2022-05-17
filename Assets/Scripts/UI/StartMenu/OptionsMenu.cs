@@ -13,14 +13,9 @@ public class OptionsMenu : MonoBehaviour{
     {
         optionsUI.SetActive(false);
         startMenuUI.SetActive(true);
-
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+
 
     public void BackButton(){
         optionsUI.SetActive(false);

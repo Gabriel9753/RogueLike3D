@@ -99,8 +99,6 @@ public class DashAbility : Ability{
 
     private void move(){
         if (Player.instance.isRolling){
-            Debug.Log("IS ROLLING");
-            Debug.Log(Player.instance._agent.destination);
             Player.instance._agent.ResetPath();
             Player.instance.transform.position += new Vector3(direction.x, 0, direction.z) * factor * Time.deltaTime;
         }

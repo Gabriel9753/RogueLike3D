@@ -8,6 +8,7 @@ public class Sounds3D : MonoBehaviour
     
     public Sound[] sounds;
     private List<AudioSource> _audioSources;
+    private float currentVFX;
     void Awake(){
         _audioSources = new List<AudioSource>();
         foreach (Sound s in sounds){
@@ -21,13 +22,23 @@ public class Sounds3D : MonoBehaviour
             s.source.minDistance = 1;
             s.source.maxDistance = s.maxDistance;
         }
+
+        currentVFX = 0;
+    }
+
+    private void Update(){
+        if (OptionsInGame.instance.VFXSettings != currentVFX){
+            currentVFX = OptionsInGame.instance.VFXSettings;
+            foreach (var a_s in sounds){
+                a_s.source.volume = currentVFX;
+            }
+        }
     }
 
     public void Play(string name){
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if(s == null)
             return;
-        s.source.volume = 0;
         s.source.Play();
     }
 

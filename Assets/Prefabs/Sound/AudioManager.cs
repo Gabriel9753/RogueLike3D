@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour{
     public Sound[] sounds;
     public static AudioManager instance;
     public Slider volumeSlider;
+    
+    private float currentMusic;
 
     private bool nextSoundReady = true;
     void Awake(){
@@ -33,6 +35,14 @@ public class AudioManager : MonoBehaviour{
             if(nextSoundReady)
                 StartCoroutine(LoopAudio());
         }
+        
+        if (OptionsInGame.instance.musicSettings != currentMusic){
+            currentMusic = OptionsInGame.instance.musicSettings;
+            foreach (var a_s in sounds){
+                if(a_s.source.isPlaying) 
+                    a_s.source.volume = currentMusic;
+            }
+        }
     }
 
     IEnumerator LoopAudio(){
@@ -44,14 +54,12 @@ public class AudioManager : MonoBehaviour{
         foreach (var x in sounds){
             if (x.musicForRun){
                 if (x.source.isPlaying){
-                    print("stop" + x.name);
                     Stop(x.name);
                 }
             }
         }
         while(true)
         {
-            print("start" + s.name);
             s.source.Play();
             yield return new WaitForSeconds(length);
             nextSoundReady = true;

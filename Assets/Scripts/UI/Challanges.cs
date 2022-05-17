@@ -41,7 +41,6 @@ public class Challanges : MonoBehaviour
         challangeImage = Challange_UI.transform.GetChild(0).gameObject;
         Challange_UI.SetActive(true);
         challangeImage.SetActive(false);
-        print(challangeImage.name);
         minTime = 5;
         maxTime = 10;
         startedTimerForBetweenChallanges = false;

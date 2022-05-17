@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,19 @@ public class PauseMenu : MonoBehaviour{
     public static bool gameIsPause = false;
 
     public GameObject pauseMenuUI;
+    public GameObject options;
+
+
+    public static PauseMenu instance;
+
+    private void Awake(){
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !StatsMenu.instance.statsMenuEnabled && !DieMenu.instance.DieMenuEnabled && !Shop.isEnabled){
+        if (Input.GetKeyDown(KeyCode.Escape) && !StatsMenu.instance.statsMenuEnabled && !DieMenu.instance.DieMenuEnabled && !Shop.isEnabled && !OptionsInGame.instance.isEnabled){
             if (gameIsPause){
                 Resume();
             }
@@ -35,6 +44,9 @@ public class PauseMenu : MonoBehaviour{
     }
 
     public void Options(){
+        OptionsInGame.instance.isEnabled = true;
+        pauseMenuUI.SetActive(false);
+        options.SetActive(true);
     }
 
     public void Restart(){

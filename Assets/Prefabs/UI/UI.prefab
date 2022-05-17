@@ -23063,7 +23063,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 929606080}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: Options
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26041,7 +26041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258.12503, y: -23.958332}
+  m_AnchoredPosition: {x: 258.12503, y: 44.2}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5081107083628209745
@@ -26095,8 +26095,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManagerMenu, Assembly-CSharp
+      - m_Target: {fileID: 6404605457934184184}
+        m_TargetAssemblyTypeName: OptionsInGame, Assembly-CSharp
         m_MethodName: AdjustVolume
         m_Mode: 1
         m_Arguments:
@@ -28099,7 +28099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303.0208, y: 181.66666}
+  m_AnchoredPosition: {x: -5.92, y: -109.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1528925389901211960
@@ -28184,9 +28184,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 929606080}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Exit
+      - m_Target: {fileID: 6404605457934184184}
+        m_TargetAssemblyTypeName: OptionsInGame, Assembly-CSharp
+        m_MethodName: back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28365,8 +28365,8 @@ RectTransform:
   m_Father: {fileID: 8558618606331285175}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.49995, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28442,7 +28442,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28636,7 +28636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7155362211036631781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28790,7 +28790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6e558b20a212824fb1e912dae40d1cb, type: 2}
   m_sharedMaterial: {fileID: -7365420503255208808, guid: a6e558b20a212824fb1e912dae40d1cb,
@@ -29423,8 +29423,8 @@ RectTransform:
   m_Father: {fileID: 7042243054131627446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.49995, y: 0}
-  m_AnchorMax: {x: 0.49995, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29770,7 +29770,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -30639,7 +30639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258.12503, y: 18.645832}
+  m_AnchoredPosition: {x: 258.12503, y: -9.6}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8667379898150884218
@@ -30693,8 +30693,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManagerMenu, Assembly-CSharp
+      - m_Target: {fileID: 6404605457934184184}
+        m_TargetAssemblyTypeName: OptionsInGame, Assembly-CSharp
         m_MethodName: AdjustVolume
         m_Mode: 1
         m_Arguments:
@@ -31450,8 +31450,8 @@ RectTransform:
   m_Father: {fileID: 3516294832767836762}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.49995, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31781,7 +31781,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.49995, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31846,6 +31846,7 @@ GameObject:
   - component: {fileID: 814302843}
   - component: {fileID: 1130397750}
   - component: {fileID: 1130397751}
+  - component: {fileID: 6404605457934184184}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -31964,6 +31965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1964198634}
+  options: {fileID: 3193450581252605975}
 --- !u!114 &929606084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32296,8 +32298,25 @@ MonoBehaviour:
   min_text: {fileID: 686606171}
   seconds_text: {fileID: 791250437}
   amount_text: {fileID: 942192576}
-  success: {fileID: 0}
-  failed: {fileID: 0}
+  success: {fileID: 1325914528}
+  failed: {fileID: 844418312}
+--- !u!114 &6404605457934184184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219281136730472561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8f4731801a48c4da2c097955c3c172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderMusic: {fileID: 761247088557397189}
+  sliderVFX: {fileID: 6659294478416104224}
+  musicSettings: 0
+  VFXSettings: 0
+  isEnabled: 0
 --- !u!1 &8226319925520904330
 GameObject:
   m_ObjectHideFlags: 0

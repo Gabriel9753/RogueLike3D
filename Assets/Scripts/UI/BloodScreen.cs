@@ -40,7 +40,6 @@ public class BloodScreen : MonoBehaviour{
         while(timer < time){
             timer += Time.deltaTime;
             c.a += 0.03f;
-            print(c.a);
             Image.GetComponent<Image>().color = c;
             yield return null;
         }
@@ -48,7 +47,6 @@ public class BloodScreen : MonoBehaviour{
         while(timer < time){
             timer += Time.deltaTime;
             c.a -= 0.03f;
-            print(c.a);
             Image.GetComponent<Image>().color = c;
             yield return null;
         }
