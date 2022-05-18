@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c698e932feaf45867ca5ec55f5fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 18
+  lookRadius: 20
   movementSpeed: 8
   attackReady: 1
   attackReadyOnCooldown: 1
@@ -978,7 +978,7 @@ MonoBehaviour:
   isStuck: 0
   isChecked: 0
   slowed: 0
-  cooldownCasting: 10
+  cooldownCasting: 9
   castReady: 1
   timeCreateProjectile: 0.4
   createdProjectile: {fileID: 0}
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 55
+  baseHealth: 66
   baseExp: 18
   baseDamage: 20
   baseGold: 9

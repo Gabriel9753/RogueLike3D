@@ -654,6 +654,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 585da3b9e4b3d9843b89d63ec8d83fb1, type: 3}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[7].name
+      value: boss_killed
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 90af38775c5bd43c084091ac77fe7257, type: 3}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[8].name
+      value: new_challange
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[8].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[7]._minDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 547783672098846966, guid: 60c9e829495419b4396c60f89fc2e091,
+        type: 3}
+      propertyPath: sounds.Array.data[8]._minDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 547783672098846967, guid: 60c9e829495419b4396c60f89fc2e091,
         type: 3}
       propertyPath: m_Name
@@ -679,38 +734,6 @@ PrefabInstance:
     - target: {fileID: 927241321, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[0].amount
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[1].amount
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[0].time_seconds
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[1].time_seconds
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[2].time_seconds
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[3].time_seconds
-      value: 37
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[4].time_seconds
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130397751, guid: 66080450d17b4c941a0e3eb4b9802126, type: 3}
-      propertyPath: challanges.Array.data[5].time_seconds
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2465130334205331094, guid: 66080450d17b4c941a0e3eb4b9802126,
         type: 3}

@@ -27,8 +27,8 @@ public class Spawner : MonoBehaviour{
     {
         
         if (Player.instance){
-            if (Vector3.Distance(Player.instance.transform.position, transform.position) < 2f * radiusX ||
-                Vector3.Distance(Player.instance.transform.position, transform.position) < 2f * radiusZ){
+            if (Vector3.Distance(Player.instance.transform.position, transform.position) < 3.3f * radiusX ||
+                Vector3.Distance(Player.instance.transform.position, transform.position) < 3.3f * radiusZ){
                 playerInRange = true;
             }
             else{
@@ -93,13 +93,13 @@ public class Spawner : MonoBehaviour{
         }
         
         //calculate xp
-        xp = enemyLevel * 2f;
+        xp = enemyLevel * 6.3f;
         //calculate health
-        health = enemyLevel * 2.6f;
+        health = enemyLevel * 3.6f;
 
         damage = enemyLevel * 1.8f;
 
-        gold = enemyLevel * 1.3f;
+        gold = enemyLevel * 1.2f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }

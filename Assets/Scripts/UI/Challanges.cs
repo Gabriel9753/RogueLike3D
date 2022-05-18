@@ -64,6 +64,7 @@ public class Challanges : MonoBehaviour
     }
 
     private void StartChallange(){
+        AudioManager.instance.Play("new_challange");
         startedChallanges++;
         challangeReady = false;
         startedChallange = true;

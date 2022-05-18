@@ -26,10 +26,10 @@ MonoBehaviour:
   movementSpeed: 10
   resistance: 0
   lifesteal: 0
-  attackDamage: 14
+  attackDamage: 12
   criticalChance: 10
   criticalDamage: 15
-  awarenessRange: 1.4
+  awarenessRange: 1.5
   sumExp: 0
   needExp: 0
   killed_mobs: 0

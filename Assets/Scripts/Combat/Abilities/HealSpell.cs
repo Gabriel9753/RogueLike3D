@@ -14,8 +14,8 @@ public class HealSpell : Ability
             Player.instance._agent.ResetPath();
             Player.instance.GetComponent<Sounds3D>().Play("Heal");
             projectileObj = Instantiate(projectile, Player.instance.transform.position + (Vector3.up*2f), Quaternion.Euler(0, 0, 0));
-            Player.instance.GetComponent<PlayerStats>().Heal(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100);
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/2f);
+            Player.instance.GetComponent<PlayerStats>().Heal(StatDictionary.dict[name][2] + StatDictionary.dict[name][2] * Player.instance.spell_dmg_up/100 * 4);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level);
         }
     }
     void moveOverTime(){
@@ -26,7 +26,7 @@ public class HealSpell : Ability
     }
 
     public override IEnumerator Ready(){
-        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level/2f){
+        if (Player.instance.mana >= StatDictionary.dict[name][3]){
             isReady = false;
             //Start Animation
             Player.instance.animator.Play(name);

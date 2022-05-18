@@ -77,6 +77,14 @@ public class Skills_menu_in_game : MonoBehaviour{
     public Image skillImage_skill_runAttack;
     public TextMeshProUGUI key_text_skill_runAttack;
     public GameObject slider_skill_runAttack;
+
+    public GameObject manaText_1;
+    public GameObject manaText_2;
+    public GameObject manaText_3;
+    public GameObject manaText_4;
+    public GameObject manaText_5;
+    public GameObject manaText_6;
+    
     
     #region Singleton
     public static Skills_menu_in_game Instance;
@@ -118,6 +126,21 @@ public class Skills_menu_in_game : MonoBehaviour{
                 key_text_skill_heal.text = ""+key;
                 break;
         }
+    }
+
+    public void Update(){
+        //Runattack
+        manaText_1.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["RunAttack"][3] + Player.instance.level * 0.7,0);
+        //Fireball
+        manaText_2.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["Fireball"][3] + Player.instance.level,0);
+        //LHurricane
+        manaText_3.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["fireHurricane"][3] + Player.instance.level,0);
+        //Magic orb
+        manaText_4.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["MagicOrb"][3] + Player.instance.level * 1.3f,0);
+        //Lightning frisbee
+        manaText_5.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["LightningFrisbee"][3] + Player.instance.level,0);
+        //Heal
+        manaText_6.GetComponent<Text>().text = "" + Math.Round(StatDictionary.dict["Heal"][3] + Player.instance.level,0);
     }
 
     public void setupUI(List<string> nameAbilites, List<KeyCode> keyFromAbilities, List<Sprite> spriteAbilities, List<float> cooldownTimeAbilities){

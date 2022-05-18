@@ -101,6 +101,7 @@ public class BossStats : MonoBehaviour
         DamageTextManager.instance.DamageCreate(transform.position + new Vector3(0,3,0), damage, 11);
         
         if (health <= 0){
+            AudioManager.instance.Play("boss_killed");
             Die();
         }
         else if (enemyType == "mage"){

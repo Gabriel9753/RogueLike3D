@@ -66,12 +66,12 @@ public class MagicOrb : Ability
     public override IEnumerator Ready(){
         camera = Player.instance.camera;
         ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level/2f && Physics.Raycast(ray, out hit, 1000, moveMask)){
+        if (Player.instance.mana >= StatDictionary.dict[name][3] + Player.instance.level * 1.3f && Physics.Raycast(ray, out hit, 1000, moveMask)){
             destination = hit.point;
             isReady = false;
             Activate();
             Player.instance.animator.Play(name);
-            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level/2f);
+            Player.instance.GetComponent<PlayerStats>().consumeMana(StatDictionary.dict[name][3] + Player.instance.level * 1.3f);
             isActive = true;
             activeTime = StatDictionary.dict[name][0];
         }
