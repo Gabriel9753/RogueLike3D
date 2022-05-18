@@ -19,8 +19,8 @@ public class HealthRegenUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        float min = 0.3f;
-        float max = 0.6f;
+        float min = 0.9f;
+        float max = 1.7f;
         return Random.Range((float)System.Math.Round(min,2),(float)System.Math.Round(max,2));
     }
 }

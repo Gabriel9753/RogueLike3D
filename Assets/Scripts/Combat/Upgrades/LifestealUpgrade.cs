@@ -19,6 +19,6 @@ public class LifestealUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range(0.01f,0.03f);
+        return Random.Range(0.04f,0.07f);
     }
 }

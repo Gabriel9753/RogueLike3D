@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 1200
-  baseExp: 175
+  baseExp: 1200
   baseDamage: 0
   baseGold: 0
   level: 0

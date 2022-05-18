@@ -125,11 +125,12 @@ public class LightningFrisbee : Ability
             searchRandomNearEnemy();
         }
 
-        if (!startedSpell && activeTime < StatDictionary.dict[name][0] * 0.5f){
+        if (!startedSpell && activeTime < StatDictionary.dict[name][0] * 0.7f){
             isActive = false;
             startedSpell = false;
             isOnCooldown = false;
             isReady = true;
+            activeTime = 0;
         }
 
         if (startedSpell){

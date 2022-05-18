@@ -22,6 +22,6 @@ public class AttackDamageUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return (float)Math.Round(Random.Range(4f,8f),2);
+        return (float)Math.Round(Random.Range(2f,5f),2);
     }
 }

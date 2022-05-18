@@ -15,16 +15,30 @@ public class Spawner : MonoBehaviour{
     public List<GameObject> enemies;
     public int levelStartToSpawn;
     public bool playerInRange;
+
+    private int tempSpawnRate;
+
+    private bool setTempSpawnRate;
     // Start is called before the first frame update
     void Start(){
         spawnReady = true;
         playerInRange = false;
         calculateMinMaxRange();
+        setTempSpawnRate = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!setTempSpawnRate && Player.instance.level >= levelRange[1] + 1 && Player.instance.level < levelRange[1] + 10){
+            tempSpawnRate = spawnRate;
+            spawnRate = (int)(spawnRate * 6f);
+            setTempSpawnRate = true;
+        }
+
+        if (setTempSpawnRate && Player.instance.level >= levelRange[1] + 10){
+            spawnRate = tempSpawnRate;
+        }
         
         if (Player.instance){
             if (Vector3.Distance(Player.instance.transform.position, transform.position) < 3.3f * radiusX ||

@@ -1316,9 +1316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 6000
-  baseExp: 500
-  baseDamage: 0
+  baseHealth: 8000
+  baseExp: 2500
+  baseDamage: 40
   baseGold: 0
   level: 0
   exp: 0

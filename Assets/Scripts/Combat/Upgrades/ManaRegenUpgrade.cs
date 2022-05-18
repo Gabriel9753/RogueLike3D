@@ -18,8 +18,8 @@ public class ManaRegenUpgrade : Upgrade{
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        float min = 0.8f;
-        float max = 1.5f;
+        float min = 0.7f;
+        float max = 1.3f;
         return Random.Range((float)System.Math.Round(min,2),(float)System.Math.Round(max,2));
     }
 }

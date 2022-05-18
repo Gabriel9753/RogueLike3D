@@ -19,6 +19,6 @@ public class AwarenessRangeUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range(1, 2);
+        return Random.Range(.3f, .8f);
     }
 }

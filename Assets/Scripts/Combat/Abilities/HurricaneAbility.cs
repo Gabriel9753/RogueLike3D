@@ -35,7 +35,7 @@ public class HurricaneAbility : Ability
     }
 
     public override IEnumerator Ready(){
-        if (Player.instance.mana  + Player.instance.level >= StatDictionary.dict[name][3]){
+        if (Player.instance.mana  + Player.instance.level >= StatDictionary.dict[name][3] + Player.instance.level){
             isReady = false;
             Activate();
             Player.instance.animator.Play(name);

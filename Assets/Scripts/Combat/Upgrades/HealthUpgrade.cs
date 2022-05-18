@@ -19,6 +19,6 @@ public class HealthUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range((int)(5+Player.instance.level*0.7f), (int)(40+Player.instance.level*0.9f));
+        return Random.Range((int)(10+Player.instance.level*0.7f), (int)(60+Player.instance.level*0.9f));
     }
 }
