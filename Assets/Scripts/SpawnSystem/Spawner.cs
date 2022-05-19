@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour{
             setTempSpawnRate = true;
         }
 
-        if (setTempSpawnRate && Player.instance.level >= levelRange[1] + 10){
+        if (setTempSpawnRate && Player.instance.level >= levelRange[1] + 10 || Player.instance.level > 60){
             spawnRate = tempSpawnRate;
         }
         
@@ -78,7 +78,7 @@ public class Spawner : MonoBehaviour{
         GameObject enemyToSpawn;
         Vector3 spawnerPosition = transform.position;
         Vector3 randomPosition = new Vector3(spawnerPosition.x + Random.Range(-radiusX, radiusX), spawnerPosition.y, spawnerPosition.z + Random.Range(-radiusZ, radiusZ));
-        if (Random.Range(0, 100) < 10 && specialSpawnReady){
+        if (Random.Range(0, 100) < 12 && specialSpawnReady){
             print("SPAWN SPECIAL");
             StartCoroutine(specialSpawnCooldown());
             randomEnemyNumber = Random.Range(0, specialEnemies.Count);
@@ -121,6 +121,10 @@ public class Spawner : MonoBehaviour{
             int randomLevel = Random.Range(Player.instance.level - 3, Player.instance.level + 3);
             enemyLevel = randomLevel < levelRange[0] ? levelRange[0]:
                 (randomLevel > levelRange[1] ? levelRange[1] : randomLevel);
+        }
+
+        if (Player.instance.level >= 80){
+            enemyLevel = Random.Range(Player.instance.level - 5, Player.instance.level + 5);
         }
 
         if (specialSpawn){
