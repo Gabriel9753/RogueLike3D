@@ -13,14 +13,21 @@ public class Spawner : MonoBehaviour{
     public int spawnRate;
     public bool spawnReady;
     public List<GameObject> enemies;
+    public List<GameObject> specialEnemies;
     public int levelStartToSpawn;
     public bool playerInRange;
 
     private int tempSpawnRate;
 
     private bool setTempSpawnRate;
+
+    private bool specialSpawn;
+
+    private bool specialSpawnReady;
     // Start is called before the first frame update
     void Start(){
+        specialSpawn = false;
+        specialSpawnReady = true;
         spawnReady = true;
         playerInRange = false;
         calculateMinMaxRange();
@@ -68,9 +75,19 @@ public class Spawner : MonoBehaviour{
     
     private void spawnEnemy(){
         int randomEnemyNumber = Random.Range(0, enemies.Count);
+        GameObject enemyToSpawn;
         Vector3 spawnerPosition = transform.position;
         Vector3 randomPosition = new Vector3(spawnerPosition.x + Random.Range(-radiusX, radiusX), spawnerPosition.y, spawnerPosition.z + Random.Range(-radiusZ, radiusZ));
-        GameObject enemyToSpawn = enemies[randomEnemyNumber];
+        if (Random.Range(0, 100) < 10 && specialSpawnReady){
+            print("SPAWN SPECIAL");
+            StartCoroutine(specialSpawnCooldown());
+            randomEnemyNumber = Random.Range(0, specialEnemies.Count);
+            enemyToSpawn = specialEnemies[randomEnemyNumber];
+            specialSpawn = true;
+        }
+        else{
+            enemyToSpawn = enemies[randomEnemyNumber];
+        }
         StartCoroutine(spawnCooldown(spawnRate));
         GameObject enemy = Instantiate(enemyToSpawn, randomPosition, Quaternion.Euler(0, 0, 0));
         calculateStatsAndSet(enemy);
@@ -105,23 +122,33 @@ public class Spawner : MonoBehaviour{
             enemyLevel = randomLevel < levelRange[0] ? levelRange[0]:
                 (randomLevel > levelRange[1] ? levelRange[1] : randomLevel);
         }
-        
+
+        if (specialSpawn){
+            enemyLevel += 18;
+            specialSpawn = false;
+        }
         //calculate xp
-        xp = enemyLevel * 6.3f;
+        xp = enemyLevel * 10f;
         //calculate health
-        health = enemyLevel * 3.6f;
+        health = enemyLevel * 7f;
 
-        damage = enemyLevel * 1.8f;
+        damage = enemyLevel * 2.1f;
 
-        gold = enemyLevel * 1.2f;
+        gold = enemyLevel * 1.1f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }
 
     IEnumerator spawnCooldown(float cooldown){
         spawnReady = false;
-        yield return new WaitForSecondsRealtime(Random.Range(cooldown - 5, cooldown));
+        yield return new WaitForSecondsRealtime(Random.Range(cooldown - 4, cooldown));
         spawnReady = true;
+    }
+    
+    IEnumerator specialSpawnCooldown(){
+        specialSpawnReady = false;
+        yield return new WaitForSecondsRealtime(Random.Range(50, 150));
+        specialSpawnReady = true;
     }
 
     public void removeNullEnemiesFromList(){

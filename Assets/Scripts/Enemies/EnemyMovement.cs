@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour{
     public float lookRadius = 8f;
     public float movementSpeed = 8f;
     public bool attackReady = true;
-    public bool attackReadyOnCooldown = true;
+    public bool attackReadyOnCooldown;
     public float fleeRate = 60;
     //private float cooldownAttack = 6;
     public bool reachedSpawn;
@@ -39,7 +39,9 @@ public class EnemyMovement : MonoBehaviour{
     
     private Quaternion lookRotation;
     private Vector3 direction;
+
     void Start(){
+        attackReadyOnCooldown = true;
         runAgain = true;
         _enemyStats = GetComponent<EnemyStats>();
         reachedSpawn = true;
@@ -68,8 +70,13 @@ public class EnemyMovement : MonoBehaviour{
         }
         
         if (_enemyStats.enemyType == "Goblin"){
-            if(weapon.GetComponent<BoxCollider>().enabled){
+            if(weapon.GetComponent<BoxCollider>().enabled && _animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
                 transform.position += direction * 45 * Time.deltaTime;
+                agent.enabled = false;
+            }
+            else if (weapon.GetComponent<BoxCollider>().enabled &&
+                     _animator.GetCurrentAnimatorStateInfo(0).IsName("new")){
+                transform.position += direction * 3 * Time.deltaTime;
                 agent.enabled = false;
             }
             else{
@@ -95,6 +102,11 @@ public class EnemyMovement : MonoBehaviour{
                     agent.enabled = false;
                 }
             }
+            else if (weapon.GetComponent<BoxCollider>().enabled &&
+                     _animator.GetCurrentAnimatorStateInfo(0).IsName("new")){
+                transform.position += direction * 2 * Time.deltaTime;
+                agent.enabled = false;
+            }
             else{
                 if (!agent.enabled){
                     agent.enabled = true;
@@ -113,9 +125,14 @@ public class EnemyMovement : MonoBehaviour{
         if (_enemyStats.enemyType == "Parasite"){
             if(_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
                 if (weapon.GetComponent<BoxCollider>().enabled){
-                    transform.position += direction * 14 * Time.deltaTime;
+                    transform.position += direction * 10 * Time.deltaTime;
                     agent.enabled = false;
                 }
+            }
+            else if (weapon.GetComponent<BoxCollider>().enabled &&
+                     _animator.GetCurrentAnimatorStateInfo(0).IsName("new")){
+                transform.position += direction * 6 * Time.deltaTime;
+                agent.enabled = false;
             }
             else{
                 if (!agent.enabled){
@@ -135,9 +152,14 @@ public class EnemyMovement : MonoBehaviour{
         if (_enemyStats.enemyType == "Armless"){
             if(_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
                 if (weapon.GetComponent<BoxCollider>().enabled){
-                    transform.position += direction * 10 * Time.deltaTime;
+                    transform.position += direction * 7 * Time.deltaTime;
                     agent.enabled = false;
                 }
+            }
+            else if (weapon.GetComponent<BoxCollider>().enabled &&
+                     _animator.GetCurrentAnimatorStateInfo(0).IsName("new")){
+                transform.position += direction * 2 * Time.deltaTime;
+                agent.enabled = false;
             }
             else{
                 if (!agent.enabled){
@@ -164,12 +186,12 @@ public class EnemyMovement : MonoBehaviour{
         // Get the distance to the player
         float distance = Vector3.Distance(target.position, transform.position);
         
-        if (agent.isActiveAndEnabled && _animator.GetCurrentAnimatorStateInfo(0).IsName("swing") || _animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
+        if (agent.enabled && (_animator.GetCurrentAnimatorStateInfo(0).IsName("new") || _animator.GetCurrentAnimatorStateInfo(0).IsName("swing") || _animator.GetCurrentAnimatorStateInfo(0).IsName("hit"))){
             agent.speed = 0; 
             agent.ResetPath();
         }
         else{
-            if (agent.isActiveAndEnabled){
+            if (agent.enabled){
                 agent.speed = movementSpeed + GetComponent<EnemyStats>().level * 0.01f;
             }
         }
@@ -177,24 +199,45 @@ public class EnemyMovement : MonoBehaviour{
         
         // If inside the radius
         if (runAgain && agent.isActiveAndEnabled && !_animator.GetCurrentAnimatorStateInfo(0).IsName("die") &&
-            !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
+            !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing") &&
+            !_animator.GetCurrentAnimatorStateInfo(0).IsName("new") && !_animator.GetCurrentAnimatorStateInfo(0).IsName("hit")){
             if (Vector3.Distance(transform.position, spawnPosition) > 100f){
                 agent.ResetPath();
                 agent.destination = spawnPosition;
                 reachedSpawn = false;
             }
             else if (distance <= lookRadius * Player.instance.awarenessRange && reachedSpawn && !isFleeing){
-                if (attackReady && Random.Range(0,100) < 3 && 
-                     ((_enemyStats.enemyType == "Goblin" && distance <= Random.Range(7,16))
-                     || (_enemyStats.enemyType == "Jumper" && distance <= Random.Range(5,8))
+                if (attackReadyOnCooldown && attackReady && Random.Range(0,100) < 4 && 
+                    ((_enemyStats.enemyType == "Goblin" && distance <= Random.Range(7,20))
+                     || (_enemyStats.enemyType == "Jumper" && distance <= Random.Range(5,9))
                      || distance <= Random.Range(2,6)
-                     )
+                    )
                      ){
+
+                    int randomAttack = Random.Range(0, 2);
+                    switch (randomAttack){
+                        case 0:
+                            _animator.Play("swing");
+                            break;
+                        case 1:
+                            if (_enemyStats.enemyType == "Goblin" && distance <= Random.Range(1,3)){
+                                print("YES");
+                                _animator.Play("new");
+                            }
+                            else if (_enemyStats.enemyType == "Jumper" && distance <= Random.Range(1,4)){
+                                _animator.Play("new");
+                            }
+                            else{
+                                _animator.Play("new");
+                            }
+                            break;
+                    }
+
+                    StartCoroutine(cooldownAttack());
                     //if player is near -> Attack
                     FaceTarget();
-                    agent.ResetPath();
+                    //agent.ResetPath();
                     attackReady = false;
-                    _animator.Play("swing");
                 }
                 else if(attackReady){
                     agent.speed = movementSpeed + GetComponent<EnemyStats>().level * 0.01f; 
@@ -205,7 +248,8 @@ public class EnemyMovement : MonoBehaviour{
             }
         }
 
-        if (isFleeing && !isChecked && !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")){
+        if (isFleeing && !isChecked && !_animator.GetCurrentAnimatorStateInfo(0).IsName("swing")
+            && !_animator.GetCurrentAnimatorStateInfo(0).IsName("new")){
             StartCoroutine(checkStuck());
         }
         
@@ -283,6 +327,12 @@ public class EnemyMovement : MonoBehaviour{
     public void endAttack()
     {
         _boxCollider.enabled = false;
+    }
+
+    IEnumerator cooldownAttack(){
+        attackReadyOnCooldown = false;
+        yield return new WaitForSeconds(Random.Range(2f, 4f));
+        attackReadyOnCooldown = true;
     }
 
 }

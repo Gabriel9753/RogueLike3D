@@ -34,8 +34,7 @@ public class LightningFrisbee : Ability
         foundEnemy = false;
         hit_frisbee_enemies = new List<GameObject>();
         enemyHitCounter = 0;
-        
-        
+
         Player.instance._agent.ResetPath();
         Player.instance.PlayerToMouseRotation();
         positionOnScreen = camera.WorldToViewportPoint(Player.instance.transform.position);

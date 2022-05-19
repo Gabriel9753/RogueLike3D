@@ -6,6 +6,13 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour{
+
+    private bool buffActive;
+    public float evadeBuffDuration;
+    
+    
+    
+    
     private int level;
     private float maxHealth; // Maximum amount of health
     private float maxMana;
@@ -37,6 +44,7 @@ public class PlayerStats : MonoBehaviour{
 
 
     public void Start(){
+        buffActive = false;
         XP_UI.Instance.updateUI();
         level = Player.instance.level;
         maxHealth = Player.instance.maxHealth; // Maximum amount of health
@@ -320,7 +328,18 @@ public class PlayerStats : MonoBehaviour{
 
 
     public void TakeDamage(float damage){
+        GetComponent<PlayerAttack>().endAttack();
+        Player.instance.GetComponent<PlayerCombo>().ResetCombo();
+        
+        
+        if (Player.instance.isDashing() && !buffActive){
+            print("EVADE BUFF");
+            StartCoroutine(EvadeBuff());
+        }
         if (canGetDamageAgain && !Player.instance.moveAttack() && !Player.instance.isDashing()){
+            if (!Player.instance.isCasting()){
+                Player.instance.animator.Play("playerHit");
+            }
             BloodScreen.instance.activateUI();
             GetComponent<Sounds3D>().Play("Hit");
             if(!Player.instance.isHit())
@@ -331,23 +350,31 @@ public class PlayerStats : MonoBehaviour{
             damage *= 1-(resistance/100f); 
             health -= damage;
             Player.instance.health -= damage;
-            //HealthSystemGUI.instance.TakeDamage(damage);
-        
-        
-            Player.instance.GetComponent<PlayerCombo>().ResetCombo();
-        
-            StartCoroutine(timerForDamage());
             
+            StartCoroutine(timerForDamage());
             // If we hit 0. Die.
-            if (health < 1){
+            if (health <= 0){
                 Player.instance.Die();
             }
         }
     }
 
+    IEnumerator EvadeBuff(){
+        buffActive = true;
+        //Set Weapon to red
+        Player.instance.Weapon.GetComponent<Renderer>().material = Player.instance.matBuffedWeapon;
+        float tempBoost = Player.instance.attackDamage * .1f;
+        Player.instance.attackDamage += tempBoost;
+        yield return new WaitForSeconds(evadeBuffDuration);
+        Player.instance.attackDamage -= tempBoost;
+        Player.instance.Weapon.GetComponent<Renderer>().material = Player.instance.matNormalWeapon;
+        //Set Weapon normal
+        buffActive = false;
+    }
+
     IEnumerator timerForDamage(){
         canGetDamageAgain = false;
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.7f);
         canGetDamageAgain = true;
     }
     

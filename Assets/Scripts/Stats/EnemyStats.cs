@@ -153,8 +153,10 @@ public class EnemyStats : MonoBehaviour{
 
 
     public void Die(){
-        if (GetComponent<EnemyMovement>().weapon != null){
-            GetComponent<EnemyMovement>().weapon.SetActive(false);
+        if (enemyType != "Boss"){
+            if (GetComponent<EnemyMovement>().weapon != null){
+                GetComponent<EnemyMovement>().weapon.SetActive(false);
+            }
         }
         Player.instance.killed_mobs++;
         GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;

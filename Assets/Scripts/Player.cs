@@ -6,19 +6,21 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Player : MonoBehaviour{
-    public Animator animator;
-    public NavMeshAgent _agent;
+    [HideInInspector]public Animator animator;
+    [HideInInspector]public NavMeshAgent _agent;
     public new Camera camera;
     public GameObject weapon;
     public GameObject leftHand;
-    public Vector3 destination;
+    [HideInInspector]public Vector3 destination;
 
-    public bool isDead;
-    public static bool nearDoor;
-    public static bool nearUpStation;
-    public static bool nearTeleporter;
+    [HideInInspector]public bool isDead;
+    [HideInInspector]public static bool nearDoor;
+    [HideInInspector]public static bool nearUpStation;
+    [HideInInspector]public static bool nearTeleporter;
 
-    public bool isRolling;
+    [HideInInspector]public bool isRolling;
+    
+    [Header("Player stats")]
     #region Player stats
 
     public int level;
@@ -51,6 +53,11 @@ public class Player : MonoBehaviour{
     public float slowdown_up;
 
     #endregion
+    
+    [Space]
+    [Header("Others")]
+    public Material matNormalWeapon;
+    public Material matBuffedWeapon;
     #region Singleton
 
     public static Player instance;

@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
   lookRadius: 12
-  movementSpeed: 14
+  movementSpeed: 12
   attackReady: 1
   attackReadyOnCooldown: 1
   fleeRate: 60

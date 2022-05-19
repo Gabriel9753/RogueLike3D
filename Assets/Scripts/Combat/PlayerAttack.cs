@@ -18,14 +18,15 @@ public class PlayerAttack : MonoBehaviour{
     private Vector3 destination;
     
     private bool checkRunAttack;
-
-    public float cooldownRunAttack = 2f;
+    
     private bool runAttackReady;
 
+    /*
     public GameObject slashVFX1;
     public GameObject slashVFX2;
     public GameObject slashVFX3;
     public GameObject slashVFX4;
+    */
     
     
     
@@ -79,12 +80,7 @@ public class PlayerAttack : MonoBehaviour{
     }
     
     public void GotHit(float damage){
-        if (!Player.instance.isCasting()){
-            _animator.Play("playerHit");
-        }
-        GetComponent<PlayerAttack>().endAttack();
         Player.instance.GetComponent<PlayerStats>().TakeDamage(damage);
-        Player.instance.GetComponent<PlayerCombo>().ResetCombo();
     }
 
     

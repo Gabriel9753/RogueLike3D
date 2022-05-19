@@ -24,9 +24,7 @@ public class Weapon : MonoBehaviour{
         // ENEMY HITS PLAYER
         if (other.CompareTag("Player")){
             float damage = holder.GetComponent<EnemyStats>().calculateDamage();
-            if (!instance.isDashing()){
-                instance.GetComponent<PlayerAttack>().GotHit(damage);
-            }
+            instance.GetComponent<PlayerAttack>().GotHit(damage);
         }
     }
 }
