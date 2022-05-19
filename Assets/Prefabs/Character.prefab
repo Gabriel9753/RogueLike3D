@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d74c24cbe95234789321009526d0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evadeBuffDuration: 10
+  evadeBuffDuration: 20
   sumDamage: 1
   sumCriticalDamage: 1
   sumCriticalChance: 1

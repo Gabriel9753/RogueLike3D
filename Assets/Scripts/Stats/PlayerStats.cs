@@ -363,7 +363,7 @@ public class PlayerStats : MonoBehaviour{
         buffActive = true;
         //Set Weapon to red
         Player.instance.Weapon.GetComponent<Renderer>().material = Player.instance.matBuffedWeapon;
-        float tempBoost = Player.instance.attackDamage * .1f;
+        float tempBoost = Player.instance.attackDamage * .2f;
         Player.instance.attackDamage += tempBoost;
         yield return new WaitForSeconds(evadeBuffDuration);
         Player.instance.attackDamage -= tempBoost;

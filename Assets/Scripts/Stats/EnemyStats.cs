@@ -162,7 +162,13 @@ public class EnemyStats : MonoBehaviour{
         GetComponent<Enemy>().whereToSetMaterial.GetComponent<Renderer>().material = GetComponent<Enemy>().deadMat;
         isDead = true;
         //Give exp to player
-        XP_UI.Instance.addXP(exp);
+        if (Player.instance.level - level > 8 && Player.instance.level < 55){
+            XP_UI.Instance.addXP(exp - exp *0.8f);
+        }
+        else{
+            XP_UI.Instance.addXP(exp);
+        }
+        
         
         Player.instance.GetComponent<PlayerStats>().IncreaseGold(gold);
         

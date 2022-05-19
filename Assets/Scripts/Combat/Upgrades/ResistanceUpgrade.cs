@@ -21,6 +21,6 @@ public class ResistanceUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range(3f, 6f);
+        return Random.Range(2f, 5f);
     }
 }

@@ -1316,10 +1316,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed438f5ce61bc5478b9cd1338d6d7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 8000
-  baseExp: 2500
-  baseDamage: 40
-  baseGold: 0
+  baseHealth: 10000
+  baseExp: 4000
+  baseDamage: 60
+  baseGold: 12222
   level: 0
   exp: 0
   gold: 0
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   maxHealth: 200
   health: 50
   damage: 0
-  possibilityForKnockback: 65
+  possibilityForKnockback: 30
   hittibaleWhileAttack: 1
   isDead: 0
 --- !u!54 &5847103248465167290

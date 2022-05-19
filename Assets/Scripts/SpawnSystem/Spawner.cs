@@ -124,17 +124,17 @@ public class Spawner : MonoBehaviour{
         }
 
         if (specialSpawn){
-            enemyLevel += 18;
+            enemyLevel += 20;
             specialSpawn = false;
         }
         //calculate xp
-        xp = enemyLevel * 10f;
+        xp = enemyLevel * 9f;
         //calculate health
-        health = enemyLevel * 7f;
+        health = enemyLevel * 15f;
 
-        damage = enemyLevel * 2.1f;
+        damage = enemyLevel * 2.4f;
 
-        gold = enemyLevel * 1.1f;
+        gold = enemyLevel * 1.4f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }
