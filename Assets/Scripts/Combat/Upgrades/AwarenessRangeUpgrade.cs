@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 [CreateAssetMenu]
 public class AwarenessRangeUpgrade : Upgrade
 {
@@ -19,6 +22,6 @@ public class AwarenessRangeUpgrade : Upgrade
 
     public override float Calculate_rnd_value(){
         // S M L Packets
-        return Random.Range(.3f, .8f);
+        return (float)Math.Round(Random.Range(.1f, .3f), 2);
     }
 }

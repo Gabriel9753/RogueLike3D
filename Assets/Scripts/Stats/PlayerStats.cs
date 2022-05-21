@@ -333,7 +333,7 @@ public class PlayerStats : MonoBehaviour{
         
         
         if (Player.instance.isDashing() && !buffActive){
-            print("EVADE BUFF");
+            StartCoroutine(EvadeSlowTime());
             StartCoroutine(EvadeBuff());
         }
         if (canGetDamageAgain && !Player.instance.moveAttack() && !Player.instance.isDashing()){
@@ -342,7 +342,7 @@ public class PlayerStats : MonoBehaviour{
             }
             BloodScreen.instance.activateUI();
             GetComponent<Sounds3D>().Play("Hit");
-            if(!Player.instance.isHit())
+            if(!Player.instance.isHit() && !Player.instance.isCasting())
                 Player.instance.animator.Play("playerHit");
             // Make sure damage doesn't go below 0.
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -350,6 +350,7 @@ public class PlayerStats : MonoBehaviour{
             damage *= 1-(resistance/100f); 
             health -= damage;
             Player.instance.health -= damage;
+            DamageTextManager.instance.DamageCreate(Player.instance.transform.position, damage, 2f, Color.white);
             
             StartCoroutine(timerForDamage());
             // If we hit 0. Die.
@@ -372,24 +373,30 @@ public class PlayerStats : MonoBehaviour{
         buffActive = false;
     }
 
+    IEnumerator EvadeSlowTime(){
+        Time.timeScale = 0.35f;
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1f;
+    }
+
     IEnumerator timerForDamage(){
         canGetDamageAgain = false;
-        yield return new WaitForSecondsRealtime(0.7f);
+        yield return new WaitForSecondsRealtime(0.8f);
         canGetDamageAgain = true;
     }
     
     
-    public float CalculateDamage(float critChance, float critDamage, float rawDamage){
+    public float[] CalculateDamage(float critChance, float critDamage, float rawDamage){
         float dmg = rawDamage * damageMultiplicatorFromAttack();
         if (critChance > 80){
             critChance = 80;
         }
         if (Random.Range(0, 100) < critChance){
            Heal((dmg + dmg * critDamage / 100)*lifesteal);
-            return dmg + dmg * critDamage / 100;
+            return new []{dmg + dmg * critDamage / 100, 1};
         }
         Heal(dmg*lifesteal);
-        return dmg;
+        return new []{dmg, 0};
     }
     
     

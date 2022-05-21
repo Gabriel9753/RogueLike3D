@@ -282,11 +282,6 @@ public class Player : MonoBehaviour{
         sumExp = WorldManager.instance.config.sumExp;
         needExp = WorldManager.instance.config.needExp;
         killed_mobs = WorldManager.instance.config.killed_mobs;
-        /*spell_dmg = WorldManager.instance.config.spell_dmg;
-        spell_1_up = WorldManager.instance.config.spell_1_up;
-        spell_2_up = WorldManager.instance.config.spell_2_up;
-        spell_3_up = WorldManager.instance.config.spell_3_up;
-        spell_4_up = WorldManager.instance.config.spell_4_up;*/
     }
 
     public void load_upgrades(){

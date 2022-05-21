@@ -37,13 +37,13 @@ public class Spawner : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        if (!setTempSpawnRate && Player.instance.level >= levelRange[1] + 1 && Player.instance.level < levelRange[1] + 10){
+        if (!setTempSpawnRate && Player.instance.level >= levelRange[1] + 1 && Player.instance.level < levelRange[1] + 13){
             tempSpawnRate = spawnRate;
             spawnRate = (int)(spawnRate * 6f);
             setTempSpawnRate = true;
         }
 
-        if (setTempSpawnRate && Player.instance.level >= levelRange[1] + 10 || Player.instance.level > 60){
+        if (setTempSpawnRate && Player.instance.level >= levelRange[1] + 11 || Player.instance.level > 60){
             spawnRate = tempSpawnRate;
         }
         
@@ -78,8 +78,7 @@ public class Spawner : MonoBehaviour{
         GameObject enemyToSpawn;
         Vector3 spawnerPosition = transform.position;
         Vector3 randomPosition = new Vector3(spawnerPosition.x + Random.Range(-radiusX, radiusX), spawnerPosition.y, spawnerPosition.z + Random.Range(-radiusZ, radiusZ));
-        if (Random.Range(0, 100) < 12 && specialSpawnReady){
-            print("SPAWN SPECIAL");
+        if (Random.Range(0, 100) < 9 && specialSpawnReady && specialEnemies.Count > 0){
             StartCoroutine(specialSpawnCooldown());
             randomEnemyNumber = Random.Range(0, specialEnemies.Count);
             enemyToSpawn = specialEnemies[randomEnemyNumber];
@@ -128,30 +127,30 @@ public class Spawner : MonoBehaviour{
         }
 
         if (specialSpawn){
-            enemyLevel += 20;
+            enemyLevel += 12;
             specialSpawn = false;
         }
         //calculate xp
         xp = enemyLevel * 9f;
         //calculate health
-        health = enemyLevel * 15f;
+        health = enemyLevel * 10f;
 
-        damage = enemyLevel * 2.4f;
+        damage = enemyLevel * 2.1f;
 
-        gold = enemyLevel * 1.4f;
+        gold = enemyLevel * 1.8f;
         
         enemy.GetComponent<EnemyStats>().setStats(xp, health, damage, gold);
     }
 
     IEnumerator spawnCooldown(float cooldown){
         spawnReady = false;
-        yield return new WaitForSecondsRealtime(Random.Range(cooldown - 4, cooldown));
+        yield return new WaitForSecondsRealtime(Random.Range(cooldown-1, cooldown+1));
         spawnReady = true;
     }
     
     IEnumerator specialSpawnCooldown(){
         specialSpawnReady = false;
-        yield return new WaitForSecondsRealtime(Random.Range(50, 150));
+        yield return new WaitForSecondsRealtime(Random.Range(60, 150));
         specialSpawnReady = true;
     }
 

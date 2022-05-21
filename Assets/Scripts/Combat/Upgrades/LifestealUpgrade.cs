@@ -6,7 +6,7 @@ public class LifestealUpgrade : Upgrade
 {
     public override void SetText(float var1){
         value = var1;
-        text = $"Vampire\n Steel {Mathf.Round(var1*100f)/100f}% more health from your enemies!";
+        text = $"Vampire\n \nSteel {Mathf.Round(var1*100f)/100f}% more health from your enemies!";
     }
 
     public override string GetText(){

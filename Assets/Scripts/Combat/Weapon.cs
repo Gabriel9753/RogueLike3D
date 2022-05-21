@@ -13,12 +13,17 @@ public class Weapon : MonoBehaviour{
         // PLAYER HITS ENEMY
         if (other.CompareTag("Enemy") && holder.gameObject.CompareTag("Player")){
             PlayerStats stats = Player.instance.GetComponent<PlayerStats>();
-            float damage = Player.instance.GetComponent<PlayerStats>().CalculateDamage(
+            float[] damage = Player.instance.GetComponent<PlayerStats>().CalculateDamage(
                 instance.criticalChance,
                 instance.criticalDamage,
                 instance.attackDamage
             );
-            other.GetComponent<EnemyStats>().TakeDamage(damage);
+            if (damage[1] == 1){
+                other.GetComponent<EnemyStats>().TakeDamage(damage[0], true);
+            }
+            else{
+                other.GetComponent<EnemyStats>().TakeDamage(damage[0]);
+            }
         }
 
         // ENEMY HITS PLAYER

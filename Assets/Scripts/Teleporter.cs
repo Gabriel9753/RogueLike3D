@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Teleporter : MonoBehaviour
-{
+public class Teleporter : MonoBehaviour{
+    public int teleportCosts;
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player")){
             Player.nearTeleporter = true;
@@ -19,10 +19,11 @@ public class Teleporter : MonoBehaviour
     }
 
     private void Update(){
-        if (Player.nearTeleporter && !Player.instance.isHit() && Input.GetKeyDown(KeyCode.T)){
+        if (Player.nearTeleporter && !Player.instance.isHit() && Input.GetKeyDown(KeyCode.T) && Player.instance.gold > 60){
             Player.instance._agent.ResetPath();
             Player.instance.GetComponent<NavMeshAgent>().enabled = false;
             Player.nearTeleporter = false;
+            Player.instance.gold -= 60;
             Player.instance.transform.position = SetupWorld.instance.mainRoomEntrance.transform.position;
             Player.instance.GetComponent<NavMeshAgent>().enabled = true;
         }

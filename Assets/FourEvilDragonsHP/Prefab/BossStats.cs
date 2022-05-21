@@ -89,7 +89,7 @@ public class BossStats : MonoBehaviour
         hittableAgainOverTimeFireHurricane = true;
     }   
     
-    public void TakeDamage(float damage){
+    public void TakeDamage(float damage, bool crit = false){
         gameObject.GetComponent<Sounds3D>().Play("Hit");
         if (isDead){
             return;
@@ -98,7 +98,13 @@ public class BossStats : MonoBehaviour
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         // Subtract damage from health
         health -= damage;
-        DamageTextManager.instance.DamageCreate(transform.position + new Vector3(0,3,0), damage, 11);
+        if (!crit){
+            DamageTextManager.instance.DamageCreate(transform.position, damage, 11, new Color(255,79,0));
+        }
+        else{
+            DamageTextManager.instance.DamageCreate(transform.position, damage, 11, new Color(255,0,0));
+        }
+
         
         if (health <= 0){
             AudioManager.instance.Play("boss_killed");

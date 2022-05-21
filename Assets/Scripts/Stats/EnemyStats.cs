@@ -102,7 +102,7 @@ public class EnemyStats : MonoBehaviour{
         hittableAgainOverTimeFireHurricane = true;
     }   
     
-    public void TakeDamage(float damage){
+    public void TakeDamage(float damage, bool crit = false){
         if (PauseMenu.gameIsPause || LevelUpUpgradesUI.Instance.uiActive){
             return;
         }
@@ -116,7 +116,13 @@ public class EnemyStats : MonoBehaviour{
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         // Subtract damage from health
         health -= damage;
-        DamageTextManager.instance.DamageCreate(transform.position, damage, 11);
+        if (!crit){
+            DamageTextManager.instance.DamageCreate(transform.position, damage, 11, new Color(255,79,0));
+        }
+        else{
+            DamageTextManager.instance.DamageCreate(transform.position, damage, 11, new Color(255,0,0));
+        }
+        
         
         if (health <= 0){
             Die();

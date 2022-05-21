@@ -18,9 +18,10 @@ public class DamageTextManager : MonoBehaviour{
     #endregion
 
 
-    public void DamageCreate(Vector3 position, float num, float length){
+    public void DamageCreate(Vector3 position, float num, float length, Color color){
         GameObject dmgTextToSpawn = damageText;
         TextMeshPro textMesh = dmgTextToSpawn.GetComponent<TextMeshPro>();
+        textMesh.color = color;
         textMesh.text = Math.Round(num, 0).ToString();
         Vector3 directionToCamera = (Player.instance.camera.transform.position - position + Vector3.up * 2).normalized;
         dmgTextToSpawn = Instantiate(dmgTextToSpawn, (position+Vector3.up*3.3f) + directionToCamera * 5, Quaternion.Euler(30, 45, 0));

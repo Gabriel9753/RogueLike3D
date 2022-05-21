@@ -41,6 +41,9 @@ public class HealSpell : Ability
     
 
     public override IEnumerator Active(){
+        if (!Player.instance.isCasting()){
+            activeTime = 0;
+        }
         if (activeTime > 0){
             activeTime -= Time.deltaTime;
         }

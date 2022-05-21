@@ -1438,8 +1438,8 @@ MonoBehaviour:
   maxHealth: 200
   health: 50
   damage: 0
-  possibilityForKnockback: 85
-  hittibaleWhileAttack: 0
+  possibilityForKnockback: 50
+  hittibaleWhileAttack: 1
   isDead: 0
 --- !u!114 &7797927512329341743
 MonoBehaviour:
@@ -1454,8 +1454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
-  lookRadius: 26
-  movementSpeed: 6.7
+  lookRadius: 21
+  movementSpeed: 6
   attackReady: 1
   attackReadyOnCooldown: 1
   fleeRate: 40
