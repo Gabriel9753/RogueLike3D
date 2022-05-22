@@ -1950,7 +1950,7 @@ MonoBehaviour:
   maxHealth: 200
   health: 100
   damage: 0
-  possibilityForKnockback: 85
+  possibilityForKnockback: 70
   hittibaleWhileAttack: 1
   isDead: 0
 --- !u!114 &8459394160424876804

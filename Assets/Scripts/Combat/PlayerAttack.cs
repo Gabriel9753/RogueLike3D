@@ -20,14 +20,6 @@ public class PlayerAttack : MonoBehaviour{
     private bool checkRunAttack;
     
     private bool runAttackReady;
-
-    /*
-    public GameObject slashVFX1;
-    public GameObject slashVFX2;
-    public GameObject slashVFX3;
-    public GameObject slashVFX4;
-    */
-    
     
     
     // Called when a script is enabled
@@ -55,15 +47,18 @@ public class PlayerAttack : MonoBehaviour{
             }
             
         }
-            
+        else{
+            Player.instance.GetComponent<PlayerCombo>().ResetCombo();
+        }
         
+        /*
         if (checkRunAttack && !Player.instance.moveAttack() && !Player.instance.isDashing()){
             _agent.ResetPath();
             checkRunAttack = false;
-        }
+        }*/
 
-            //Right click for attack animation and not running
-        if (Input.GetMouseButtonDown(1) && !Player.instance.isDashing() && !Player.instance.isHit() && !Player.instance.isCasting()){
+        //Right click for attack animation and not running
+        if ((Input.GetMouseButton(1) || Input.GetMouseButtonDown(1)) && !Player.instance.isDashing() && !Player.instance.isHit() && !Player.instance.isCasting()){
             if (!Player.instance.moveAttack()){
                 _agent.ResetPath();
                 Player.instance.GetComponent<PlayerCombo>().NormalAttack();
