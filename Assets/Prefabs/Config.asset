@@ -27,9 +27,9 @@ MonoBehaviour:
   resistance: 0
   lifesteal: 0
   attackDamage: 12
-  criticalChance: 10
+  criticalChance: 5
   criticalDamage: 15
-  awarenessRange: 1.5
+  awarenessRange: 1.3
   sumExp: 0
   needExp: 0
   killed_mobs: 0

@@ -25,6 +25,10 @@ public class PlayerMovement:MonoBehaviour{
 
 
     private bool footsteps = false;
+
+    private float colliderTempRadius;
+    private float colliderTempHeight;
+
     // Called when a script is enabled
     void Start(){
         animator = Player.instance.getAnimator();
@@ -103,9 +107,18 @@ public class PlayerMovement:MonoBehaviour{
     }
 
     public void startRoll(){
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+        colliderTempRadius = collider.radius;
+        colliderTempHeight = collider.height;
+
+        collider.radius *= 1.5f;
+        collider.height *= 1.5f;
         Player.instance.isRolling = true;
     }
     public void endRoll(){
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+        collider.radius = colliderTempRadius;
+        collider.height = colliderTempHeight;
         Player.instance.isRolling = false;
     }
 }

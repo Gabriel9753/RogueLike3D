@@ -125,17 +125,20 @@ public class Spawner : MonoBehaviour{
         if (Player.instance.level >= 80){
             enemyLevel = Random.Range(Player.instance.level - 5, Player.instance.level + 5);
         }
-
+        
+        //calculate health
+        health = enemyLevel * 10f;
+        
         if (specialSpawn){
             enemyLevel += 12;
             specialSpawn = false;
+            health = enemyLevel * 10f + 150;
         }
         //calculate xp
         xp = enemyLevel * 9f;
-        //calculate health
-        health = enemyLevel * 10f;
 
-        damage = enemyLevel * 2.1f;
+
+        damage = enemyLevel * 2.4f;
 
         gold = enemyLevel * 1.8f;
         

@@ -115,7 +115,6 @@ public class PlayerStats : MonoBehaviour{
             mana = maxMana;
             Player.instance.mana = maxMana;
         }
-
         HealthSystemGUI.instance.UpdateGraphics();
     }
 
@@ -364,7 +363,7 @@ public class PlayerStats : MonoBehaviour{
         buffActive = true;
         //Set Weapon to red
         Player.instance.Weapon.GetComponent<Renderer>().material = Player.instance.matBuffedWeapon;
-        float tempBoost = Player.instance.attackDamage * .2f;
+        float tempBoost = Player.instance.attackDamage * .15f;
         Player.instance.attackDamage += tempBoost;
         yield return new WaitForSeconds(evadeBuffDuration);
         Player.instance.attackDamage -= tempBoost;
@@ -375,7 +374,7 @@ public class PlayerStats : MonoBehaviour{
 
     IEnumerator EvadeSlowTime(){
         Time.timeScale = 0.35f;
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.6f);
         Time.timeScale = 1f;
     }
 
@@ -413,32 +412,22 @@ public class PlayerStats : MonoBehaviour{
     }
     
     
-    
-    
-    
-    
-    
     //------------------------------ Not considered yet -----------------------------------------
 
 
     private float damageMultiplicatorFromAttack(){
         if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_1"))
-            return 1.2f;
+            return 1f;
         if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_2"))
-            return 1.3f;
+            return 1.2f;
         if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Normal_Attack_3"))
-            return 1.5f;
+            return 1.2f;
         if (Player.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("RunAttack"))
-            return 0.6f;
+            return 0.9f;
         return 1;
     }
     
     
-    
-    
-    
-    
-
     public void addPlayerDamage(float dmg){
         sumDamage = attackDamage + dmg;
     }

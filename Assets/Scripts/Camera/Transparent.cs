@@ -35,13 +35,23 @@ public class Transparent : MonoBehaviour{
     private void GetAllObjectsInWay(){
         currentlyInWay.Clear();
         float cameraPlayerDistance = Vector3.Magnitude(camera.position - Player.instance.transform.position);
+  
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(0, -5, 0));
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(0, -2.5f, 0));
+        
+        
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(-5, 0, 0));
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(-2.5f, 0, 0));
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(5, 0, 0));
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(2.5f, 0, 0));
 
-        Ray ray1_Forward = new Ray(camera.position, Player.instance.transform.position - camera.position);
-        Ray ray1_Backward = new Ray(Player.instance.transform.position,  camera.position - Player.instance.transform.position );
-        var hits1_Forward = Physics.RaycastAll(ray1_Forward, cameraPlayerDistance);
-        var hits1_Backward = Physics.RaycastAll(ray1_Backward, cameraPlayerDistance);
-             
-        foreach (var hit in hits1_Forward){
+        CheckRaycastHitObjects(cameraPlayerDistance, new Vector3(0, 0, 0));
+    }
+
+    private void CheckRaycastHitObjects(float cameraPlayerDistance, Vector3 cameraTransform){
+        Ray ray = new Ray(camera.position + cameraTransform, Player.instance.transform.position - camera.position);
+        RaycastHit[] hits = Physics.RaycastAll(ray, cameraPlayerDistance);
+        foreach (RaycastHit hit in hits){
             if (hit.collider.gameObject.TryGetComponent(out ObjectInWay inWay)){
                 if (inWay.gameObject.transform.parent.name.Contains("Archway")){
                     inWay = inWay.gameObject.transform.parent.parent.GetComponent<ObjectInWay>();
@@ -49,12 +59,12 @@ public class Transparent : MonoBehaviour{
                 else{
                     inWay = inWay.gameObject.transform.parent.GetComponent<ObjectInWay>();
                 }
+
                 if (!currentlyInWay.Contains(inWay)){
                     currentlyInWay.Add(inWay);
                 }
-            }   
+            }
         }
-
     }
 
     private void MakeObjectsTransperant(){

@@ -88,17 +88,17 @@ public class EnemyStats : MonoBehaviour{
     
     IEnumerator damageOverTimeTimer(){
         hittableAgainOverTime = false;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(1.5f);
         hittableAgainOverTime = true;
     }    
     IEnumerator damageOverTimeTimerLightningFrisbee(){
         hittableAgainOverTimeLightningFrisbee = false;
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.8f);
         hittableAgainOverTimeLightningFrisbee = true;
     }
     IEnumerator damageOverTimeTimerFireHurricane(){
         hittableAgainOverTimeFireHurricane = false;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(1.7f);
         hittableAgainOverTimeFireHurricane = true;
     }   
     
@@ -182,7 +182,7 @@ public class EnemyStats : MonoBehaviour{
         _agent.speed = 0;
         if (enemyType == "Boss"){
             GetComponent<BossMovement>().enabled = false;
-            Player.instance.spell_dmg_up += Player.instance.spell_dmg_up * 0.01f * level;
+            Player.instance.spell_dmg_up += Player.instance.spell_dmg_up * 0.1f + 25;
         }
         else{
             GetComponent<EnemyMovement>().enabled = false;

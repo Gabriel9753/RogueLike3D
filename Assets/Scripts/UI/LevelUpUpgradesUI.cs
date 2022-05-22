@@ -59,6 +59,8 @@ public class LevelUpUpgradesUI : MonoBehaviour{
 
     public void ActivateUI(){
         if(Player.instance.level <= 80){
+            Player.instance.GetComponent<PlayerStats>().Heal(0.2f*Player.instance.maxHealth);
+            Player.instance.GetComponent<PlayerStats>().restoreMana(0.15f*Player.instance.maxMana);
             UpManager.instance.LevelUpped();
             UpdateUIAbilities();
             uiActive = true;

@@ -26,7 +26,12 @@ public class InteractionMenu : MonoBehaviour{
         }
         else if (Player.nearTeleporter){
             interactionMenu.SetActive(true);
-            text.text = "'T' to teleport!";
+            if (Player.instance.gold * .05f > 50){
+                text.text = "'T' to teleport! ("+(int)Player.instance.gold * .05f+"g)";
+            }
+            else{
+                text.text = "'T' to teleport! (50g)";
+            }
         }
         else{
             interactionMenu.SetActive(false);
