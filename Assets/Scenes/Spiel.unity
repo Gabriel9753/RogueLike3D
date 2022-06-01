@@ -508,6 +508,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8811168023934207724, guid: 7e897f7ed47c65e48987f18f06b52813,
         type: 3}
+      propertyPath: UIElementsActiveBegin.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811168023934207724, guid: 7e897f7ed47c65e48987f18f06b52813,
+        type: 3}
       propertyPath: UIElementsActiveBegin.Array.data[0]
       value: 
       objectReference: {fileID: 6404605457934184197}

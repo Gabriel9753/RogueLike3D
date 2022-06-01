@@ -31,7 +31,6 @@ public class OptionsInGame : MonoBehaviour{
         }
 
         if (PlayerPrefs.HasKey("volumeVFX")){
-            print("True");
             sliderVFX.GetComponent<Slider>().value = PlayerPrefs.GetFloat("volumeVFX");
             VFXSettings = PlayerPrefs.GetFloat("volumeVFX");
         }

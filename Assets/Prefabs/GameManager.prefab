@@ -55,7 +55,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   player: {fileID: 273799333581028461, guid: 255fd1bca2c67f04a8150fe1d2f89651, type: 3}
   camera: {fileID: 0}
   baseRoomEntrance: {fileID: 1775981654476403261, guid: 332eeb0ffbee4c74599d44fc294b0c89,
