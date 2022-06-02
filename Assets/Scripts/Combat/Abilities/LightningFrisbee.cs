@@ -9,7 +9,7 @@ public class LightningFrisbee : Ability
     private GameObject projectileObj;
     public float projectileSpeed = 1.1f;
     public float searchRadius = 10;
-
+    private float playerHeight;
     private Camera camera;
     private Ray ray;
     private Vector2 positionOnScreen;
@@ -106,9 +106,14 @@ public class LightningFrisbee : Ability
     }
 
     private void moveToPlayer(){
-        Vector3 vectorToPlayer = (Player.instance.transform.position - Vector3.back - projectileObj.transform.position).normalized *
+        Vector3 vectorToPlayer = (Player.instance.transform.position - projectileObj.transform.position).normalized *
                                  projectileSpeed/1.5f;
-        vectorToPlayer.y = 0;
+        if (Mathf.Abs(projectileObj.transform.position.y - Player.instance.transform.position.y) > 1.7) {
+        }
+        else{
+            vectorToPlayer.y =10;
+        }
+        
         projectileObj.transform.position += vectorToPlayer * Time.deltaTime;
     }
 
